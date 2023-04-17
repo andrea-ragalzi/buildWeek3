@@ -4,12 +4,12 @@ import { Link } from "react-router-dom";
 
 export const MyFooter: React.FC = function () {
   return (
-    <footer className="bg-light py-3">
+    <footer className="bg-light py-3 px-0">
       <Container fluid>
         <Row>
-          <Col xs={6} className="leftCol">
+          <Col xs={12} sm={6} className="leftCol">
             <Row>
-              <Col xs={12} sm={6} md={4}>
+              <Col xs={12} md={6} lg={4}>
                 <ul>
                   <li className="linkWrap">
                     <Link to={"/"}>Informazioni</Link>
@@ -52,7 +52,7 @@ export const MyFooter: React.FC = function () {
                   </li>
                 </ul>
               </Col>
-              <Col xs={12} sm={6} md={4}>
+              <Col xs={12} md={6} lg={4}>
                 <ul>
                   <li className="linkWrap">
                     <Link to={"/"}>Accessibilità</Link>
@@ -68,7 +68,7 @@ export const MyFooter: React.FC = function () {
                   </li>
                 </ul>
               </Col>
-              <Col xs={12} sm={6} md={4}>
+              <Col xs={12} md={6} lg={4}>
                 <ul>
                   <li className="linkWrap">
                     <Link to={"/"}>Talent Solutions</Link>
@@ -93,7 +93,7 @@ export const MyFooter: React.FC = function () {
               </Col>
             </Row>
           </Col>
-          <Col xs={6}>
+          <Col xs={12} sm={6}>
             <Row>
               <Col xs={12} md={6}>
                 <Row>
