@@ -2,6 +2,7 @@ import React from "react";
 import "./style/App.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
+import LinkedinMain from "./components/LinkedinMain";
 
 import { BrowserRouter } from "react-router-dom";
 import ExpCard from "./components/ExpCard";
@@ -71,6 +72,7 @@ function App() {
         <ExpCard {...exp1} />
         <ExpCard {...exp2} />
         <ExpCard {...exp3} />
+        <LinkedinMain />
       </div>
     </BrowserRouter>
   );
