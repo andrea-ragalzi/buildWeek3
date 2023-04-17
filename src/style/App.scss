@@ -1,0 +1,28 @@
+@import "./partials/mixin";
+@import "./partials/variables";
+@import "./partials/footer";
+
+.linkWrap {
+  @include myLink;
+}
+
+.btnWhite {
+  @include myBtn;
+  background-color: white;
+  border-color: $myBlue;
+  color: $myBlue;
+}
+
+.btnBlue {
+  @include myBtn;
+  background-color: $myBlue;
+  border-color: $myBlue;
+  color: white;
+}
+
+.btnGrey {
+  @include myBtn;
+  background-color: white;
+  border-color: $myGrey;
+  color: $myGrey;
+}
