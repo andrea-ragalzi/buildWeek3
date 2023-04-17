@@ -26,10 +26,43 @@ footer .dropdown-menu {
 .linkWrap a,
 .linkWrap button {
   text-decoration: none;
-  color: rgb(75, 75, 75);
+  color: #343a40;
   padding: 0;
 }
 .linkWrap a:hover,
 .linkWrap button:hover {
   text-decoration: underline;
+}
+
+.btnWhite {
+  border: 2px solid;
+  border-radius: 2em;
+  padding: 3px 10px;
+  margin: 5px;
+  font-weight: 600;
+  background-color: white;
+  border-color: #007bff;
+  color: #007bff;
+}
+
+.btnBlue {
+  border: 2px solid;
+  border-radius: 2em;
+  padding: 3px 10px;
+  margin: 5px;
+  font-weight: 600;
+  background-color: #007bff;
+  border-color: #007bff;
+  color: white;
+}
+
+.btnGrey {
+  border: 2px solid;
+  border-radius: 2em;
+  padding: 3px 10px;
+  margin: 5px;
+  font-weight: 600;
+  background-color: white;
+  border-color: #6c757d;
+  color: #6c757d;
 }/*# sourceMappingURL=App.css.map */
