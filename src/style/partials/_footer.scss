@@ -1,0 +1,22 @@
+@import "./mixin";
+
+footer {
+  ul {
+    padding-left: 0;
+    li {
+      list-style: none;
+    }
+  }
+}
+
+footer {
+  .leftCol {
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .row {
+      height: auto;
+    }
+  }
+}

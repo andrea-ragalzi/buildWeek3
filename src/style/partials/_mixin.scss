@@ -1,0 +1,9 @@
+@mixin MyLink {
+  a {
+    text-decoration: none;
+    color: rgb(75, 75, 75);
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+}
