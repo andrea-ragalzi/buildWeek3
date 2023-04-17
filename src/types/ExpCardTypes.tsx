@@ -1,4 +1,4 @@
-interface ExpCardInterface {
+export interface ExpCardInterface  {
     company: string;
     position: string;
     employmentType: string;
@@ -8,4 +8,6 @@ interface ExpCardInterface {
     skills: string[];
 }
 
-export default ExpCardInterface;
+export type MonthsMap = {
+    [key: string]: number;
+};

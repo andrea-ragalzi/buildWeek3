@@ -3,6 +3,7 @@ import React from 'react';
 import './style/App.scss';
 import CustomNavbar from './components/CustomNavbar';
 
+
 function App() {
   return (
     <div className="App">
