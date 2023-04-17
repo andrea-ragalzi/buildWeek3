@@ -1,0 +1,6 @@
+@import "./partials/footer";
+@import "./partials/mixin";
+
+.linkWrap {
+  @include MyLink;
+}

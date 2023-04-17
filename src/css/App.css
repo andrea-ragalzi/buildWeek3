@@ -1,0 +1,24 @@
+footer ul {
+  padding-left: 0;
+}
+footer ul li {
+  list-style: none;
+}
+
+footer .leftCol {
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+footer .leftCol .row {
+  height: auto;
+}
+
+.linkWrap a {
+  text-decoration: none;
+  color: rgb(75, 75, 75);
+}
+.linkWrap a:hover {
+  text-decoration: underline;
+}/*# sourceMappingURL=App.css.map */

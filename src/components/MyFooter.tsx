@@ -1,0 +1,138 @@
+//eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDEzY2IyY2M1NmIzNjAwMTMzZmU1N2QiLCJpYXQiOjE2ODE3MjM4ODIsImV4cCI6MTY4MjkzMzQ4Mn0.zTJnmiZXhZEaXTpvVPbqCtYVp7vuVMIfBlL_U6Mr-pI
+
+import React from "react";
+import { Container, Row, Col, Form } from "react-bootstrap";
+import { Link } from "react-router-dom";
+
+const MyFooter: React.FC = () => {
+  return (
+    <footer className="bg-light py-3">
+      <Container fluid>
+        <Row>
+          <Col xs={6} className="leftCol">
+            <Row>
+              <Col xs={12} sm={6} md={4}>
+                <ul>
+                  <li className="linkWrap">
+                    <Link to={"/"}>Informazioni</Link>
+                  </li>
+                  <li className="linkWrap">
+                    <Link to={"/"}>Linee guida della community</Link>
+                  </li>
+                  <li className="linkWrap">
+                    <Link to={"/"}>Privacy e condizioni</Link>
+                  </li>
+                </ul>
+                <ul>
+                  <li className="linkWrap">
+                    <Link to={"/"}>Sales Solutions</Link>
+                  </li>
+                  <li className="linkWrap">
+                    <Link to={"/"}>Centro sicurezza</Link>
+                  </li>
+                </ul>
+              </Col>
+              <Col xs={12} sm={6} md={4}>
+                <ul>
+                  <li className="linkWrap">
+                    <Link to={"/"}>Accessibilità</Link>
+                  </li>
+                  <li className="linkWrap">
+                    <Link to={"/"}>Carriera</Link>
+                  </li>
+
+                  <li className="linkWrap">
+                    <Link to={"/"}>Opzioni per gli annunci pubblicitari</Link>
+                  </li>
+                  <li className="linkWrap">
+                    <Link to={"/"}>Mobile</Link>
+                  </li>
+                </ul>
+              </Col>
+              <Col xs={12} sm={6} md={4}>
+                <ul>
+                  <li className="linkWrap">
+                    <Link to={"/"}>Talent Solutions</Link>
+                  </li>
+                  <li className="linkWrap">
+                    <Link to={"/"}>Soluzioni di </Link>
+                  </li>
+                  <li className="linkWrap">
+                    <Link to={"/"}>Pubblicità</Link>
+                  </li>
+                </ul>
+                <ul>
+                  <li className="linkWrap">
+                    <Link to={"/"}>Piccole imprese</Link>
+                  </li>
+                </ul>
+              </Col>
+            </Row>
+            <Row>
+              <Col xs={12}>
+                <p>LinkedIn Corporation © 2023</p>
+              </Col>
+            </Row>
+          </Col>
+          <Col xs={6}>
+            <Row>
+              <Col xs={12} md={6}>
+                <Row>
+                  <Col xs={2}>
+                    <i className="bi bi-question-circle-fill fs-2"></i>
+                  </Col>
+                  <Col>
+                    <h5 className="linkWrap">
+                      <Link to={"/"}>Domande?</Link>
+                    </h5>
+                    <p>Visita il nostro Centro Assistenza</p>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col xs={2}>
+                    <i className="bi bi-gear-fill fs-2"></i>
+                  </Col>
+                  <Col>
+                    <h5 className="linkWrap">
+                      <Link to={"/"}>
+                        Gestisci il tuo account e la tua privacy
+                      </Link>
+                    </h5>
+                    <p>Vai alle impostazioni</p>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col xs={2}>
+                    <i className="bi bi-shield-shaded fs-2"></i>
+                  </Col>
+                  <Col>
+                    <h5 className="linkWrap">
+                      <Link to={"/"}>
+                        Trasparenza sui contenuti consigliati
+                      </Link>
+                    </h5>
+                    <p>Scopri di più sui contenuti consigliati.</p>
+                  </Col>
+                </Row>
+              </Col>
+              <Col xs={12} md={6}>
+                <Form.Group controlId="formLanguageSelect">
+                  <Form.Label>Seleziona Lingua</Form.Label>
+                  <Form.Select aria-label="Select Language">
+                    <option value="italian">Italiano</option>
+                    <option value="english">English</option>
+                    <option value="spanish">Español</option>
+                    <option value="french">Français</option>
+                    <option value="german">Deutsch</option>
+                  </Form.Select>
+                </Form.Group>
+              </Col>
+            </Row>
+          </Col>
+        </Row>
+      </Container>
+    </footer>
+  );
+};
+
+export default MyFooter;
