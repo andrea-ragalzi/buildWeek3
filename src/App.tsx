@@ -1,14 +1,22 @@
-import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "./style/App.scss";
 
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Profile from "./pages/Profile";
+import { CustomNavbar } from "./components/CustomNavbar";
 
 function App() {
   return (
     <BrowserRouter>
-      <div className="App"></div>
+      <div className="App">
+        <CustomNavbar/>
+        <Routes>
+          <Route path="/" element={<Home />}></Route>
+          <Route path="/profile/:id" element={<Profile />}></Route>
+        </Routes>
+      </div>
     </BrowserRouter>
   );
 }
