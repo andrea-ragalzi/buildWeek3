@@ -6,6 +6,7 @@ import { useState } from "react"
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Button from 'react-bootstrap/Button';
 import { Row } from 'react-bootstrap';
+import {Link} from "react-router-dom"
 import "../style/App.scss"
 
 export const CustomNavbar = () => {
@@ -90,19 +91,19 @@ export const CustomNavbar = () => {
                                 <Row>
                                     <h5 className='text-black ms-3'>Account</h5>
                                     <ul style={{ fontSize: "14px" }} className='ms-3 mb-0 list-unstyled'>
-                                        <li className='premium mb-1'><a className='text-decoration-none text-secondary' href='#'>🟨<b>Prova Premium gratis</b> </a></li>
-                                        <li className='mb-1 underline'><a className='text-decoration-none text-secondary' href='#'>Impostazioni e Privacy</a></li>
-                                        <li className='mb-1 underline'><a className='text-decoration-none text-secondary' href='#'>Guida</a></li>
-                                        <li className='mb-1 underline'><a className='text-decoration-none text-secondary' href='#'>Lingua</a></li>
+                                        <li className='premium mb-1'><Link className='text-decoration-none text-secondary' to='/'>🟨<b>Prova Premium gratis</b> </Link></li>
+                                        <li className='mb-1 underline'><Link className='text-decoration-none text-secondary' to='/'>Impostazioni e Privacy</Link></li>
+                                        <li className='mb-1 underline'><Link className='text-decoration-none text-secondary' to='/'>Guida</Link></li>
+                                        <li className='mb-1 underline'><Link className='text-decoration-none text-secondary' to='/'>Lingua</Link></li>
                                     </ul>
                                     <hr className='mt-0'></hr>
                                 </Row>
                                 <Row>
                                     <h5 className='text-black ms-3'>Gestisci</h5>
                                     <ul style={{ fontSize: "14px" }} className='ms-3 mb-1 list-unstyled'>
-                                        <li className='underline'><a className='text-decoration-none text-secondary' href='#'>Post e attività</a></li>
-                                        <li className='underline'><a className='text-decoration-none text-secondary' href='#'>Account per la pubblicazione di off...</a></li>
-                                        <li className='underline'><a className='text-decoration-none text-secondary' href='#'>Lingua</a></li>
+                                        <li className='underline'><Link className='text-decoration-none text-secondary' to='/'>Post e attività</Link></li>
+                                        <li className='underline'><Link className='text-decoration-none text-secondary' to='/'>Account per la pubblicazione di off...</Link></li>
+                                        <li className='underline'><Link className='text-decoration-none text-secondary' to='/'>Lingua</Link></li>
                                     </ul>
                                     <hr className='mt-0'></hr>
                                 </Row>
