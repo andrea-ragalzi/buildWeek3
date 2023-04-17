@@ -1,13 +1,16 @@
 @mixin myLink {
   a,
+  a:not([href]):not([class]),
   button {
     text-decoration: none;
     color: $myDark;
     padding: 0;
   }
   a:hover,
+  a:not([href]):not([class]):hover,
   button:hover {
     text-decoration: underline;
+    cursor: pointer;
   }
 }
 
