@@ -130,7 +130,8 @@ export const CustomNavbar = () => {
 
                 </Navbar.Collapse>
             </Container >
-            {Rightcollapse ? < div className="Contentggs">collasso </div> : <div className='Content'>ciao ciao</div>}
+            {Rightcollapse ? <div className='scure border' onClick={()=>{setRightcollapse(!Rightcollapse)}} ></div> : < div className="noscure"></div>}
+            {Rightcollapse ?  < div className="Contentggs"> <Container><h3>Per le aziende</h3></Container></div> : < div className="Content"> <Container><h3>Per le aziende</h3></Container></div>}
         </Navbar >
     )
 }
