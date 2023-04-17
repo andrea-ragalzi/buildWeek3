@@ -108,7 +108,7 @@ export const CustomNavbar = () => {
                                     <hr className='mt-0'></hr>
                                 </Row>
                                 <Row>
-                                    <a style={{ fontSize: "14px" }} className='text-decoration-none text-secondary ms-3 mb-0 pb-0 underline' href='#'>Esci</a>
+                                    <Link style={{ fontSize: "14px" }} className='text-decoration-none text-secondary ms-3 mb-0 pb-0 underline' to='/'>Esci</Link>
                                 </Row>
                             </NavDropdown>
                         </Nav.Link>
@@ -127,8 +127,14 @@ export const CustomNavbar = () => {
                 </Navbar.Collapse>
             </Container >
             {Rightcollapse ? <div className='scure border' onClick={()=>{setRightcollapse(!Rightcollapse)}} ></div> : <div className="noscure"></div>}
-            {Rightcollapse ?  < div className="Contentggs"> <Container><h3> Per le aziende
-                 </h3></Container></div> :
+            {Rightcollapse ?  < div className="Contentggs"> 
+            <Container>
+                <h3> Per le aziende</h3>
+                    <div>
+                        <span>Scopri altri prodotti Linkedin</span>
+                            <div></div>
+                    </div>
+            </Container></div> :
                   <div className="Content"> <Container><h3>Per le aziende</h3></Container>
                   </div>}
         </Navbar >
