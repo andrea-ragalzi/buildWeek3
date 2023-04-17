@@ -2,7 +2,7 @@ import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { useState } from "react"
+import { useState } from "react";
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Button from 'react-bootstrap/Button';
 import { Row } from 'react-bootstrap';
@@ -39,40 +39,40 @@ export const CustomNavbar = () => {
                         style={{ maxHeight: '100px' }}
                         navbarScroll
                     >
-                        <Nav.Link href="#action1" className="text-center p-0 flex-column align-items-center justify-content-end d-flex  mx-4 mt-1 ">
+                        <Nav.Link href="#action1" onClick={()=>{setRightcollapse(false)}} className="text-center p-0 flex-column align-items-center justify-content-end d-flex  mx-4 mt-1 ">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="10x10" fill="currentColor" className="mercado-match" width="25" height="25" focusable="false">
                                 <path d="M23 9v2h-2v7a3 3 0 01-3 3h-4v-6h-4v6H6a3 3 0 01-3-3v-7H1V9l11-7z"></path>
                             </svg>
                             <p style={{ fontSize: "12px" }}>Home</p>
                         </Nav.Link>
-                        <Nav.Link href="#action2" className="text-center p-0 flex-column align-items-center justify-content-end d-flex  mx-4 mt-1">
+                        <Nav.Link href="#action2" onClick={()=>{setRightcollapse(false)}} className="text-center p-0 flex-column align-items-center justify-content-end d-flex  mx-4 mt-1">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="10x10" fill="currentColor" className="mercado-match" width="25" height="25" focusable="false">
                                 <path d="M12 6.5a4.5 4.5 0 114.5 4.5A4.49 4.49 0 0112 6.5zm6 6.5h-3a3 3 0 00-3 3v6h9v-6a3 3 0 00-3-3zM6.5 6A3.5 3.5 0 1010 9.5 3.5 3.5 0 006.5 6zm1 9h-2A2.5 2.5 0 003 17.5V22h7v-4.5A2.5 2.5 0 007.5 15z"></path>
                             </svg>
                             <p style={{ fontSize: "12px" }}>Rete</p>
                         </Nav.Link>
-                        <Nav.Link href="#action3" className="text-center p-0 flex-column align-items-center justify-content-end d-flex  mx-4 mt-1">
+                        <Nav.Link href="#action3" onClick={()=>{setRightcollapse(false)}} className="text-center p-0 flex-column align-items-center justify-content-end d-flex  mx-4 mt-1">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="10x10" fill="currentColor" className="mercado-match" width="25" height="25" focusable="false">
                                 <path d="M17 6V5a3 3 0 00-3-3h-4a3 3 0 00-3 3v1H2v4a3 3 0 003 3h14a3 3 0 003-3V6zM9 5a1 1 0 011-1h4a1 1 0 011 1v1H9zm10 9a4 4 0 003-1.38V17a3 3 0 01-3 3H5a3 3 0 01-3-3v-4.38A4 4 0 005 14z"></path>
                             </svg>
                             <p style={{ fontSize: "12px" }}>Lavoro</p>
 
                         </Nav.Link>
-                        <Nav.Link href="#action4" className="text-center p-0 flex-column align-items-center justify-content-end d-flex  mx-2 mt-1">
+                        <Nav.Link href="#action4" onClick={()=>{setRightcollapse(false)}} className="text-center p-0 flex-column align-items-center justify-content-end d-flex  mx-2 mt-1">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="10x10" fill="currentColor" className="mercado-match" width="25" height="25" focusable="false">
                                 <path d="M12 6.5a4.5 4.5 0 114.5 4.5A4.49 4.49 0 0112 6.5zm6 6.5h-3a3 3 0 00-3 3v6h9v-6a3 3 0 00-3-3zM6.5 6A3.5 3.5 0 1010 9.5 3.5 3.5 0 006.5 6zm1 9h-2A2.5 2.5 0 003 17.5V22h7v-4.5A2.5 2.5 0 007.5 15z"></path>
                             </svg>
                             <p style={{ fontSize: "12px" }}>Messaggistica</p>
 
                         </Nav.Link>
-                        <Nav.Link href="#action5" className="text-center p-0 flex-column align-items-center justify-content-end d-flex  mx-4 mt-1">
+                        <Nav.Link href="#action5" onClick={()=>{setRightcollapse(false)}} className="text-center p-0 flex-column align-items-center justify-content-end d-flex  mx-4 mt-1">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="10x10" fill="currentColor" className="mercado-match" width="25" height="25" focusable="false">
                                 <path d="M22 19h-8.28a2 2 0 11-3.44 0H2v-1a4.52 4.52 0 011.17-2.83l1-1.17h15.7l1 1.17A4.42 4.42 0 0122 18zM18.21 7.44A6.27 6.27 0 0012 2a6.27 6.27 0 00-6.21 5.44L5 13h14z"></path>
                             </svg>
                             <p style={{ fontSize: "12px" }}>Notifiche</p>
 
                         </Nav.Link>
-                        <Nav.Link href="#action6" className="text-center pb-0 flex-column align-items-center justify-content-end d-flex mt-1 mx-4">
+                        <Nav.Link href="#action6" onClick={()=>{setRightcollapse(false)}} className="text-center pb-0 flex-column align-items-center justify-content-end d-flex mt-1 mx-4">
                             <img className='rounded-circle' src='https://picsum.photos/24/24' alt='foto profilo'></img>
                             <NavDropdown
                                 id="nav-dropdown-dark"
@@ -130,9 +130,12 @@ export const CustomNavbar = () => {
             {Rightcollapse ?  < div className="Contentggs"> 
             <Container>
                 <h3> Per le aziende</h3>
-                    <div>
-                        <span>Scopri altri prodotti Linkedin</span>
-                            <div></div>
+                    <div className='border rounded'>
+                        <b className='bBottom ms-'>Scopri altri prodotti Linkedin</b>
+                            <hr></hr>
+                            <div>
+
+                            </div>
                     </div>
             </Container></div> :
                   <div className="Content"> <Container><h3>Per le aziende</h3></Container>
