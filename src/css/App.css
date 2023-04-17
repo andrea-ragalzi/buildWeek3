@@ -15,10 +15,21 @@ footer .leftCol .row {
   height: auto;
 }
 
-.linkWrap a {
+footer .dropdown-menu {
+  padding: 10px;
+}
+
+.miniFooter ul li {
+  padding: 3px 10px;
+}
+
+.linkWrap a,
+.linkWrap button {
   text-decoration: none;
   color: rgb(75, 75, 75);
+  padding: 0;
 }
-.linkWrap a:hover {
+.linkWrap a:hover,
+.linkWrap button:hover {
   text-decoration: underline;
 }/*# sourceMappingURL=App.css.map */

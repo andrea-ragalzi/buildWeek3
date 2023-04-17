@@ -1,10 +1,10 @@
 //eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDEzY2IyY2M1NmIzNjAwMTMzZmU1N2QiLCJpYXQiOjE2ODE3MjM4ODIsImV4cCI6MTY4MjkzMzQ4Mn0.zTJnmiZXhZEaXTpvVPbqCtYVp7vuVMIfBlL_U6Mr-pI
 
 import React from "react";
-import { Container, Row, Col, Form } from "react-bootstrap";
+import { Container, Row, Col, Form, Dropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-const MyFooter: React.FC = () => {
+export const MyFooter: React.FC = function () {
   return (
     <footer className="bg-light py-3">
       <Container fluid>
@@ -20,7 +20,29 @@ const MyFooter: React.FC = () => {
                     <Link to={"/"}>Linee guida della community</Link>
                   </li>
                   <li className="linkWrap">
-                    <Link to={"/"}>Privacy e condizioni</Link>
+                    <Dropdown>
+                      <Dropdown.Toggle
+                        id="privacy-dropdown"
+                        variant="link"
+                        className="linkWrap"
+                      >
+                        Privacy e condizioni
+                      </Dropdown.Toggle>
+                      <Dropdown.Menu>
+                        <Dropdown.Item as={Link} to={"/privacy"}>
+                          Informativa sulla privacy
+                        </Dropdown.Item>
+                        <Dropdown.Item as={Link} to={"/contratto"}>
+                          Contratto di licenza
+                        </Dropdown.Item>
+                        <Dropdown.Item as={Link} to={"/cookie"}>
+                          Informativa sui cookie
+                        </Dropdown.Item>
+                        <Dropdown.Item as={Link} to={"/copyright"}>
+                          Informativa sul copyright
+                        </Dropdown.Item>
+                      </Dropdown.Menu>
+                    </Dropdown>
                   </li>
                 </ul>
                 <ul>
@@ -40,7 +62,6 @@ const MyFooter: React.FC = () => {
                   <li className="linkWrap">
                     <Link to={"/"}>Carriera</Link>
                   </li>
-
                   <li className="linkWrap">
                     <Link to={"/"}>Opzioni per gli annunci pubblicitari</Link>
                   </li>
@@ -55,7 +76,7 @@ const MyFooter: React.FC = () => {
                     <Link to={"/"}>Talent Solutions</Link>
                   </li>
                   <li className="linkWrap">
-                    <Link to={"/"}>Soluzioni di </Link>
+                    <Link to={"/"}>Soluzioni di marketing</Link>
                   </li>
                   <li className="linkWrap">
                     <Link to={"/"}>Pubblicità</Link>
@@ -135,4 +156,78 @@ const MyFooter: React.FC = () => {
   );
 };
 
-export default MyFooter;
+export const MiniFooter: React.FC = function () {
+  return (
+    <footer className="miniFooter">
+      <Container fluid>
+        <Row>
+          <ul className="d-flex flex-wrap justify-content-center">
+            <li className="linkWrap">
+              <Link to={"/"}>Informazioni</Link>
+            </li>
+            <li className="linkWrap">
+              <Link to={"/"}>Accessibilità</Link>
+            </li>
+            <li className="linkWrap">
+              <Link to={"/"}>Centro Assistenza</Link>
+            </li>
+            <li className="linkWrap">
+              <Link to={"/"}>Linee guida della community</Link>
+            </li>
+            <li className="linkWrap">
+              <Dropdown>
+                <Dropdown.Toggle
+                  id="privacy-dropdown"
+                  variant="link"
+                  className="linkWrap"
+                >
+                  Privacy e condizioni
+                </Dropdown.Toggle>
+                <Dropdown.Menu>
+                  <Dropdown.Item as={Link} to={"/privacy"}>
+                    Informativa sulla privacy
+                  </Dropdown.Item>
+                  <Dropdown.Item as={Link} to={"/contratto"}>
+                    Contratto di licenza
+                  </Dropdown.Item>
+                  <Dropdown.Item as={Link} to={"/cookie"}>
+                    Informativa sui cookie
+                  </Dropdown.Item>
+                  <Dropdown.Item as={Link} to={"/copyright"}>
+                    Informativa sul copyright
+                  </Dropdown.Item>
+                </Dropdown.Menu>
+              </Dropdown>
+            </li>
+            <li className="linkWrap">
+              <Link to={"/"}>Opzioni per gli annunci pubblicitari</Link>
+            </li>
+            <li className="linkWrap">
+              <Link to={"/"}>Sales Solutions</Link>
+            </li>
+            <li className="linkWrap">
+              <Link to={"/"}>Soluzioni di marketing</Link>
+            </li>
+            <li className="linkWrap">
+              <Link to={"/"}>Pubblicità</Link>
+            </li>
+            <li className="linkWrap">
+              <Link to={"/"}>Piccole imprese</Link>
+            </li>
+          </ul>
+        </Row>
+        <Row>
+          <Col xs={12} className=" d-flex justify-content-center">
+            <img
+              src="https://content.linkedin.com/content/dam/me/business/en-us/amp/brand-site/v2/bg/LI-Logo.svg.original.svg"
+              alt="logo"
+              height={"20px"}
+              className="me-3"
+            />
+            <p>LinkedIn Corporation © 2023</p>
+          </Col>
+        </Row>
+      </Container>
+    </footer>
+  );
+};
