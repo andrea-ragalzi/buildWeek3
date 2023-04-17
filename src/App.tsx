@@ -8,9 +8,6 @@ import { BrowserRouter } from "react-router-dom";
 function App() {
   return (
     <BrowserRouter>
-      <button className="btnWhite">Ciao</button>
-      <button className="btnBlue">Ciao</button>
-      <button className="btnGrey">Ciao</button>
       <div className="App"></div>
     </BrowserRouter>
   );
