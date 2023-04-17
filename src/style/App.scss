@@ -3,6 +3,10 @@
 @import "./partials/footer";
 @import "./partials/navbare";
 
+.pageContainer{
+  padding: 1em 3em;
+}
+
 .linkWrap {
   @include myLink;
 }
