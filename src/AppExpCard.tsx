@@ -7,8 +7,8 @@ const experience: ExpCardInterface = {
     company: "GEFIT SPA",
     position: "Software Developer",
     employmentType: "Full-time",
-    startDate: "October 2019",
-    endDate: "November 2022",
+    startDate: "Ottobre 2019",
+    endDate: "Novembre 2022",
     location: "Alessandria, Italy",
     skills: [
         "Bootstrap", "CSS", "HTML", "Flask", "Python", "Git", "Linux",
