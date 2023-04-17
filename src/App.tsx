@@ -1,7 +1,7 @@
 import React from "react";
-import "./style/App.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
+import "./style/App.scss";
 import LinkedinMain from "./components/LinkedinMain";
 
 import { BrowserRouter } from "react-router-dom";
