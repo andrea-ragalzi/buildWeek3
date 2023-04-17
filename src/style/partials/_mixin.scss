@@ -1,0 +1,20 @@
+@mixin myLink {
+  a,
+  button {
+    text-decoration: none;
+    color: $myDark;
+    padding: 0;
+  }
+  a:hover,
+  button:hover {
+    text-decoration: underline;
+  }
+}
+
+@mixin myBtn {
+  border: 2px solid;
+  border-radius: 2em;
+  padding: 3px 10px;
+  margin: 5px;
+  font-weight: 600;
+}
