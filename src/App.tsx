@@ -1,15 +1,11 @@
-import React from "react";
-import "./style/App.scss";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap-icons/font/bootstrap-icons.css";
-
-import { BrowserRouter } from "react-router-dom";
+import React from 'react';
+import './style/App.scss';
 
 function App() {
   return (
-    <BrowserRouter>
-      <div className="App"></div>
-    </BrowserRouter>
+    <div className="App">
+      <h1>APP OK</h1>
+    </div>
   );
 }
 
