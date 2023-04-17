@@ -11,11 +11,6 @@ import "../style/App.scss"
 export const CustomNavbar = () => {
     const [Rightcollapse, setRightcollapse] = useState(false)
 
-    const handleClick = (event: any) => {
-
-        event.currentTarget.style.borderBottom = '1px, solid, black';
-    }
-
     return (
 
         <Navbar className='p-0 position-relative' bg="light" expand="lg">
@@ -131,7 +126,10 @@ export const CustomNavbar = () => {
                 </Navbar.Collapse>
             </Container >
             {Rightcollapse ? <div className='scure border' onClick={()=>{setRightcollapse(!Rightcollapse)}} ></div> : <div className="noscure"></div>}
-            {Rightcollapse ?  < div className="Contentggs"> <Container><h3>Per le aziende</h3></Container></div> : <div className="Content"> <Container><h3>Per le aziende</h3></Container></div>}
+            {Rightcollapse ?  < div className="Contentggs"> <Container><h3> Per le aziende
+                 </h3></Container></div> :
+                  <div className="Content"> <Container><h3>Per le aziende</h3></Container>
+                  </div>}
         </Navbar >
     )
 }
