@@ -4,18 +4,18 @@ import { useState, useEffect } from "react";
 
 
 const months: MonthsMap = {
-    'gennaio': 1,
-    'febbraio': 2,
-    'marzo': 3,
-    'aprile': 4,
-    'maggio': 5,
-    'giugno': 6,
-    'luglio': 7,
-    'agosto': 8,
-    'settembre': 9,
-    'ottobre': 10,
-    'novembre': 11,
-    'dicembre': 12
+  gennaio: 1,
+  febbraio: 2,
+  marzo: 3,
+  aprile: 4,
+  maggio: 5,
+  giugno: 6,
+  luglio: 7,
+  agosto: 8,
+  settembre: 9,
+  ottobre: 10,
+  novembre: 11,
+  dicembre: 12,
 };
 
 const employmentTime = (startDate: string, endDate: string): string => {
@@ -24,13 +24,13 @@ const employmentTime = (startDate: string, endDate: string): string => {
         return 'Present';
     }
 
-    const [startMonthStr, startYearStr]: string[] = startDate.split(' ');
-    const startMonth: number = months[startMonthStr.toLowerCase()];
-    const startYear: number = parseInt(startYearStr.toLowerCase());
+  const [startMonthStr, startYearStr]: string[] = startDate.split(" ");
+  const startMonth: number = months[startMonthStr.toLowerCase()];
+  const startYear: number = parseInt(startYearStr.toLowerCase());
 
-    const [endMonthStr, endYearStr]: string[] = endDate.split(' ');
-    const endMonth: number = months[endMonthStr.toLowerCase()];
-    const endYear: number = parseInt(endYearStr.toLowerCase());
+  const [endMonthStr, endYearStr]: string[] = endDate.split(" ");
+  const endMonth: number = months[endMonthStr.toLowerCase()];
+  const endYear: number = parseInt(endYearStr.toLowerCase());
 
     const yearsDiff = endYear - startYear;
     const monthsDiff = (endMonth - startMonth) + 1;
@@ -49,8 +49,14 @@ const employmentTime = (startDate: string, endDate: string): string => {
     }
 };
 
-const ExpCard = ({ company, position, employmentType,
-    startDate, endDate, location, skills
+const ExpCard = ({
+  company,
+  position,
+  employmentType,
+  startDate,
+  endDate,
+  location,
+  skills,
 }: ExpCardInterface) => {
     const [collapseButton, setCollapseButton] = useState<boolean>(false);
     const [skillsStr, setSkillsStr] = useState<string>(skills.join(' · '));

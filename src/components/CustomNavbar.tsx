@@ -2,21 +2,16 @@ import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import { useState } from "react";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Button from "react-bootstrap/Button";
-import Row from "react-bootstrap/Row";
-import { useState } from "react";
+import { Row } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import "../style/App.scss";
 
 export const CustomNavbar = () => {
   const [Rightcollapse, setRightcollapse] = useState(false);
 
-  /*
-    const handleClick = (event: any) => {
-
-        event.currentTarget.style.borderBottom = '1px, solid, black';
-    }
-*/
   return (
     <Navbar className="p-0 position-relative" bg="light" expand="lg">
       <Container className="justify-content-around">
@@ -189,36 +184,36 @@ export const CustomNavbar = () => {
                     className="ms-3 mb-0 list-unstyled"
                   >
                     <li className="premium mb-1">
-                      <a
+                      <Link
                         className="text-decoration-none text-secondary"
-                        href="/"
+                        to="/"
                       >
                         🟨<b>Prova Premium gratis</b>{" "}
-                      </a>
+                      </Link>
                     </li>
                     <li className="mb-1 underline">
-                      <a
+                      <Link
                         className="text-decoration-none text-secondary"
-                        href="/"
+                        to="/"
                       >
                         Impostazioni e Privacy
-                      </a>
+                      </Link>
                     </li>
                     <li className="mb-1 underline">
-                      <a
+                      <Link
                         className="text-decoration-none text-secondary"
-                        href="/"
+                        to="/"
                       >
                         Guida
-                      </a>
+                      </Link>
                     </li>
                     <li className="mb-1 underline">
-                      <a
+                      <Link
                         className="text-decoration-none text-secondary"
-                        href="/"
+                        to="/"
                       >
                         Lingua
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                   <hr className="mt-0"></hr>
@@ -230,40 +225,40 @@ export const CustomNavbar = () => {
                     className="ms-3 mb-1 list-unstyled"
                   >
                     <li className="underline">
-                      <a
+                      <Link
                         className="text-decoration-none text-secondary"
-                        href="/"
+                        to="/"
                       >
                         Post e attività
-                      </a>
+                      </Link>
                     </li>
                     <li className="underline">
-                      <a
+                      <Link
                         className="text-decoration-none text-secondary"
-                        href="/"
+                        to="/"
                       >
                         Account per la pubblicazione di off...
-                      </a>
+                      </Link>
                     </li>
                     <li className="underline">
-                      <a
+                      <Link
                         className="text-decoration-none text-secondary"
-                        href="/"
+                        to="/"
                       >
                         Lingua
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                   <hr className="mt-0"></hr>
                 </Row>
                 <Row>
-                  <a
+                  <Link
                     style={{ fontSize: "14px" }}
                     className="text-decoration-none text-secondary ms-3 mb-0 pb-0 underline"
-                    href="/"
+                    to="/"
                   >
                     Esci
-                  </a>
+                  </Link>
                 </Row>
               </NavDropdown>
             </Nav.Link>
