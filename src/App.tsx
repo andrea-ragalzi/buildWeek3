@@ -65,6 +65,7 @@ const exp3: ExpCardInterface = {
   skills: ["Flask", "Python", "Git", "Linux", "Bash", "C"],
 };
 
+
 function App() {
   return (
     <BrowserRouter>
