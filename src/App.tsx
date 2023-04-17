@@ -5,15 +5,10 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 
 import { BrowserRouter } from "react-router-dom";
 
-import { MyFooter, MiniFooter } from "./components/MyFooter";
-
 function App() {
   return (
     <BrowserRouter>
-      <div className="App">
-        <MyFooter />
-        <MiniFooter />
-      </div>
+      <div className="App"></div>
     </BrowserRouter>
   );
 }
