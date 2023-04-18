@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { ListGroup } from "react-bootstrap";
+import { Border } from "react-bootstrap-icons";
 
 export const Messages = () => {
     const [onoff, setOnoff] = useState(true)
@@ -27,11 +28,11 @@ export const Messages = () => {
                  <div> 
                     <i className="bi bi-three-dots Msghover"></i>  
                     <i className="bi bi-pencil-square mx-3 Msghover"></i> 
-                    <i  onClick={()=>setOnoff(!onoff)} className="bi bi-caret-down "></i>
+                    <i  onClick={()=>setOnoff(!onoff)} className="bi bi-caret-down Msghover"></i>
                 </div>
             </div>
-            <div className="justify-content-center">
-                <input type="search" className="my-2" placeholder="Shit Here..."></input>
+            <div className="">
+                <input type="search" className="my-2 ms-2" placeholder="Shit Here..." style={{width:"283px", backgroundColor:"lightgrey", border:"none"}}></input>
             </div>
 
             <ListGroup>
