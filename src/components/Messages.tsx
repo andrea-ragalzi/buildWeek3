@@ -27,12 +27,12 @@ export const Messages = () => {
                  <div> 
                     <i className="bi bi-three-dots Msghover"></i>  
                     <i className="bi bi-pencil-square mx-3 Msghover"></i> 
-                    <i  onClick={()=>setOnoff(!onoff)} className="bi bi-caret-down Msghover"></i>
+                    <i  onClick={()=>setOnoff(!onoff)} className="bi bi-caret-down "></i>
                 </div>
             </div>
 
             <ListGroup>
-                <ListGroup.Item><img src="https://picsum.photos/50/50" width="30px" height="30px" className="rounded-circle" alt="avatar_small" /></ListGroup.Item>
+                <ListGroup.Item className="Msghover"><img src="https://picsum.photos/70/70" width="45px" height="45px" className="rounded-circle float-right" alt="avatar_small" /><div>ciao</div></ListGroup.Item>
             </ListGroup>
  
             </div> }
