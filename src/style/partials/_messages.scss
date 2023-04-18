@@ -26,16 +26,21 @@
     transition: height ease 0.2s;
 }
 
-
 .Msghover:hover{
     background-color: rgb(218, 218, 218);
     border: none;
     border-radius: 100%;
     width: 60px;
 }
+.Msghoverdue:hover{
+    background-color: rgb(218, 218, 218);
+}
 
 .Nobullets{
         list-style-type: none;
         padding: 0; 
         margin: 0;
+}
+.floatable{
+    float:left;
 }

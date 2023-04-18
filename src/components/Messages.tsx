@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { ListGroup } from "react-bootstrap";
 
 export const Messages = () => {
     const [onoff, setOnoff] = useState(true)
@@ -20,18 +21,23 @@ export const Messages = () => {
         : 
 
     <div className="Uncollapsedmessage">
-        <div className="d-flex justify-content-around mt-2">
+        <div className="d-flex justify-content-around mt-2 border-bottom" style={{height:"35px"}}>
                <span  onClick={()=>setOnoff(!onoff)}> <img src="https://picsum.photos/50/50" width="30px" height="30px" className="rounded-circle" alt="avatar_small" />Messaggistica </span>
             
                  <div> 
                     <i className="bi bi-three-dots Msghover"></i>  
                     <i className="bi bi-pencil-square mx-3 Msghover"></i> 
-                    <i  onClick={()=>setOnoff(!onoff)} className="bi bi-caret-down Msghover"></i>
+                    <i  onClick={()=>setOnoff(!onoff)} className="bi bi-caret-down "></i>
                 </div>
             </div>
-            <ul>
-                    <li>ciao</li>
-                </ul>
+            <div>
+                <input type="search" className="my-2"></input>
+            </div>
+
+            <ListGroup>
+                <ListGroup.Item className="Msghoverdue"><img src="https://picsum.photos/70/70" width="45px" height="45px" className="rounded-circle floatable border-bottom" alt="avatar_small" /><div>ciao</div></ListGroup.Item>
+            </ListGroup>
+ 
             </div> }
 
     </div>
