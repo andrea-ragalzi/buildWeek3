@@ -8,7 +8,7 @@ export const Messages = () => {
     return (
     <div>{onoff ?  <div className="Collapsedmessage" onClick={()=>setOnoff(!onoff)}>
     <div className="d-flex justify-content-around mt-2">
-           <span> <img src="https://picsum.photos/50/50" className="rounded-circle" alt="avatar_small" />Messaggi </span>
+           <span> <img src="https://picsum.photos/50/50" width="30px" height="30px" className="rounded-circle" alt="avatar_small" />Messaggi </span>
         
              <div> 
                 <i className="bi bi-three-dots"></i>  
@@ -21,7 +21,7 @@ export const Messages = () => {
 
     <div className="Uncollapsedmessage" onClick={()=>setOnoff(!onoff)}>
         <div className="d-flex justify-content-around mt-2">
-               <span> <img src="https://picsum.photos/50/50" className="rounded-circle" alt="avatar_small" />Messaggi </span>
+               <span> <img src="https://picsum.photos/50/50" width="30px" height="30px" className="rounded-circle" alt="avatar_small" />Messaggi </span>
             
                  <div> 
                     <i className="bi bi-three-dots"></i>  
