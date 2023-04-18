@@ -7,7 +7,7 @@ export const Messages = () => {
 
     return (
     <div>{onoff ? <div className="Collapsedmessage" onClick={()=>setOnoff(!onoff)} >
-        <img src="//" alt="avatar_small" />Messaggi
+        <img src="//" alt="avatar_small" />Messaggi <i className="bi bi-three-dots"></i>  <i className="bi bi-pencil-square"></i>
         </div> 
         : 
     <div className="Uncollapsedmessage" onClick={()=>setOnoff(!onoff)}>big div</div>}
