@@ -30,12 +30,12 @@ export const Messages = () => {
                     <i  onClick={()=>setOnoff(!onoff)} className="bi bi-caret-down "></i>
                 </div>
             </div>
-            <div>
-                <input type="search" className="my-2"></input>
+            <div className="justify-content-center">
+                <input type="search" className="my-2" placeholder="Shit Here..."></input>
             </div>
 
             <ListGroup>
-                <ListGroup.Item className="Msghoverdue"><img src="https://picsum.photos/70/70" width="45px" height="45px" className="rounded-circle floatable border-bottom" alt="avatar_small" /><div>Mario</div></ListGroup.Item>
+                <ListGroup.Item className="Msghoverdue"><img src="https://picsum.photos/70/70" width="45px" height="45px" className="rounded-circle floatable border-bottom" alt="avatar_small" /><div className="Users"> Mario </div> <div>  </div></ListGroup.Item>
             </ListGroup>
  
             </div> }
