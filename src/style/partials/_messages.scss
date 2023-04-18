@@ -27,3 +27,17 @@
     border: solid 1px gray;
     transition: height ease 0.2s;
 }
+
+
+.Msghover:hover{
+    background-color: grey;
+    border: none;
+    border-radius: 100%;
+    width: 60px;
+}
+
+.Nobullets{
+        list-style-type: none;
+        padding: 0; 
+        margin: 0;
+}
