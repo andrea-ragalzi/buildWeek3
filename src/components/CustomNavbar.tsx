@@ -339,15 +339,15 @@ export const CustomNavbar = () => {
             <div className="Collapse border rounded p-3">
               <b className="bBottom ms-">Scopri altri prodotti Linkedin</b>
               <hr className="my-2"></hr>
-              <div>
-                <ul>
-                  <li> <i className="bi bi-play-btn-fill"></i></li>
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                  <li></li>
+              <div className="fs-2">
+                <ul className="list-unstyled d-flex flex-wrap">
+                  <li><i className="d-inline-block m-3 ms-4 bi bi-play-btn-fill"></i></li>
+                  <li><i className="d-inline-block m-3 ms-4 bi bi-file-bar-graph-fill"></i></li>
+                  <li><i className="d-inline-block m-3 ms-4 bi bi-image"></i> </li>
+                  <li><i className="d-inline-block m-3 ms-4 bi bi-bullseye"></i></li>
+                  <li><i className="d-inline-block m-3 ms-4 bi bi-browser-safari"></i></li>
+                  <li><i className="d-inline-block m-3 ms-4 bi bi-people-fill"></i></li>
+                  <li><i className="d-inline-block m-3 ms-4 bi bi-person-fill-check"></i></li>
                 </ul>
               </div>
             </div>
