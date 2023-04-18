@@ -1,3 +1,5 @@
+import { Experience } from "./expCardTypes";
+
 // Definiamo i tipi delle azioni
 export enum ActionTypes {
   GET_EXPERIENCES_REQUEST = "GET_EXPERIENCES_REQUEST",
@@ -20,7 +22,8 @@ export enum ActionTypes {
 export interface Action {
   type: ActionTypes;
   payload?: any;
-  error?: string;
+  loading: boolean;
+  error: string | null;
 }
 
 // Definiamo i tipi per lo stato globale dell'applicazione
@@ -29,17 +32,4 @@ export interface ExperienceState {
   selectedExperience: Experience | null;
   loading: boolean;
   error: string | null;
-}
-
-// Definiamo i tipi per l'esperienza
-export interface Experience {
-  _id: string;
-  role: string;
-  company: string;
-  startDate: string;
-  endDate: string;
-  description: string;
-  area: string;
-  username: string;
-  image: string;
 }
