@@ -337,7 +337,7 @@ export const CustomNavbar = () => {
           <Container>
             <h4> Per le aziende</h4>
             <div className="Collapse border rounded p-3">
-              <b className="bBottom ms-">Scopri altri prodotti Linkedin</b>
+              <b className="bBottom">Scopri altri prodotti Linkedin</b>
               <hr className="my-2"></hr>
               <div className="fs-2 d-flex justify-content-center align-items-center h-75">
                 <ul className="List-collapse list-unstyled d-flex flex-wrap">
@@ -351,6 +351,7 @@ export const CustomNavbar = () => {
                 </ul>
               </div>
             </div>
+            
           </Container>
         </div>
       ) : (
