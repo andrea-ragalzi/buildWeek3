@@ -1,18 +1,16 @@
 import { Container, Row, Col } from "react-bootstrap";
 import { MyFooter } from './../components/MyFooter'
-import { useAppSelector } from "./../redux/store/hooks";
 import { useEffect } from "react";
 import { fetchExperiences } from './../redux/actions/experiences'
 import { useDispatch, useSelector } from 'react-redux'
 import type { RootState } from './../redux/store/store'
+import { store } from "./../redux/store/store"
 
 const Profile = () => {
-  const dispatch = useDispatch();
-  // const selector = useSelector();
   const experiences = useSelector((state: RootState) => state.experience.experiences);
 
   useEffect(() => {
-    fetchExperiences('5d84937322b7b54d848eb41b');
+    store.dispatch(fetchExperiences('5d84937322b7b54d848eb41b'));
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   
