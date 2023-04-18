@@ -32,7 +32,7 @@ export const Messages = () => {
             </div>
 
             <ListGroup>
-                <ListGroup.Item className="Msghover"><img src="https://picsum.photos/70/70" width="45px" height="45px" className="rounded-circle float-right" alt="avatar_small" /><div>ciao</div></ListGroup.Item>
+                <ListGroup.Item className="Msghoverdue"><img src="https://picsum.photos/70/70" width="45px" height="45px" className="rounded-circle floatable" alt="avatar_small" /><div>ciao</div></ListGroup.Item>
             </ListGroup>
  
             </div> }
