@@ -2,9 +2,11 @@
 @import "./partials/variables";
 @import "./partials/footer";
 @import "./partials/navbare";
+@import "./partials/card";
 
 .pageContainer{
   padding: 1em 3em;
+  background-color:rgb(228, 228, 228)
 }
 
 .linkWrap {
