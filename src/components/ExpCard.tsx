@@ -1,4 +1,4 @@
-import { ExpCardInterface, MonthsMap } from "./../types/ExpCardTypes";
+import { ExpCardInterface, MonthsMap } from "../types/expCardTypes";
 import { Container, Row, Col } from "react-bootstrap";
 import { useState, useEffect } from "react";
 

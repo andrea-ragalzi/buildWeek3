@@ -39,6 +39,13 @@ export interface Experience {
 
 // definizione delle interfacce delle azioni
 
+export interface ExperienceState {
+  experiences: Experience[];
+  selectedExperience: Experience | null;
+  loading: boolean;
+  error: string | null;
+}
+
 export interface GetExperiencesRequestAction {
   type: ActionTypes.GET_EXPERIENCES_REQUEST;
 }
