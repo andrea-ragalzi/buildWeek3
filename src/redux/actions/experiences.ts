@@ -1,19 +1,25 @@
 import { Dispatch } from "redux";
-import { ActionTypes, Experience, Action } from "./../../types/expReducer";
+import { ActionTypes, Action } from "./../../types/expReducer";
+import { Experience } from "./../../types/expCardTypes";
 
 // definizione delle azioni
 export const getExperiencesRequest = (): Action => ({
   type: ActionTypes.GET_EXPERIENCES_REQUEST,
+  loading: true,
+  error: null
 });
 
 export const getExperiencesSuccess = (experiences: Experience[]): Action => ({
   type: ActionTypes.GET_EXPERIENCES_SUCCESS,
   payload: experiences,
+  loading: false,
+  error: null
 });
 
 export const getExperiencesFailure = (error: string): Action => ({
   type: ActionTypes.GET_EXPERIENCES_FAILURE,
-  error: error,
+  loading: false,
+  error: error
 });
 
 export const fetchExperiences = (userId: string) => {
@@ -43,16 +49,21 @@ export const fetchExperiences = (userId: string) => {
 
 export const addExperienceRequest = (): Action => ({
   type: ActionTypes.ADD_EXPERIENCE_REQUEST,
+  loading: true,
+  error: null
 });
 
 export const addExperienceSuccess = (experience: Experience): Action => ({
   type: ActionTypes.ADD_EXPERIENCE_SUCCESS,
   payload: experience,
+  loading: false,
+  error: null
 });
 
 export const addExperienceFailure = (error: string): Action => ({
   type: ActionTypes.ADD_EXPERIENCE_FAILURE,
   error: error,
+  loading: false
 });
 
 export const addExperience = (userId: string, experience: Experience) => {
@@ -91,15 +102,20 @@ export const addExperience = (userId: string, experience: Experience) => {
 
 export const getExperienceRequest = (): Action => ({
   type: ActionTypes.GET_EXPERIENCE_REQUEST,
+  loading: true,
+  error: null
 });
 
 export const getExperienceSuccess = (experience: Experience): Action => ({
   type: ActionTypes.GET_EXPERIENCE_SUCCESS,
   payload: experience,
+  loading: false,
+  error: null
 });
 
 export const getExperienceFailure = (error: string): Action => ({
   type: ActionTypes.GET_EXPERIENCE_FAILURE,
+  loading: false,
   error: error,
 });
 
@@ -130,15 +146,20 @@ export const fetchExperience = (userId: string, experienceId: string) => {
 
 export const editExperienceRequest = (): Action => ({
   type: ActionTypes.EDIT_EXPERIENCE_REQUEST,
+  loading: true,
+  error: null
 });
 
 export const editExperienceSuccess = (experience: Experience): Action => ({
   type: ActionTypes.EDIT_EXPERIENCE_SUCCESS,
   payload: experience,
+  loading: false,
+  error: null
 });
 
 export const editExperienceFailure = (error: string): Action => ({
   type: ActionTypes.EDIT_EXPERIENCE_FAILURE,
+  loading: false,
   error: error,
 });
 
@@ -177,16 +198,21 @@ export const editExperience =
 
 export const deleteExperienceRequest = (): Action => ({
   type: ActionTypes.DELETE_EXPERIENCE_REQUEST,
+  loading: true,
+  error: null
 });
 
 export const deleteExperienceSuccess = (id: string): Action => ({
   type: ActionTypes.DELETE_EXPERIENCE_SUCCESS,
   payload: id,
+  loading: false,
+  error: null
 });
 
 export const deleteExperienceFailure = (error: string): Action => ({
   type: ActionTypes.DELETE_EXPERIENCE_FAILURE,
-  error: error,
+  loading: false,
+  error: error
 });
 
 export const deleteExperience = (userId: string, experienceId: string) => {
