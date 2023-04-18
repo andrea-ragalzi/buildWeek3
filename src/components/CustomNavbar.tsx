@@ -234,7 +234,7 @@ export const CustomNavbar = () => {
                       </Link>
                     </li>
                   </ul>
-                  <hr className="mt-0"></hr>
+                  <hr style={{ width: "92% ", marginLeft: "4%" }} className="mt-0"></hr>
                 </Row>
                 <Row>
                   <h5 className="text-black ms-3">Gestisci</h5>
@@ -267,7 +267,7 @@ export const CustomNavbar = () => {
                       </Link>
                     </li>
                   </ul>
-                  <hr className="mt-0"></hr>
+                  <hr style={{ width: "92% ", marginLeft: "4%" }} className="mt-0"></hr>
                 </Row>
                 <Row>
                   <Link
@@ -336,9 +336,9 @@ export const CustomNavbar = () => {
         <div className="Contentggs">
           <Container>
             <h3> Per le aziende</h3>
-            <div className="border rounded">
+            <div className="border rounded p-3">
               <b className="bBottom ms-">Scopri altri prodotti Linkedin</b>
-              <hr></hr>
+              <hr className="my-2 mx-0"></hr>
               <div></div>
             </div>
           </Container>
