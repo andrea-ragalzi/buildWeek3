@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { ListGroup } from "react-bootstrap";
 
 export const Messages = () => {
     const [onoff, setOnoff] = useState(true)
@@ -29,9 +30,15 @@ export const Messages = () => {
                     <i  onClick={()=>setOnoff(!onoff)} className="bi bi-caret-down Msghover"></i>
                 </div>
             </div>
-            <ul>
-                    <li>ciao</li>
-                </ul>
+
+            <ListGroup>
+                <ListGroup.Item>Cras justo odio</ListGroup.Item>
+                <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
+                <ListGroup.Item>Morbi leo risus</ListGroup.Item>
+                <ListGroup.Item>Porta ac consectetur ac</ListGroup.Item>
+                <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
+            </ListGroup>
+ 
             </div> }
 
     </div>
