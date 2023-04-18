@@ -337,7 +337,7 @@ export const CustomNavbar = () => {
           <Container>
             <h3> Per le aziende</h3>
             <div className="border rounded p-3">
-              <b className="bBottom ms-">Scopri altri prodotti Linkedin</b>
+              <b className="bBottom ms-">Scopri altri prodotti Linkedinnns</b>
               <hr className="my-2 mx-0"></hr>
               <div></div>
             </div>
