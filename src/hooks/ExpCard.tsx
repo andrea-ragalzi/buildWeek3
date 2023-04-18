@@ -1,4 +1,4 @@
-import { ExpCardInterface, MonthsMap } from "../types/expCardTypes";
+import { Experience, MonthsMap } from "../types/expCardTypes";
 import { Container, Row, Col } from 'react-bootstrap'
 import { useState, useEffect } from "react";
 
@@ -50,14 +50,17 @@ const employmentTime = (startDate: string, endDate: string): string => {
 };
 
 const ExpCard = ({
-  company,
-  position,
-  employmentType,
-  startDate,
-  endDate,
-  location,
-  skills,
-}: ExpCardInterface) => {
+    _id,
+    role,
+    company,
+    startDate,
+    endDate,
+    description,
+    area,
+    username,
+    image,
+    skills
+}: Experience) => {
     const [collapseButton, setCollapseButton] = useState<boolean>(false);
     const [skillsStr, setSkillsStr] = useState<string>(skills.join(' · '));
     const MAX_LENGHT_SKILLS = 95;
