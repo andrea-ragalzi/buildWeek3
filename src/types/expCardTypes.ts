@@ -1,12 +1,15 @@
-export interface ExpCardInterface  {
+export interface Experience {
+    _id: string;
+    role: string;
     company: string;
-    position: string;
-    employmentType: string;
     startDate: string;
     endDate: string;
-    location: string;
-    skills: string[];
-}
+    description: string;
+    area: string;
+    username: string;
+    image: string;
+    skills?: string[];
+  }
 
 export type MonthsMap = {
     [key: string]: number;
