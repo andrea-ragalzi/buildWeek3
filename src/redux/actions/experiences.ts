@@ -1,22 +1,23 @@
 import { Dispatch } from "redux";
 import { ActionTypes, Action } from "./../../types/expReducer";
 import { Experience } from "./../../types/expCardTypes";
+import { useAppDispatch } from "../store/hooks";
 
 // definizione delle azioni
-export const getExperiencesRequest = (): Action => ({
+const getExperiencesRequest = (): Action => ({
   type: ActionTypes.GET_EXPERIENCES_REQUEST,
   loading: true,
   error: null
 });
 
-export const getExperiencesSuccess = (experiences: Experience[]): Action => ({
+const getExperiencesSuccess = (experiences: Experience[]): Action => ({
   type: ActionTypes.GET_EXPERIENCES_SUCCESS,
   payload: experiences,
   loading: false,
   error: null
 });
 
-export const getExperiencesFailure = (error: string): Action => ({
+const getExperiencesFailure = (error: string): Action => ({
   type: ActionTypes.GET_EXPERIENCES_FAILURE,
   loading: false,
   error: error
@@ -24,7 +25,7 @@ export const getExperiencesFailure = (error: string): Action => ({
 
 export const fetchExperiences = (userId: string) => {
   return async (dispatch: Dispatch<Action>) => {
-    dispatch(getExperiencesRequest());
+    useAppDispatch(getExperiencesRequest());
 
     try {
       const response = await fetch(
@@ -34,12 +35,12 @@ export const fetchExperiences = (userId: string) => {
         throw new Error(response.statusText);
       }
       const experiences = await response.json();
-      dispatch(getExperiencesSuccess(experiences));
+      useAppDispatch(getExperiencesSuccess(experiences));
     } catch (error: unknown) {
       if (error instanceof Error) {
-        dispatch(getExperiencesFailure(error.message));
+        useAppDispatch(getExperiencesFailure(error.message));
       } else {
-        dispatch(getExperiencesFailure("An unknown error occurred"));
+        useAppDispatch(getExperiencesFailure("An unknown error occurred"));
       }
     }
   };
@@ -47,20 +48,20 @@ export const fetchExperiences = (userId: string) => {
 
 // AGGIUNGERE ESPERIENZA
 
-export const addExperienceRequest = (): Action => ({
+const addExperienceRequest = (): Action => ({
   type: ActionTypes.ADD_EXPERIENCE_REQUEST,
   loading: true,
   error: null
 });
 
-export const addExperienceSuccess = (experience: Experience): Action => ({
+const addExperienceSuccess = (experience: Experience): Action => ({
   type: ActionTypes.ADD_EXPERIENCE_SUCCESS,
   payload: experience,
   loading: false,
   error: null
 });
 
-export const addExperienceFailure = (error: string): Action => ({
+const addExperienceFailure = (error: string): Action => ({
   type: ActionTypes.ADD_EXPERIENCE_FAILURE,
   error: error,
   loading: false
@@ -68,7 +69,7 @@ export const addExperienceFailure = (error: string): Action => ({
 
 export const addExperience = (userId: string, experience: Experience) => {
   return async (dispatch: Dispatch) => {
-    dispatch(addExperienceRequest());
+    useAppDispatch(addExperienceRequest());
 
     try {
       const response = await fetch(
@@ -84,15 +85,15 @@ export const addExperience = (userId: string, experience: Experience) => {
       const data = await response.json();
 
       if (response.ok) {
-        dispatch(addExperienceSuccess(data));
+        useAppDispatch(addExperienceSuccess(data));
       } else {
-        dispatch(addExperienceFailure(data.error));
+        useAppDispatch(addExperienceFailure(data.error));
       }
     } catch (error: unknown) {
       if (error instanceof Error) {
-        dispatch(getExperiencesFailure(error.message));
+        useAppDispatch(getExperiencesFailure(error.message));
       } else {
-        dispatch(getExperiencesFailure("An unknown error occurred"));
+        useAppDispatch(getExperiencesFailure("An unknown error occurred"));
       }
     }
   };
@@ -100,20 +101,20 @@ export const addExperience = (userId: string, experience: Experience) => {
 
 // OTTENERE ESPERIENZA SINGOLA
 
-export const getExperienceRequest = (): Action => ({
+const getExperienceRequest = (): Action => ({
   type: ActionTypes.GET_EXPERIENCE_REQUEST,
   loading: true,
   error: null
 });
 
-export const getExperienceSuccess = (experience: Experience): Action => ({
+const getExperienceSuccess = (experience: Experience): Action => ({
   type: ActionTypes.GET_EXPERIENCE_SUCCESS,
   payload: experience,
   loading: false,
   error: null
 });
 
-export const getExperienceFailure = (error: string): Action => ({
+const getExperienceFailure = (error: string): Action => ({
   type: ActionTypes.GET_EXPERIENCE_FAILURE,
   loading: false,
   error: error,
@@ -121,7 +122,7 @@ export const getExperienceFailure = (error: string): Action => ({
 
 export const fetchExperience = (userId: string, experienceId: string) => {
   return async (dispatch: Dispatch<Action>) => {
-    dispatch(getExperienceRequest());
+    useAppDispatch(getExperienceRequest());
 
     try {
       const response = await fetch(
@@ -131,12 +132,12 @@ export const fetchExperience = (userId: string, experienceId: string) => {
         throw new Error(response.statusText);
       }
       const experience = await response.json();
-      dispatch(getExperienceSuccess(experience));
+      useAppDispatch(getExperienceSuccess(experience));
     } catch (error: unknown) {
       if (error instanceof Error) {
-        dispatch(getExperiencesFailure(error.message));
+        useAppDispatch(getExperiencesFailure(error.message));
       } else {
-        dispatch(getExperiencesFailure("An unknown error occurred"));
+        useAppDispatch(getExperiencesFailure("An unknown error occurred"));
       }
     }
   };
@@ -144,20 +145,20 @@ export const fetchExperience = (userId: string, experienceId: string) => {
 
 // MODIFICA ESPERIENZA SINGOLA
 
-export const editExperienceRequest = (): Action => ({
+const editExperienceRequest = (): Action => ({
   type: ActionTypes.EDIT_EXPERIENCE_REQUEST,
   loading: true,
   error: null
 });
 
-export const editExperienceSuccess = (experience: Experience): Action => ({
+const editExperienceSuccess = (experience: Experience): Action => ({
   type: ActionTypes.EDIT_EXPERIENCE_SUCCESS,
   payload: experience,
   loading: false,
   error: null
 });
 
-export const editExperienceFailure = (error: string): Action => ({
+const editExperienceFailure = (error: string): Action => ({
   type: ActionTypes.EDIT_EXPERIENCE_FAILURE,
   loading: false,
   error: error,
@@ -166,7 +167,7 @@ export const editExperienceFailure = (error: string): Action => ({
 export const editExperience =
   (userId: string, experience: Experience) =>
   async (dispatch: Dispatch<Action>) => {
-    dispatch(editExperienceRequest());
+    useAppDispatch(editExperienceRequest());
 
     try {
       const response = await fetch(
@@ -182,34 +183,34 @@ export const editExperience =
 
       if (response.ok) {
         const updatedExperience = await response.json();
-        dispatch(editExperienceSuccess(updatedExperience));
+        useAppDispatch(editExperienceSuccess(updatedExperience));
       } else {
         const data = await response.json();
-        dispatch(editExperienceFailure(data.error));
+        useAppDispatch(editExperienceFailure(data.error));
       }
     } catch (error: unknown) {
       if (error instanceof Error) {
-        dispatch(editExperienceFailure(error.message));
+        useAppDispatch(editExperienceFailure(error.message));
       } else {
-        dispatch(editExperienceFailure("An unknown error occurred"));
+        useAppDispatch(editExperienceFailure("An unknown error occurred"));
       }
     }
   };
 
-export const deleteExperienceRequest = (): Action => ({
+const deleteExperienceRequest = (): Action => ({
   type: ActionTypes.DELETE_EXPERIENCE_REQUEST,
   loading: true,
   error: null
 });
 
-export const deleteExperienceSuccess = (id: string): Action => ({
+const deleteExperienceSuccess = (id: string): Action => ({
   type: ActionTypes.DELETE_EXPERIENCE_SUCCESS,
   payload: id,
   loading: false,
   error: null
 });
 
-export const deleteExperienceFailure = (error: string): Action => ({
+const deleteExperienceFailure = (error: string): Action => ({
   type: ActionTypes.DELETE_EXPERIENCE_FAILURE,
   loading: false,
   error: error
@@ -217,7 +218,7 @@ export const deleteExperienceFailure = (error: string): Action => ({
 
 export const deleteExperience = (userId: string, experienceId: string) => {
   return async (dispatch: Dispatch) => {
-    dispatch(deleteExperienceRequest());
+    useAppDispatch(deleteExperienceRequest());
 
     try {
       const response = await fetch(
@@ -228,16 +229,16 @@ export const deleteExperience = (userId: string, experienceId: string) => {
       );
 
       if (response.ok) {
-        dispatch(deleteExperienceSuccess(experienceId));
+        useAppDispatch(deleteExperienceSuccess(experienceId));
       } else {
         const data = await response.json();
-        dispatch(deleteExperienceFailure(data.error));
+        useAppDispatch(deleteExperienceFailure(data.error));
       }
     } catch (error: unknown) {
       if (error instanceof Error) {
-        dispatch(getExperiencesFailure(error.message));
+        useAppDispatch(getExperienceFailure(error.message));
       } else {
-        dispatch(getExperiencesFailure("An unknown error occurred"));
+        useAppDispatch(getExperienceFailure("An unknown error occurred"));
       }
     }
   };
