@@ -28,6 +28,9 @@ export const Messages = () => {
                     <i className="bi bi-pencil-square mx-3 Msghover"></i> 
                     <i  onClick={()=>setOnoff(!onoff)} className="bi bi-caret-down Msghover"></i>
                 </div>
+                <ul>
+                    <li>ciao</li>
+                </ul>
             </div>
             </div> }
 
