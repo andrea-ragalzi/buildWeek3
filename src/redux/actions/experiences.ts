@@ -1,27 +1,28 @@
 import { Dispatch } from "redux";
 import { ActionTypes, Action } from "./../../types/expReducer";
 import { Experience } from "./../../types/expCardTypes";
-import { store } from "./../store/store"
+import { store } from "./../store/store";
 import { AnyAction } from "@reduxjs/toolkit";
+const apiKey = process.env.REACT_APP_MY_KEY;
 
 // definizione delle azioni
 const getExperiencesRequest = (): Action => ({
   type: ActionTypes.GET_EXPERIENCES_REQUEST,
   loading: true,
-  error: null
+  error: null,
 });
 
 const getExperiencesSuccess = (experiences: Experience[]): Action => ({
   type: ActionTypes.GET_EXPERIENCES_SUCCESS,
   payload: experiences,
   loading: false,
-  error: null
+  error: null,
 });
 
 const getExperiencesFailure = (error: string): Action => ({
   type: ActionTypes.GET_EXPERIENCES_FAILURE,
   loading: false,
-  error: error
+  error: error,
 });
 
 export const fetchExperiences = (userId: string) => {
@@ -30,13 +31,19 @@ export const fetchExperiences = (userId: string) => {
 
     try {
       const response = await fetch(
-        `https://striveschool-api.herokuapp.com/api/profile/${userId}/experiences`
+        `https://striveschool-api.herokuapp.com/api/profile/${userId}/experiences`,
+        {
+          headers: {
+            Authorization: `Bearer ${apiKey}`,
+          },
+        }
       );
       if (!response.ok) {
         throw new Error(response.statusText);
       }
       const experiences = await response.json();
       dispatch(getExperiencesSuccess(experiences));
+      console.log("nella fetch:", experiences);
     } catch (error: unknown) {
       if (error instanceof Error) {
         dispatch(getExperiencesFailure(error.message));
@@ -52,20 +59,20 @@ export const fetchExperiences = (userId: string) => {
 const addExperienceRequest = (): Action => ({
   type: ActionTypes.ADD_EXPERIENCE_REQUEST,
   loading: true,
-  error: null
+  error: null,
 });
 
 const addExperienceSuccess = (experience: Experience): Action => ({
   type: ActionTypes.ADD_EXPERIENCE_SUCCESS,
   payload: experience,
   loading: false,
-  error: null
+  error: null,
 });
 
 const addExperienceFailure = (error: string): Action => ({
   type: ActionTypes.ADD_EXPERIENCE_FAILURE,
   error: error,
-  loading: false
+  loading: false,
 });
 
 export const addExperience = (userId: string, experience: Experience) => {
@@ -105,14 +112,14 @@ export const addExperience = (userId: string, experience: Experience) => {
 const getExperienceRequest = (): Action => ({
   type: ActionTypes.GET_EXPERIENCE_REQUEST,
   loading: true,
-  error: null
+  error: null,
 });
 
 const getExperienceSuccess = (experience: Experience): Action => ({
   type: ActionTypes.GET_EXPERIENCE_SUCCESS,
   payload: experience,
   loading: false,
-  error: null
+  error: null,
 });
 
 const getExperienceFailure = (error: string): Action => ({
@@ -149,14 +156,14 @@ export const fetchExperience = (userId: string, experienceId: string) => {
 const editExperienceRequest = (): Action => ({
   type: ActionTypes.EDIT_EXPERIENCE_REQUEST,
   loading: true,
-  error: null
+  error: null,
 });
 
 const editExperienceSuccess = (experience: Experience): Action => ({
   type: ActionTypes.EDIT_EXPERIENCE_SUCCESS,
   payload: experience,
   loading: false,
-  error: null
+  error: null,
 });
 
 const editExperienceFailure = (error: string): Action => ({
@@ -201,20 +208,20 @@ export const editExperience =
 const deleteExperienceRequest = (): Action => ({
   type: ActionTypes.DELETE_EXPERIENCE_REQUEST,
   loading: true,
-  error: null
+  error: null,
 });
 
 const deleteExperienceSuccess = (id: string): Action => ({
   type: ActionTypes.DELETE_EXPERIENCE_SUCCESS,
   payload: id,
   loading: false,
-  error: null
+  error: null,
 });
 
 const deleteExperienceFailure = (error: string): Action => ({
   type: ActionTypes.DELETE_EXPERIENCE_FAILURE,
   loading: false,
-  error: error
+  error: error,
 });
 
 export const deleteExperience = (userId: string, experienceId: string) => {
