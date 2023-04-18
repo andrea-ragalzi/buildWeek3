@@ -10,7 +10,7 @@ export const Messages = () => {
         <img src="//" alt="avatar_small" />Messaggi
         </div> 
         : 
-    <div className="Uncollapsedmessage">big div</div>}
+    <div className="Uncollapsedmessage" onClick={()=>setOnoff(!onoff)}>big div</div>}
     </div>
     
     
