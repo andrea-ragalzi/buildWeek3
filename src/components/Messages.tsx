@@ -35,14 +35,10 @@ export const Messages = () => {
             </div>
 
             <ListGroup>
-                <ListGroup.Item className="Msghoverdue"><img src="https://picsum.photos/70/70" width="45px" height="45px" className="rounded-circle floatable border-bottom" alt="avatar_small" /><div>ciao</div></ListGroup.Item>
+                <ListGroup.Item className="Msghoverdue"><img src="https://picsum.photos/70/70" width="45px" height="45px" className="rounded-circle floatable border-bottom" alt="avatar_small" /><div>Mario</div></ListGroup.Item>
             </ListGroup>
  
             </div> }
 
     </div>
-    
-    
-    )
-
-}
+    )}
