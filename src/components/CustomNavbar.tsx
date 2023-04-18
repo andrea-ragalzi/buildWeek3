@@ -335,7 +335,7 @@ export const CustomNavbar = () => {
       {Rightcollapse ? (
         <div className="Contentggs">
           <Container>
-            <h3> Per le aziende</h3>
+            <h4> Per le aziende</h4>
             <div className="Collapse border rounded p-3">
               <b className="bBottom ms-">Scopri altri prodotti Linkedin</b>
               <hr className="my-2"></hr>
