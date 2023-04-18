@@ -13,7 +13,7 @@ export const CustomNavbar = () => {
   const [Rightcollapse, setRightcollapse] = useState(false);
 
   return (
-    <Navbar className="p-0 position-relative" bg="light" expand="lg">
+    <Navbar className="p-0 position-sticky top-0 z-3" bg="light" expand="lg">
       <Container className="justify-content-around">
         <Navbar.Brand href="#">
           <svg
