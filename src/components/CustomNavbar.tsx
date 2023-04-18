@@ -339,15 +339,15 @@ export const CustomNavbar = () => {
             <div className="Collapse border rounded p-3">
               <b className="bBottom ms-">Scopri altri prodotti Linkedin</b>
               <hr className="my-2"></hr>
-              <div className="fs-2 d-flex justify-content-center align-items-center h-50">
+              <div className="fs-2 d-flex justify-content-center align-items-center h-75">
                 <ul className="List-collapse list-unstyled d-flex flex-wrap">
-                  <li className="text-secondary d-flex flex-column justify-content-center align-items-center mt-3 h-0 w-25"><i className="d-inline-block text-primary bi bi-play-btn-fill"></i><span className="text-center">Learning</span></li>
-                  <li className="text-secondary d-flex flex-column justify-content-center align-items-center mt-3 h-0 w-25"><i className="d-inline-block text-primary bi bi-file-bar-graph-fill"></i><span className="text-center"> Insight</span></li>
-                  <li className="text-secondary d-flex flex-column justify-content-center align-items-center mt-3 h-0  mt-5 w-25"><i className="d-inline-block text-primary bi bi-image"></i><span className="text-center">Pubblica un'offerda di lavoro</span></li>
-                  <li className="text-secondary d-flex flex-column justify-content-center align-items-center mt-3 h-0 w-25"><i className="d-inline-block text-primary bi bi-bullseye"></i><span className="text-center">Pubblicizza</span></li>
-                  <li className="text-secondary d-flex flex-column justify-content-center align-items-center mt-2 h-0 w-25"><i className="d-inline-block text-primary bi bi-browser-safari"></i><span className="text-center">Trova Lead</span></li>
-                  <li className="text-secondary d-flex flex-column justify-content-center align-items-center mt-2 h-0 w-25"><i className="d-inline-block text-primary bi bi-people-fill"></i><span className="text-center"> Gruppi</span></li>
-                  <li className="text-secondary d-flex flex-column justify-content-center align-items-center mt-4 h-0 w-25"><i className="d-inline-block text-primary bi bi-person-fill-check"></i><span className="text-center"> Marketplace dei servizi</span></li>
+                  <li className="text-secondary d-flex flex-column justify-content-center align-items-center mt-3 w-25"><i className="d-inline-block text-primary bi bi-play-btn-fill"></i><span className="text-center">Learning</span></li>
+                  <li className="text-secondary d-flex flex-column justify-content-center align-items-center mt-3 w-25"><i className="d-inline-block text-primary bi bi-file-bar-graph-fill"></i><span className="text-center"> Insight</span></li>
+                  <li className="text-secondary d-flex flex-column justify-content-center align-items-center mt-5 w-25"><i className="d-inline-block text-primary bi bi-image"></i><span className="text-center">Pubblica un'offerda di lavoro</span></li>
+                  <li className="text-secondary d-flex flex-column justify-content-center align-items-center mt-3 w-25"><i className="d-inline-block text-primary bi bi-bullseye"></i><span className="text-center">Pubblicizza</span></li>
+                  <li className="text-secondary d-flex flex-column justify-content-center align-items-center mt-2 w-25"><i className="d-inline-block text-primary bi bi-browser-safari"></i><span className="text-center">Trova Lead</span></li>
+                  <li className="text-secondary d-flex flex-column justify-content-center align-items-center mt-2 w-25"><i className="d-inline-block text-primary bi bi-people-fill"></i><span className="text-center"> Gruppi</span></li>
+                  <li className="text-secondary d-flex flex-column justify-content-center align-items-center mt-4 w-25"><i className="d-inline-block text-primary bi bi-person-fill-check"></i><span className="text-center"> Marketplace dei servizi</span></li>
                 </ul>
               </div>
             </div>
