@@ -365,7 +365,7 @@ export const CustomNavbar = () => {
               </div>
 
             </div>
-            <div className="Second-Collapse border rounded p-3 mt-2 ">
+            <div className="Second-Collapse border rounded p-3">
               <b className="fs-6">Crea una pagina aziendale <i className="fs-5 bi bi-plus-lg"></i></b>
             </div>
           </Container>
