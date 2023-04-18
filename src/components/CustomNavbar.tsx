@@ -336,10 +336,20 @@ export const CustomNavbar = () => {
         <div className="Contentggs">
           <Container>
             <h3> Per le aziende</h3>
-            <div className="border rounded p-3">
+            <div className="Collapse border rounded p-3">
               <b className="bBottom ms-">Scopri altri prodotti Linkedin</b>
-              <hr className="my-2 mx-0"></hr>
-              <div></div>
+              <hr className="my-2"></hr>
+              <div>
+                <ul>
+                  <li> <i className="bi bi-play-btn-fill"></i></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                </ul>
+              </div>
             </div>
           </Container>
         </div>
