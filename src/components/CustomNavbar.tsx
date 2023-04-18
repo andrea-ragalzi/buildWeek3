@@ -335,7 +335,7 @@ export const CustomNavbar = () => {
       {Rightcollapse ? (
         <div className="Contentggs">
           <Container>
-            <h3> Per le aziende</h3>
+            <h3 className="ms-2"> Per le aziende</h3>
             <div className="Collapse border rounded p-3">
               <b className="bBottom text-secondary">Scopri altri prodotti Linkedin</b>
               <hr className="my-2"></hr>
@@ -355,7 +355,7 @@ export const CustomNavbar = () => {
               <b className="bBottom text-secondary">Assistenza alle aziende di Linkedin</b>
               <hr className="my-2"></hr>
               <div className="fs-2 d-flex justify-content-start align-items-center h-10">
-                <ul className="list-unstyled ">
+                <ul className="list-unstyled ms-1 ">
                   <li className="Second-List-collapse mt-1 fw-bold">Talent solutions <br></br><p className="fw-normal Collapse-p text-secondary">Trova, attrai e assumi </p></li>
                   <li className="Second-List-collapse fw-bold">Sales Solutions  <br></br><p className="fw-normal Collapse-p text-secondary">Sblocca nuove opportunità di vendita </p></li>
                   <li className="Second-List-collapse fw-bold">Pubblica offerta di lavoro gratuita  <br></br><p className="fw-normal Collapse-p text-secondary">Raggiungi i migliori candidati con la tua offerta di lavoro </p></li>
@@ -363,6 +363,10 @@ export const CustomNavbar = () => {
                   <li className="Second-List-collapse fw-bold">Learning Solutions  <br></br><p className="fw-normal Collapse-p text-secondary">Promuovi l'acquisizione di competenze nella tua organizzazione</p></li>
                 </ul>
               </div>
+
+            </div>
+            <div className="Second-Collapse border rounded p-3 mt-2 ">
+              <b className="fs-6">Crea una pagina aziendale <i className="fs-5 bi bi-plus-lg"></i></b>
             </div>
           </Container>
         </div>
