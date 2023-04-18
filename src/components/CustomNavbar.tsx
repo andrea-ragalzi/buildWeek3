@@ -355,7 +355,7 @@ export const CustomNavbar = () => {
               <b className="bBottom text-secondary">Assistenza alle aziende di Linkedin</b>
               <hr className="my-2"></hr>
               <div className="fs-2 d-flex justify-content-start align-items-center h-10">
-                <ul className="list-unstyled ms-1 ">
+                <ul className="list-unstyled ms-1 Secondhover">
                   <li className="Second-List-collapse mt-1 fw-bold">Talent solutions <br></br><p className="fw-normal Collapse-p text-secondary">Trova, attrai e assumi </p></li>
                   <li className="Second-List-collapse fw-bold">Sales Solutions  <br></br><p className="fw-normal Collapse-p text-secondary">Sblocca nuove opportunità di vendita </p></li>
                   <li className="Second-List-collapse fw-bold">Pubblica offerta di lavoro gratuita  <br></br><p className="fw-normal Collapse-p text-secondary">Raggiungi i migliori candidati con la tua offerta di lavoro </p></li>
