@@ -176,7 +176,12 @@ export const fetchExperience = (userId: string, experienceId: string) => {
 
     try {
       const response = await fetch(
-        `https://striveschool-api.herokuapp.com/api/profile/${userId}/experiences/${experienceId}`
+        `https://striveschool-api.herokuapp.com/api/profile/${userId}/experiences/${experienceId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${apiKey}`
+          }
+        }
       );
       if (!response.ok) {
         throw new Error(response.statusText);
@@ -203,6 +208,7 @@ export const editExperience = (userId: string, experience: Experience) => {
         {
           method: "PUT",
           headers: {
+            Authorization: `Bearer ${apiKey}`,
             "Content-Type": "application/json",
           },
           body: JSON.stringify(experience),
