@@ -1,7 +1,5 @@
 import { Container, Row, Col } from "react-bootstrap";
-import { UsbDrive } from "react-bootstrap-icons";
 import { useState } from "react"
-import { ListGroup } from "react-bootstrap";
 import { Postmaker } from "../components/Postmaker";
 const Home = () => {
   const [Showlist, setShowlist] = useState(false)
@@ -73,7 +71,7 @@ const Home = () => {
                 <b className="bBottom text-secondary ms-2 ">
                   LinkedIn Notizie
                 </b>
-                <div className="fs-2 d-flex justify-content-start align-items-center h-10 ">
+                <div>
                   <ul className=" Secondhover">
                     <li className="Second-List-collapse mt-1 fw-bold Homelist pe-3">
                       Le Top Companies del 2023 in Italia <br></br>
