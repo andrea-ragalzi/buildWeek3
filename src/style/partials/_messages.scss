@@ -1,3 +1,4 @@
+
 .Collapsedmessage{
     position: fixed;
     right: 0;
@@ -32,9 +33,11 @@
     border-radius: 100%;
     width: 60px;
 }
+
 .Msghoverdue:hover{
     background-color: rgb(218, 218, 218);
 }
+
 .Msghoverdue{
     border-bottom: 1px solid grey;
 }
@@ -44,6 +47,7 @@
         padding: 0; 
         margin: 0;
 }
+
 .floatable{
     float:left;
 }

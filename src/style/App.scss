@@ -5,6 +5,7 @@
 @import "./partials/messages";
 @import "./partials/card";
 @import "./partials/profilecontainer";
+@import "./partials/home";
 
 html,
 body,
@@ -16,6 +17,7 @@ body,
   max-height: 100vh;
   background-color: rgb(228, 228, 228);
 }
+
 .pageContainer {
   width: 100%;
   height: 100%;
@@ -44,6 +46,18 @@ body,
   @include myLink;
 }
 
+.linkBehave {
+  text-decoration: none;
+  color: $myGrey;
+  padding: 0;
+}
+
+.linkBehave:hover {
+  text-decoration: underline;
+  color: $myDark;
+  cursor: pointer;
+}
+
 .btnWhite {
   @include myBtn;
   background-color: white;
@@ -63,4 +77,10 @@ body,
   background-color: white;
   border-color: $myGrey;
   color: $myGrey;
+}
+
+.textCutter {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }

@@ -1,144 +1,218 @@
-nav.navbar {
+.myNavbar {
   width: 100%;
-  height: 3.5rem;
+  height: 4rem;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   padding: 0;
   z-index: 1000;
-}
-nav.navbar > .container {
-  display: flex;
-  justify-content: space-between;
-  height: 100%;
-  width: 100%;
-}
-
-nav.navbar > .container > div {
-  width: 48%;
-  height: inherit;
-  display: flex;
-  align-items: center;
-  #navbarScroll {
-    height: 100%;
-    width: inherit;
-    div {
-      height: 100%;
-      width: 100%;
-      @include myLink;
-      a {
-        @include centeringFlex;
-        color: $myGrey;
-        min-width: 3rem;
-        padding: 0 2px;
-        p {
-          display: inline;
-          font-size: 12px;
-          margin-bottom: 0;
-        }
+  background-color: white;
+  color: $myGrey;
+  .navbar {
+    @include fullDimensions;
+    .container {
+      @include fullDimensions;
+      .innerNavbar {
+        @include fullDimensions;
+        font-size: 12px;
+        margin: 0;
+      }
+      .innerNavbar > div,
+      .navbar-brand,
+      .navbar-brand > a,
+      .navbar-nav > div.dropdown,
+      #logoNavbar,
+      .navbar-collapse,
+      .navbar-nav,
+      .navbar-nav > a,
+      .nav-item,
+      .nav-item > a,
+      .dropdown-toggle {
+        height: 100%;
       }
     }
   }
 }
 
-nav.navbar > .container > div > form {
+.navbar-nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar-nav > a,
+.navbar-nav > div.dropdown {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  i {
+    font-size: 20px;
+    height: fit-content;
+  }
+}
+
+.innerNavbar > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0;
+}
+
+.innerNavbar form {
+  width: 40%;
+}
+
+.innerNavbar p {
+  margin: 0;
   width: fit-content;
+  height: fit-content;
 }
 
-.Content {
-  height: 93vh;
-  position: fixed;
-  z-index: 1;
-  top: 70px;
-  right: 0;
-  background-color: white;
-  overflow-x: hidden;
-  padding-top: 20px;
-  width: 0px;
-  z-index: 10;
-  opacity: 0;
-  border-bottom-left-radius: 15px;
-  border-top-left-radius: 15px;
+.dropdown-toggle {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.dropdown-toggle::after {
+  position: absolute;
+  bottom: 15%;
+  right: -1px;
+}
+
+.dropdown-title {
+  @include fullDimensions;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  img {
+    height: 50%;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+.dropdown-menu {
+  max-width: 300px;
+  .row {
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 0 1rem;
+    margin: 0;
+    img {
+      width: 100%;
+      aspect-ratio: 1/1;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+}
+
+.dropdown-menu[data-bs-popper] {
+  right: -25px;
+  left: auto;
+}
+
+#aziendeToggle {
+  padding-left: 20px;
+  border-left: 1px solid $myGrey;
+}
+
+.aziendeNoContent {
+  height: 95%;
+  width: 0;
   transition: all ease 0.5s;
+  position: fixed;
+  top: 4rem;
+  right: 0;
 }
 
-.Contentggs {
-  height: 93vh;
-  position: fixed;
-  z-index: 1;
-  top: 70px;
-  right: 0;
-  background-color: white;
-  overflow-x: hidden;
-  padding-top: 20px;
-  z-index: 10;
+.aziendeContent {
+  height: 95%;
   width: 350px;
-  opacity: 1;
+  position: fixed;
+  top: 4rem;
+  right: 0;
+  background-color: white;
+  overflow-x: hidden;
+  padding-bottom: 50px;
   border-bottom-left-radius: 15px;
   border-top-left-radius: 15px;
+  z-index: 10;
   transition: all ease 0.5s;
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: transparentize($myBlue, 0.4);
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: $myBlue;
+  }
 }
-.scure {
-  background-color: black;
-  opacity: 0.6;
+
+.aziendeContent > .container {
+  height: 100%;
+  overflow-y: auto;
+}
+
+.shadower {
   height: 100vh;
   width: 100%;
-  z-index: 1;
+  background-color: $myDark;
+  opacity: 0.6;
   position: fixed;
   bottom: 0;
-  top: 70px;
+  top: 4rem;
   left: 0;
   right: 0;
+  z-index: 1;
   transition: all 0.5s;
 }
 
-.premium :hover {
-  color: rgb(110, 110, 236);
+.aziendeContent > .container > .sticky-top {
+  background-color: white;
+  padding: 5% 0;
+  border-bottom: 1px solid $myGrey;
 }
 
-.underline:hover {
-  text-decoration: underline grey;
+.aziendeMenu {
+  border-radius: 15px;
+  border: 0.4px solid grey;
+  margin: 5% auto;
+  padding-top: 5%;
 }
 
-#nav-dropdown-dark {
-  padding: 0px;
-  font-size: 12px;
-}
-
-.Collapse hr {
-  width: 111%;
-  margin-left: -5.5%;
-}
-
-.Collapse {
-  height: 17em;
-}
-
-.List-collapse span {
-  font-size: 11.3px;
-}
-
-.Second-Collapse {
-  height: 22.8em;
-}
-.Second-Collapse hr {
-  width: 111%;
-  margin-left: -5.5%;
-}
-
-.Collapse-p {
-  font-size: 12.2px;
-}
-
-.Second-List-collapse {
-  font-size: 14px;
-  color: rgb(85, 83, 83);
-}
-
-.Third-Collapse {
-  height: 3.2em;
-}
-.Secondhover li:hover {
-  text-decoration: underline;
+.firstMenu > .col-3 {
+  @include centeringFlex;
+  justify-content: flex-start;
+  text-align: center;
+  i {
+    color: $myBlue;
+    font-size: 30px;
+    width: 90%;
+    aspect-ratio: 1/1;
+    border-radius: 10%;
+    border: 0.4px solid grey;
+    @include centeringFlex;
+  }
+  p {
+    padding-top: 5px;
+    font-size: 11px;
+  }
 }
