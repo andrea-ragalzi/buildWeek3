@@ -1,7 +1,13 @@
 import { Container, Row, Col, Button } from "react-bootstrap";
 import { MyFooter } from "./../components/MyFooter";
-import { useEffect } from "react";
-import { fetchExperiences, addExperience, deleteExperience } from "./../redux/actions/experiences";
+import { useState, useEffect } from "react";
+import {
+  fetchExperiences,
+  addExperience,
+  deleteExperience,
+  fetchExperience,
+  editExperience,
+} from "./../redux/actions/experiences";
 import { fetchProfile, editProfile, fetchProfiles } from "../redux/actions/profileActions";
 import { useSelector } from "react-redux";
 import type { RootState } from "./../redux/store/store";
@@ -18,9 +24,12 @@ const Profile = () => {
   const userExperiences = useSelector(
     (state: RootState) => state.experience.list
   );
+  const selectedExperience = useSelector(
+    (state: RootState) => state.experience.selected)
 
   useEffect(() => {
     dispatch(fetchProfile('me'));
+    dispatch(fetchExperiences(profile!._id!));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -63,7 +72,12 @@ const Profile = () => {
   }
 
   const handleDeleteExp = () => {
-    dispatch(deleteExperience(profile!._id, '64404b7a405be40014e76711'));
+    dispatch(deleteExperience(profile!._id, '6440504f405be40014e76715'));
+  }
+
+  const handleEditExp = () => {
+    dispatch(fetchExperience(profile!._id, '64405428405be40014e7671c'));
+    dispatch(editExperience(profile!._id, selectedExperience!));
   }
 
   return (
@@ -85,15 +99,10 @@ const Profile = () => {
               className="btn btn-primary"
               onClick={handleDeleteExp}
             >DELETE EXPERIENCE</Button>
-            {userExperiences.length > 0 &&
-              userExperiences.map((exp: Experience) => {
-                return (
-                  <div>
-                    <p>{exp.description}</p>
-                    <p>ciao</p>
-                  </div>
-                );
-              })}
+            <Button
+              className="btn btn-primary"
+              onClick={handleEditExp}
+            >EDIT EXPERIENCE</Button>
             {userExperiences?.length <= 0 && <p>no experiences</p>}
             <Col xs={12}>
               <div style={{ width: '100%', backgroundColor: 'white', aspectRatio: '4/3' }} className="border border-1 border-secondary rounded-3">
