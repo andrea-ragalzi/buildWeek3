@@ -120,17 +120,15 @@ const Profile = () => {
                   </button>
                 </div>
 
-                <Row className="profileHeroText">
-                  <Col xs={8}>
-                    <h2>Aonna Ragazzi</h2>
-                    <p>
-                      Managing Director at TNA Building Services Ltd --
-                      Providing Building maintenance solutions to the block
-                      management, social housing and commercial sectors,
-                      operating across the country 24 hours a day.
-                    </p>
-                  </Col>
-                  <Col xs={4}>
+                <Row className="mt-5 mx-4 row">
+
+                {profile? <div className="col-8">
+
+                    <h2>{profile.name} {profile.surname} </h2>
+                    <p>{profile.title}</p>
+                    <p>{profile.area}</p>
+                  </div>:<></>}
+                  <Col className="col-4">
                     <ul>
                       <li>image : azienda</li>
                     </ul>
@@ -138,6 +136,12 @@ const Profile = () => {
                 </Row>
               </div>
             </Col>
+           {profile? <Col xs={12}>
+              <div style={{ width: '100%', backgroundColor: 'white' }} className="border border-1 border-secondary rounded-3">
+                <BoxInfo title='Informazioni' />
+                <p>{profile.bio}</p>
+              </div>
+            </Col>:<></>}
             <Col xs={12}>
               <div className="sectionContainer">
                 <BoxInfo title="Esperienza" />

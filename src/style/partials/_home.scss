@@ -48,18 +48,77 @@
 }
 
 
-.HomeUncollapsed{
-    background-color: white;
-    height: 10px;
-    transition: all ease 0.6s;
+.HomeList li{
+    font-size: 12px;
+}
+
+.Homecollapse{
+ height: 0px;
+ overflow: hidden;
+}
+
+.Homecollapse.Show{
+    height: 100%;
 }
 
 .HomeCollapsed{
-    height:100%;
-    background-color: white;
-    transition: all ease 0.6s;
+
+    transition: height ease 0.5s;
 }
 
-.HomeList li{
-    font-size: 12px;
+.Bigbutton{
+    color: gray;
+    text-align: left;
+    background-color: white;
+    border:solid 1px gray;
+    border-radius:25px ;
+    width: 100%;
+    height: 50px;
+    margin-left: 55px;
+}
+.Bigbutton:hover{
+    background-color: rgb(231, 231, 231);
+    transition: all 0.3s;
+
+}
+
+.Btnsection button{
+    background-color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: none;
+
+}
+.Btnsection button:hover{
+    background-color: rgb(231, 231, 231);
+    transition: all 0.3s;
+    border-radius: 5px;
+    border: none;
+
+}
+.picture{
+    font-size: 23px;
+}
+
+.bi-image.picture{
+    color: rgb(114, 114, 255);
+}
+
+.bi-play-btn-fill.picture{
+    color: rgb(93, 209, 93);
+}
+  
+.bi-calendar-date.picture{
+    color: rgb(236, 216, 101);
+ } 
+
+ .bi-journal-text.picture{
+    color: orange;
+}
+.Postdiv{
+    position: fixed;
+    top: 90px;
+    z-index: 20;
+    width: 100%;
+    background-color: white;
 }
