@@ -7,6 +7,7 @@
   right: 0;
   padding: 0;
   z-index: 1000;
+  background-color: white;
   color: $myGrey;
   .navbar {
     @include fullDimensions;
@@ -68,10 +69,6 @@
   height: fit-content;
 }
 
-#basic-nav-dropdown {
-  padding: 0;
-}
-
 .dropdown-toggle {
   position: relative;
   top: 0;
@@ -80,8 +77,8 @@
 
 .dropdown-toggle::after {
   position: absolute;
-  bottom: 20%;
-  right: -30%;
+  bottom: 15%;
+  right: -1px;
 }
 
 .dropdown-title {
@@ -115,6 +112,11 @@
       object-position: center;
     }
   }
+}
+
+.dropdown-menu[data-bs-popper] {
+  right: -25px;
+  left: auto;
 }
 
 #aziendeToggle {

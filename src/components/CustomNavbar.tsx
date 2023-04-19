@@ -14,7 +14,7 @@ export const CustomNavbar = () => {
 
   return (
     <header className="myNavbar">
-      <Navbar bg="light" expand="sm">
+      <Navbar expand="sm">
         <Container>
           <Container>
             <Row className="innerNavbar">
@@ -125,7 +125,7 @@ export const CustomNavbar = () => {
                             alt="Foto dropdowns"
                           />
                         </Col>
-                        <Col xs={8} className="offset-1">
+                        <Col xs={9}>
                           <div>
                             <p>
                               <b>Martin Linke-din</b>
@@ -134,8 +134,8 @@ export const CustomNavbar = () => {
                           </div>
                         </Col>
                         <Col xs={12}>
-                          <NavDropdown.Item className="d-flex justify-content-center">
-                            <Button className="btnWhite px-2">
+                          <NavDropdown.Item className="d-flex">
+                            <Button className="btnWhite w-100">
                               Visualizza profilo
                             </Button>
                           </NavDropdown.Item>
@@ -143,42 +143,45 @@ export const CustomNavbar = () => {
                       </Row>
                       <NavDropdown.Divider />
                       <Row>
-                        <Col xs={12}>
+                        <Col xs={12} className="my-1">
                           <p>
                             <b>Account</b>
                           </p>
                         </Col>
                         <Col xs={12}>
-                          <NavDropdown.Item>
-                            <p className="linkBehave">
-                              {" "}
+                          <NavDropdown.Item className="my-1">
+                            <p className="linkBehave text-muted">
                               🟨<b>Prova Premium gratis</b>
                             </p>
                           </NavDropdown.Item>
-                          <NavDropdown.Item>
-                            <p className="linkBehave">Impostazioni e Privacy</p>
+                          <NavDropdown.Item className="my-1">
+                            <p className="linkBehave text-muted">
+                              Impostazioni e Privacy
+                            </p>
                           </NavDropdown.Item>
-                          <NavDropdown.Item>
-                            <p className="linkBehave">Guida</p>
+                          <NavDropdown.Item className="my-1">
+                            <p className="linkBehave text-muted">Guida</p>
                           </NavDropdown.Item>
-                          <NavDropdown.Item>
-                            <p className="linkBehave">Lingua</p>
+                          <NavDropdown.Item className="my-1">
+                            <p className="linkBehave text-muted">Lingua</p>
                           </NavDropdown.Item>
                         </Col>
                       </Row>
                       <NavDropdown.Divider />
                       <Row>
-                        <Col xs={12}>
+                        <Col xs={12} className="my-1">
                           <p>
                             <b>Gestisci</b>
                           </p>
                         </Col>
                         <Col xs={12}>
-                          <NavDropdown.Item>
-                            <p className="linkBehave">Post e attività</p>
+                          <NavDropdown.Item className="my-1">
+                            <p className="linkBehave text-muted">
+                              Post e attività
+                            </p>
                           </NavDropdown.Item>
-                          <NavDropdown.Item>
-                            <p className="linkBehave textCutter w-100">
+                          <NavDropdown.Item className="my-1">
+                            <p className="linkBehave textCutter w-100 text-muted">
                               Account per la pubblicazione di offerte
                             </p>
                           </NavDropdown.Item>
@@ -187,7 +190,7 @@ export const CustomNavbar = () => {
                       <NavDropdown.Divider />
                       <Row>
                         <Col xs={12}>
-                          <NavDropdown.Item>
+                          <NavDropdown.Item className="my-1">
                             <p className="linkBehave">Esci</p>
                           </NavDropdown.Item>
                         </Col>
@@ -196,9 +199,10 @@ export const CustomNavbar = () => {
                     <Nav.Link
                       onClick={() => setRightcollapse(!Rightcollapse)}
                       id="aziendeToggle"
+                      className="d-none d-md-flex"
                     >
                       <i className="bi bi-grid-3x3-gap-fill"></i>
-                      <p className="d-none d-lg-block">Per le aziende</p>
+                      <p>Per le aziende</p>
                     </Nav.Link>
                   </Nav>
                 </Navbar.Collapse>
