@@ -47,7 +47,7 @@ const Profile = () => {
             <Col xs={12}>
               <div style={{ width: '100%', backgroundColor: 'white', aspectRatio: '4/3' }} className="border border-1 border-secondary rounded-3">
                 <div className="w-100 position-relative z-0 "><img src="https://picsum.photos/800/200" className="w-100 z-0" alt="banner" />
-                  <button className="p-0 rounded-circle ms-4 profile-button" style={{ width: "152px", height: "152px" }}> <img src="https://picsum.photos/800/200" className="w-100 h-100 rounded-circle" alt="profile-picture"></img> </button>
+                  <button className="p-0 rounded-circle ms-4 profile-button" style={{ width: "152px", height: "152px" }}> <img src="https://picsum.photos/800/200" className="w-100 h-100 rounded-circle" alt="profile"></img> </button>
                 </div>
 
                 <div className="mt-5 mx-4 row">
