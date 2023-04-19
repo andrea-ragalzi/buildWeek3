@@ -54,8 +54,6 @@ const Profile = () => {
                     <h2>{profile.name} {profile.surname} </h2>
                     <p>{profile.title}</p>
                     <p>{profile.area}</p>
-                    <p>Managing Director at TNA Building Services Ltd -- Providing Building maintenance solutions to the block management,
-                      social housing and commercial sectors, operating across the country 24 hours a day.</p>
                   </div>:<></>}
                   <div className="col-4">
                     <ul>
