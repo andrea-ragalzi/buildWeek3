@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 
 export const MyFooter: React.FC = function () {
   return (
-    <footer className="bg-light py-3 px-0">
-      <Container fluid>
+    <Container className="pageContainer">
+      <footer className="footerContainer">
         <Row>
           <Col xs={12} sm={6} className="leftCol">
             <Row>
@@ -149,8 +149,8 @@ export const MyFooter: React.FC = function () {
             </Row>
           </Col>
         </Row>
-      </Container>
-    </footer>
+      </footer>
+    </Container>
   );
 };
 
