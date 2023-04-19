@@ -12,7 +12,7 @@ import { fetchProfile, editProfile, fetchProfiles } from "../redux/actions/profi
 import { useSelector } from "react-redux";
 import type { RootState } from "./../redux/store/store";
 import { store } from "./../redux/store/store";
-//import { Experience } from "../types/expCardTypes";
+import { Experience } from "../types/expCardTypes";
 import LinkedinMain from "../components/LinkedinMain";
 import BoxInfo from "../components/BoxInfo";
 
