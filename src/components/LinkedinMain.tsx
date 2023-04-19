@@ -16,9 +16,8 @@ const LinkedinMain = () => {
           <ExpCard
             company={"Epicode"}
             role={"Rome"}
-            //employmentType={""}
-            startDate={"2 "}
-            endDate={"3 "}
+            startDate={""}
+            endDate={""}
             area={
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
             }
