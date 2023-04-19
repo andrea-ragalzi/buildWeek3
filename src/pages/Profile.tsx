@@ -1,7 +1,7 @@
 import { Container, Row, Col, Button } from "react-bootstrap";
 import { MyFooter } from "./../components/MyFooter";
 import { useEffect } from "react";
-import { fetchExperiences, addExperience } from "./../redux/actions/experiences";
+import { fetchExperiences, addExperience, deleteExperience } from "./../redux/actions/experiences";
 import { fetchProfile, editProfile, fetchProfiles } from "../redux/actions/profileActions";
 import { useSelector } from "react-redux";
 import type { RootState } from "./../redux/store/store";
@@ -31,28 +31,39 @@ const Profile = () => {
   }
 
   const handleAddExp = () => {
-    const exp1: Experience = {
-      role: "santone",
-      company: "me stesso",
-      startDate: "2019-06-16",
-      endDate: null, 									
-      description: "Spiego allaggente come vivere",
-      area: "Milano",
+    const roles = ["developer", "engineer", "manager", "designer"];
+    const companies = ["Google", "Apple", "Microsoft", "Amazon"];
+    const areas = ["San Francisco", "New York", "London", "Tokyo"];
+    const descriptions = [
+      "Developed new features", "Managed a team of developers",
+      "Designed UI/UX", "Optimized performance"];
+    const endYears = ["2020", "2021", "2022"]
+    const startYears = ["2010", "2011", "2012"];
+    const months = [
+      "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"];
+    const days = Array.from({ length: 28 }, (_, index) => index + 1);
+
+    const startDate = `${startYears[Math.floor(Math.random() * startYears.length)]
+      }-${months[Math.floor(Math.random() * months.length)]}-${days[Math.floor(Math.random() * days.length)]}`;
+    const endDate = `${endYears[Math.floor(Math.random() * endYears.length)]
+      }-${months[Math.floor(Math.random() * months.length)]}-${days[Math.floor(Math.random() * days.length)]}`;
+
+    const exp: Experience = {
+      role: roles[Math.floor(Math.random() * roles.length)],
+      company: companies[Math.floor(Math.random() * companies.length)],
+      startDate: startDate,
+      endDate: endDate,
+      description: descriptions[Math.floor(Math.random() * descriptions.length)],
+      area: areas[Math.floor(Math.random() * areas.length)],
       username: "andrearagalzi",
       image: "https://picsum.photos/48/48"
-    }
-    const exp2: Experience = {
-      role: "santone",
-      company: "me stesso",
-      startDate: "2019-06-16",
-      endDate: null, 									
-      description: "Spiego allaggente come vivere",
-      area: "Milano",
-      username: "andrearagalzi",
-      image: "https://picsum.photos/48/48"
-    }
-    dispatch(addExperience(profile!._id, exp1));
-    dispatch(addExperience(profile!._id, exp2));
+    };
+
+    dispatch(addExperience(profile!._id, exp));
+  }
+
+  const handleDeleteExp = () => {
+    dispatch(deleteExperience(profile!._id, '64404b7a405be40014e76711'));
   }
 
   return (
@@ -70,6 +81,10 @@ const Profile = () => {
               className="btn btn-primary"
               onClick={handleAddExp}
             >ADD EXPERIENCE</Button>
+            <Button
+              className="btn btn-primary"
+              onClick={handleDeleteExp}
+            >DELETE EXPERIENCE</Button>
             {userExperiences.length > 0 &&
               userExperiences.map((exp: Experience) => {
                 return (
