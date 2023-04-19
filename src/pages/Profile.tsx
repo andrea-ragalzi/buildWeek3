@@ -2,6 +2,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import { MyFooter } from "./../components/MyFooter";
 import { useEffect } from "react";
 import { fetchExperiences } from "./../redux/actions/experiences";
+import { fetchProfile } from "../redux/actions/profileActions";
 import { useSelector } from "react-redux";
 import type { RootState } from "./../redux/store/store";
 import { store } from "./../redux/store/store";
@@ -10,13 +11,16 @@ import LinkedinMain from "../components/LinkedinMain";
 import BoxInfo from "../components/BoxInfo";
 
 const Profile = () => {
+  const profile = useSelector(
+    (state: RootState) => state.profile.profile
+  );
   const userExperiences = useSelector(
     (state: RootState) => state.experience.experiences
   );
 
   useEffect(() => {
-    store.dispatch(fetchExperiences("1d84937222b7b54d838ed31a"));
-    console.log("nello state, da profile:", userExperiences);
+    store.dispatch(fetchProfile('me'));
+    store.dispatch(fetchExperiences("643d139522a6ab00141a8568"));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -45,12 +49,14 @@ const Profile = () => {
 
                 <div className="mt-5 mx-4 row">
 
-                  <div className="col-8">
+                 {profile? <div className="col-8">
 
-                    <h2>Aonna Ragazzi</h2>
+                    <h2>{profile.name} {profile.surname} </h2>
+                    <p>{profile.title}</p>
+                    <p>{profile.area}</p>
                     <p>Managing Director at TNA Building Services Ltd -- Providing Building maintenance solutions to the block management,
                       social housing and commercial sectors, operating across the country 24 hours a day.</p>
-                  </div>
+                  </div>:<></>}
                   <div className="col-4">
                     <ul>
                       <li>image : azienda</li>

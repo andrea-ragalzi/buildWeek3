@@ -172,10 +172,10 @@ const editExperienceFailure = (error: string): Action => ({
   error: error,
 });
 
-export const editExperience =
+export const editExperience = 
   (userId: string, experience: Experience) =>
   async (dispatch: Dispatch<Action>) => {
-    store.dispatch(editExperienceRequest());
+    dispatch(editExperienceRequest());
 
     try {
       const response = await fetch(
@@ -191,16 +191,16 @@ export const editExperience =
 
       if (response.ok) {
         const updatedExperience = await response.json();
-        store.dispatch(editExperienceSuccess(updatedExperience));
+        dispatch(editExperienceSuccess(updatedExperience));
       } else {
         const data = await response.json();
-        store.dispatch(editExperienceFailure(data.error));
+        dispatch(editExperienceFailure(data.error));
       }
     } catch (error: unknown) {
       if (error instanceof Error) {
-        store.dispatch(editExperienceFailure(error.message));
+        dispatch(editExperienceFailure(error.message));
       } else {
-        store.dispatch(editExperienceFailure("An unknown error occurred"));
+        dispatch(editExperienceFailure("An unknown error occurred"));
       }
     }
   };
@@ -226,7 +226,7 @@ const deleteExperienceFailure = (error: string): Action => ({
 
 export const deleteExperience = (userId: string, experienceId: string) => {
   return async (dispatch: Dispatch) => {
-    store.dispatch(deleteExperienceRequest());
+    dispatch(deleteExperienceRequest());
 
     try {
       const response = await fetch(
@@ -237,16 +237,16 @@ export const deleteExperience = (userId: string, experienceId: string) => {
       );
 
       if (response.ok) {
-        store.dispatch(deleteExperienceSuccess(experienceId));
+        dispatch(deleteExperienceSuccess(experienceId));
       } else {
         const data = await response.json();
-        store.dispatch(deleteExperienceFailure(data.error));
+        dispatch(deleteExperienceFailure(data.error));
       }
     } catch (error: unknown) {
       if (error instanceof Error) {
-        store.dispatch(getExperienceFailure(error.message));
+        dispatch(getExperienceFailure(error.message));
       } else {
-        store.dispatch(getExperienceFailure("An unknown error occurred"));
+        dispatch(getExperienceFailure("An unknown error occurred"));
       }
     }
   };
