@@ -1,4 +1,4 @@
-import { MonthsMap } from "../types/ExpCardTypes";
+import { MonthsMap } from "../types/expCardTypes";
 
 export const employmentTime = (startDate: string, endDate: string): string => {
     const months: MonthsMap = {
