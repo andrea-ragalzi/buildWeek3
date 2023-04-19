@@ -1,6 +1,6 @@
 .myNavbar {
   width: 100%;
-  height: 3.5rem;
+  height: 4rem;
   position: fixed;
   top: 0;
   left: 0;
@@ -15,10 +15,12 @@
       .innerNavbar {
         @include fullDimensions;
         font-size: 12px;
+        margin: 0;
       }
       .innerNavbar > div,
       .navbar-brand,
       .navbar-brand > a,
+      .navbar-nav > div.dropdown,
       #logoNavbar,
       .navbar-collapse,
       .navbar-nav,
@@ -26,23 +28,26 @@
       .nav-item,
       .nav-item > a,
       .dropdown-toggle {
-        height: inherit;
+        height: 100%;
       }
     }
   }
 }
 
 .navbar-nav {
-  width: max-content;
+  width: 100%;
   display: flex;
   justify-content: space-between;
 }
 
-.navbar-nav > a {
-  @include centeringFlex;
-  align-items: space-between;
+.navbar-nav > a,
+.navbar-nav > div.dropdown {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   i {
     font-size: 20px;
+    height: fit-content;
   }
 }
 
@@ -50,11 +55,13 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  padding: 0;
 }
 
 .innerNavbar form {
   width: 40%;
 }
+
 .innerNavbar p {
   margin: 0;
   width: fit-content;
@@ -74,13 +81,15 @@
 .dropdown-toggle::after {
   position: absolute;
   bottom: 20%;
-  right: -5%;
+  right: -30%;
 }
 
 .dropdown-title {
   @include fullDimensions;
-  @include centeringFlex;
-  align-items: space-between;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   img {
     height: 50%;
     aspect-ratio: 1/1;
@@ -91,7 +100,7 @@
 }
 
 .dropdown-menu {
-  width: 250px;
+  max-width: 300px;
   .row {
     justify-content: center;
     align-items: center;
@@ -107,44 +116,12 @@
     }
   }
 }
-/*
 
-
-nav.navbar > .container > div {
-  width: 48%;
-  height: inherit;
-  display: flex;
-  align-items: center;
-  #navbarScroll {
-    height: 100%;
-    width: inherit;
-    display: flex;
-    align-items: center;
-    justify-content: end;
-  }
+#aziendeToggle {
+  padding-left: 20px;
+  border-left: 1px solid $myGrey;
 }
 
-.navButtonsContainer {
-  height: 100%;
-  width: 100%;
-  @include myLink;
-  a {
-    @include centeringFlex;
-    color: $myGrey;
-    min-width: 3rem;
-    padding: 0 2px;
-    font-size: 12px;
-    p {
-      display: inline;
-      margin-bottom: 0;
-    }
-  }
-}
-
-nav.navbar > .container > div > form {
-  width: fit-content;
-}
-*/
 .Content {
   height: 93vh;
   position: fixed;
@@ -162,33 +139,32 @@ nav.navbar > .container > div > form {
   transition: all ease 0.5s;
 }
 
-.Contentggs {
-  height: 93vh;
+.aziendeContent {
+  height: 90%;
+  width: 350px;
   position: fixed;
-  z-index: 1;
-  top: 70px;
+  top: 4rem;
   right: 0;
   background-color: white;
   overflow-x: hidden;
   padding-top: 20px;
-  z-index: 10;
-  width: 350px;
-  opacity: 1;
+  padding-bottom: 20px;
   border-bottom-left-radius: 15px;
   border-top-left-radius: 15px;
+  z-index: 10;
   transition: all ease 0.5s;
 }
-.scure {
-  background-color: black;
-  opacity: 0.6;
+.shadower {
   height: 100vh;
   width: 100%;
-  z-index: 1;
+  background-color: $myDark;
+  opacity: 0.6;
   position: fixed;
   bottom: 0;
-  top: 70px;
+  top: 4rem;
   left: 0;
   right: 0;
+  z-index: 1;
   transition: all 0.5s;
 }
 

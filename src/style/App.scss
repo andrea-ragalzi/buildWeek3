@@ -78,3 +78,9 @@ body,
   border-color: $myGrey;
   color: $myGrey;
 }
+
+.textCutter {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
