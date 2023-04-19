@@ -20,7 +20,6 @@ const experienceReducer = (
     case ActionTypes.DELETE_EXPERIENCE_REQUEST:
       return {
         ...state,
-        list: [],
         loading: true,
         error: null,
       };
@@ -48,7 +47,6 @@ const experienceReducer = (
         list: state.list.map((exp) =>
           exp._id === action.payload._id ? action.payload : exp
         ),
-        selected: null,
         loading: false,
       };
 
@@ -56,9 +54,8 @@ const experienceReducer = (
       return {
         ...state,
         list: state.list.filter(
-          (exp) => exp._id !== action.payload.id
+          (exp) => exp._id !== action.payload
         ),
-        selected: null,
         loading: false,
       };
 
@@ -68,7 +65,6 @@ const experienceReducer = (
     case ActionTypes.EDIT_EXPERIENCE_FAILURE:
     case ActionTypes.DELETE_EXPERIENCE_FAILURE:
       return { ...state, loading: false, error: action.payload };
-
     default:
       return state;
   }
