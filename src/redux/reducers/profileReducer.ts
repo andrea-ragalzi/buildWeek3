@@ -5,9 +5,10 @@ import {
 } from "../../types/profileReducer";
 
 const initialState: ProfileState = {
-  profile: null,
-  error: null,
+  list: [],
+  selected: null,
   loading: false,
+  error: null
 };
 
 const profileReducer = (
@@ -16,28 +17,44 @@ const profileReducer = (
 ): ProfileState => {
   switch (action.type) {
     case ActionTypes.GET_PROFILE_REQUEST:
+    case ActionTypes.GET_PROFILES_REQUEST:
+    case ActionTypes.EDIT_PROFILE_REQUEST:
       return {
         ...state,
-        profile: null,
         error: null,
         loading: true,
+      };
+    case ActionTypes.GET_PROFILE_FAILURE:
+    case ActionTypes.GET_PROFILES_FAILURE:
+    case ActionTypes.EDIT_PROFILE_FAILURE:
+      return {
+        ...state,
+        error: action.payload,
+        loading: false,
       };
     case ActionTypes.GET_PROFILE_SUCCESS:
       return {
         ...state,
-        profile: action.payload,
+        selected: action.payload,
         error: null,
         loading: false,
       };
-    case ActionTypes.GET_PROFILE_FAILURE:
+    case ActionTypes.GET_PROFILES_SUCCESS:
       return {
         ...state,
-        profile: null,
-        error: action.payload,
+        list: action.payload,
+        error: null,
         loading: false,
       };
-      default:
-        return state;
+    case ActionTypes.EDIT_PROFILE_SUCCESS:
+      return {
+        ...state,
+        selected: action.payload,
+        error: null,
+        loading: false,
+      };
+    default:
+      return state;
   }
 };
 
