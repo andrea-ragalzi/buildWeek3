@@ -1,8 +1,8 @@
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Button } from "react-bootstrap";
 import { MyFooter } from "./../components/MyFooter";
 import { useEffect } from "react";
 import { fetchExperiences } from "./../redux/actions/experiences";
-import { fetchProfile, fetchProfiles } from "../redux/actions/profileActions";
+import { fetchProfile, editProfile, fetchProfiles } from "../redux/actions/profileActions";
 import { useSelector } from "react-redux";
 import type { RootState } from "./../redux/store/store";
 import { store } from "./../redux/store/store";
@@ -13,19 +13,22 @@ import BoxInfo from "../components/BoxInfo";
 const Profile = () => {
   const dispatch = store.dispatch;
   const profile = useSelector(
-    (state: RootState) => state.profile.profile
+    (state: RootState) => state.profile.selected
   );
   const userExperiences = useSelector(
-    (state: RootState) => state.experience.experiences
+    (state: RootState) => state.experience.list
   );
 
   useEffect(() => {
-      dispatch(fetchProfile('643d139522a6ab00141a8568'));
-      dispatch(fetchExperiences("63fc85ebf193e60013807f65"));
-      dispatch(fetchProfiles())
-      console.log('in profile', userExperiences);
+    dispatch(fetchProfile('me'));
+    dispatch(fetchProfiles());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const handlePut = () => {
+    const profile_tmp = JSON.parse(JSON.stringify(profile));
+    dispatch(editProfile(profile_tmp!));
+  }
 
   return (
     <Container className="pageContainer" fluid>
@@ -34,6 +37,10 @@ const Profile = () => {
         <Col md={1} className="d-none d-lg-flex"></Col>
         <Col xs={12} md={6}>
           <Row className="g-3">
+            <Button
+              className="btn btn-primary"
+              onClick={handlePut}
+            >PUT</Button>
             {userExperiences.length > 0 &&
               userExperiences.map((exp: Experience) => {
                 return (
@@ -43,7 +50,7 @@ const Profile = () => {
                   </div>
                 );
               })}
-            {userExperiences.length <= 0 && <p>no experiences</p>}
+            {userExperiences?.length <= 0 && <p>no experiences</p>}
             <Col xs={12}>
               <div style={{ width: '100%', backgroundColor: 'white', aspectRatio: '4/3' }} className="border border-1 border-secondary rounded-3">
                 <div className="w-100 position-relative z-0 "><img src="https://picsum.photos/800/200" className="w-100 z-0" alt="banner" />
