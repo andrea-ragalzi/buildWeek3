@@ -2,8 +2,8 @@ import { ExperienceState } from "../../types/expReducer";
 import { ActionTypes, Action } from "../../types/expReducer";
 
 const initialState: ExperienceState = {
-  experiences: [],
-  selectedExperience: null,
+  list: [],
+  selected: null,
   loading: false,
   error: null,
 };
@@ -20,45 +20,45 @@ const experienceReducer = (
     case ActionTypes.DELETE_EXPERIENCE_REQUEST:
       return {
         ...state,
-        experiences: [],
+        list: [],
         loading: true,
         error: null,
       };
 
     case ActionTypes.GET_EXPERIENCES_SUCCESS:
-      return { ...state, experiences: action.payload, loading: false };
+      return { ...state, list: action.payload, loading: false };
 
     case ActionTypes.ADD_EXPERIENCE_SUCCESS:
       return {
         ...state,
-        experiences: [...state.experiences, action.payload],
+        list: [...state.list, action.payload],
         loading: false,
       };
 
     case ActionTypes.GET_EXPERIENCE_SUCCESS:
       return {
         ...state,
-        selectedExperience: action.payload,
+        selected: action.payload,
         loading: false,
       };
 
     case ActionTypes.EDIT_EXPERIENCE_SUCCESS:
       return {
         ...state,
-        experiences: state.experiences.map((exp) =>
+        list: state.list.map((exp) =>
           exp._id === action.payload._id ? action.payload : exp
         ),
-        selectedExperience: null,
+        selected: null,
         loading: false,
       };
 
     case ActionTypes.DELETE_EXPERIENCE_SUCCESS:
       return {
         ...state,
-        experiences: state.experiences.filter(
+        list: state.list.filter(
           (exp) => exp._id !== action.payload.id
         ),
-        selectedExperience: null,
+        selected: null,
         loading: false,
       };
 
