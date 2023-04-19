@@ -69,6 +69,12 @@ const Profile = () => {
 
               </div>
             </Col>
+           {profile? <Col xs={12}>
+              <div style={{ width: '100%', backgroundColor: 'white' }} className="border border-1 border-secondary rounded-3">
+                <BoxInfo title='Informazioni' />
+                <p>{profile.bio}</p>
+              </div>
+            </Col>:<></>}
             <Col xs={12}>
               <div style={{ width: '100%', backgroundColor: 'white' }} className="border border-1 border-secondary rounded-3">
                 <BoxInfo title='Esperienza' />
