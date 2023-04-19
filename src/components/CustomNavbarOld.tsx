@@ -296,7 +296,6 @@ export const CustomNavbar = () => {
               className="text-center p-0 flex-column align-items-center justify-content-end d-flex  mx-2 mt-1"
               style={{ borderLeft: "1px solid #e3dcdc", width: "120px" }}
               data-toggle="collapse"
-              href="#collapseExample"
               role="button"
               aria-expanded="false"
               aria-controls="collapseExample"
