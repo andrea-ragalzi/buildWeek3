@@ -148,7 +148,6 @@ export const addExperience = (userId: string, experience: Experience) => {
           method: "POST",
           headers: {
             Authorization: `Bearer ${apiKey}`,
-            "Access-Control-Allow-Origin": "https://striveschool-api.herokuapp.com",
             "Content-Type": "application/json",
           },
           body: JSON.stringify(experience),
@@ -186,9 +185,9 @@ export const fetchExperience = (userId: string, experienceId: string) => {
       dispatch(getExperienceSuccess(experience));
     } catch (error: unknown) {
       if (error instanceof Error) {
-        dispatch(getExperiencesFailure(error.message));
+        dispatch(getExperienceFailure(error.message));
       } else {
-        dispatch(getExperiencesFailure("An unknown error occurred"));
+        dispatch(getExperienceFailure("An unknown error occurred"));
       }
     }
   };
@@ -236,6 +235,9 @@ export const deleteExperience = (userId: string, experienceId: string) => {
         `https://striveschool-api.herokuapp.com/api/profile/${userId}/experiences/${experienceId}`,
         {
           method: "DELETE",
+          headers: {
+            Authorization: `Bearer ${apiKey}`
+          }
         }
       );
 
@@ -247,9 +249,9 @@ export const deleteExperience = (userId: string, experienceId: string) => {
       }
     } catch (error: unknown) {
       if (error instanceof Error) {
-        dispatch(getExperienceFailure(error.message));
+        dispatch(deleteExperienceFailure(error.message));
       } else {
-        dispatch(getExperienceFailure("An unknown error occurred"));
+        dispatch(deleteExperienceFailure("An unknown error occurred"));
       }
     }
   };
