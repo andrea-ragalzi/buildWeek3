@@ -45,6 +45,7 @@ export const fetchProfile = (userId: string) => {
       const profile = await response.json();
       dispatch(getProfileSuccess(profile));
       console.log("nella fetch:", profile);
+      
     } catch (error: unknown) {
       if (error instanceof Error) {
         dispatch(getProfileFailure(error.message));
