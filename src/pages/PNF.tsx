@@ -1,11 +1,13 @@
 import { Container, Row } from "react-bootstrap";
 
-const Home = () => {
+const PNF = () => {
   return (
     <Container className="pageContainer">
-      <Row></Row>
+      <Row>
+        <h1>Nothing here</h1>
+      </Row>
     </Container>
   );
 };
 
-export default Home;
+export default PNF;

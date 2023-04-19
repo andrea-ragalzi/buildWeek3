@@ -1,13 +1,44 @@
-.Background-image{
-    background-image:url(https://picsum.photos/) ;
-    background-repeat: no-repeat;
-    background-size: auto;
-}
-.profile-button{
-    position: absolute;
-    top:57%;
-    right: 80%;
+.profileHero {
+  height: max-content;
+  padding: 0 !important;
+  .profileImgs {
+    width: 100%;
+    height: 12rem;
+    position: relative;
+    top: 0;
+    left: 0;
     z-index: 0;
-    border: none;
-    border: solid 3px white;
+    margin-bottom: 2rem;
+  }
+  .profileHeroText {
+    padding: 3% 2rem;
+    margin-top: 5%;
+  }
+}
+
+.profileBanner {
+  object-fit: cover;
+  object-position: center;
+  height: 100%;
+  width: 100%;
+}
+
+.profileButton {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  padding: 0;
+  position: absolute;
+  bottom: -20%;
+  left: 3%;
+  z-index: 0;
+  border: solid 3px white;
+  overflow: hidden;
+}
+
+.profileButton .profilePic {
+  object-fit: cover;
+  object-position: center;
+  height: inherit;
+  width: inherit;
 }
