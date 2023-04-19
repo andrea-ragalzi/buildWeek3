@@ -2,6 +2,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import { MyFooter } from "./../components/MyFooter";
 import { useEffect } from "react";
 import { fetchExperiences } from "./../redux/actions/experiences";
+import { fetchProfile } from "../redux/actions/profileActions";
 import { useSelector } from "react-redux";
 import type { RootState } from "./../redux/store/store";
 import { store } from "./../redux/store/store";
@@ -10,13 +11,16 @@ import LinkedinMain from "../components/LinkedinMain";
 import BoxInfo from "../components/BoxInfo";
 
 const Profile = () => {
+  const profile = useSelector(
+    (state: RootState) => state.profile.profile
+  );
   const userExperiences = useSelector(
     (state: RootState) => state.experience.experiences
   );
 
   useEffect(() => {
-    store.dispatch(fetchExperiences("1d84937222b7b54d838ed31a"));
-    console.log("nello state, da profile:", userExperiences);
+    store.dispatch(fetchProfile('643d139522a6ab00141a8568'));
+    store.dispatch(fetchExperiences("me"));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
