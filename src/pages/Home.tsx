@@ -2,18 +2,21 @@ import { Container, Row, Col } from "react-bootstrap";
 import { UsbDrive } from "react-bootstrap-icons";
 import { useState } from "react"
 import { ListGroup } from "react-bootstrap";
+import { Postmaker } from "../components/Postmaker";
 const Home = () => {
   const [Showlist, setShowlist] = useState(false)
 
+
+  
   return (
     <Container className="pageContainer ">
       <Row className="g-3">
-        <Col md={2} xs={12} className="h-100" >
+        <Col lg={2} md={4} xs={12} className="h-100" >
           <div className="border rounded text-center p-0 w-100 mb-2 h-100 bg-white">
             <div className="border rounded">
               <img className="homeProfileBanner rounded w-100 " src="https://picsum.photos/200/300" alt="Home profile picture" />
             </div>
-            <Col xs={12} className="homeprofilebuttonContainer">
+            <div className="homeprofilebuttonContainer">
               <button className="homeprofileButton">
                 <img
                   src="https://picsum.photos/800/200"
@@ -21,7 +24,7 @@ const Home = () => {
                   className="profilePic"
                 ></img>
               </button>
-            </Col>
+            </div>
             <div className="Benvenuto">
               <h6>Ti diamo il benvenuto Martin!</h6>
               <p>Aggiungi una foto</p>
@@ -59,13 +62,11 @@ const Home = () => {
 
 
 
-        <Col md={6} >
-          <div className="sectionContainer"> ciao</div>
-        </Col>
+        <Postmaker />
 
 
 
-        <Col md={3} xs={12}>
+        <Col lg={3} md={8} xs={12} className="offset-0 offset-md-4 offset-lg-0">
 
             <div>
               <div className="sectionContainer ">
@@ -146,7 +147,7 @@ const Home = () => {
 
                   </ul>
                 </div>
-                <button onClick={() => { setShowlist(!Showlist) }} className="ms-2 Btnseemore"> vedi meno </button>
+                <button onClick={() => { setShowlist(!Showlist) }} className="ms-2 Btnseemore"> {Showlist? "vedi meno" : "vedi piu"} </button>
               </div>
             </div>
           <div>HOLA sono futer dio po</div>
