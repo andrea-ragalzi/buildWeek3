@@ -1,4 +1,4 @@
-nav.navbar {
+.myNavbar {
   width: 100%;
   height: 3.5rem;
   position: fixed;
@@ -7,13 +7,105 @@ nav.navbar {
   right: 0;
   padding: 0;
   z-index: 1000;
+  color: $myGrey;
+  .navbar {
+    @include fullDimensions;
+    .container {
+      @include fullDimensions;
+      .innerNavbar {
+        @include fullDimensions;
+        font-size: 12px;
+      }
+      .innerNavbar > div,
+      .navbar-brand,
+      .navbar-brand > a,
+      #logoNavbar,
+      .navbar-collapse,
+      .navbar-nav,
+      .navbar-nav > a,
+      .nav-item,
+      .nav-item > a,
+      .dropdown-toggle {
+        height: inherit;
+      }
+    }
+  }
 }
-nav.navbar > .container {
+
+.navbar-nav {
+  width: max-content;
   display: flex;
   justify-content: space-between;
-  height: 100%;
-  width: 100%;
 }
+
+.navbar-nav > a {
+  @include centeringFlex;
+  align-items: space-between;
+}
+
+.innerNavbar > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.innerNavbar form {
+  width: 40%;
+}
+.innerNavbar p {
+  margin: 0;
+  width: fit-content;
+  height: fit-content;
+}
+
+#basic-nav-dropdown {
+  padding: 0;
+}
+
+.dropdown-toggle {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.dropdown-toggle::after {
+  position: absolute;
+  bottom: 20%;
+  right: -5%;
+}
+
+.dropdown-title {
+  @include fullDimensions;
+  @include centeringFlex;
+  align-items: space-between;
+  img {
+    height: 50%;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+.dropdown-menu {
+  width: 250px;
+  .row {
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 0 1rem;
+    margin: 0;
+    img {
+      width: 100%;
+      aspect-ratio: 1/1;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+}
+/*
+
 
 nav.navbar > .container > div {
   width: 48%;
@@ -23,21 +115,25 @@ nav.navbar > .container > div {
   #navbarScroll {
     height: 100%;
     width: inherit;
-    div {
-      height: 100%;
-      width: 100%;
-      @include myLink;
-      a {
-        @include centeringFlex;
-        color: $myGrey;
-        min-width: 3rem;
-        padding: 0 2px;
-        p {
-          display: inline;
-          font-size: 12px;
-          margin-bottom: 0;
-        }
-      }
+    display: flex;
+    align-items: center;
+    justify-content: end;
+  }
+}
+
+.navButtonsContainer {
+  height: 100%;
+  width: 100%;
+  @include myLink;
+  a {
+    @include centeringFlex;
+    color: $myGrey;
+    min-width: 3rem;
+    padding: 0 2px;
+    font-size: 12px;
+    p {
+      display: inline;
+      margin-bottom: 0;
     }
   }
 }
@@ -45,7 +141,7 @@ nav.navbar > .container > div {
 nav.navbar > .container > div > form {
   width: fit-content;
 }
-
+*/
 .Content {
   height: 93vh;
   position: fixed;
