@@ -15,8 +15,6 @@ import { store } from "./../redux/store/store";
 //import { Experience } from "../types/expCardTypes";
 import LinkedinMain from "../components/LinkedinMain";
 import BoxInfo from "../components/BoxInfo";
-import { Picker } from 'emoji-mart';
-import 'emoji-mart/css/emoji-mart.css';
 
 
 const Profile = () => {
