@@ -2,16 +2,13 @@ import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import { useState } from "react";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Button from "react-bootstrap/Button";
 import { Col, Image, Row } from "react-bootstrap";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "../style/App.scss";
 
 export const CustomNavbar = () => {
-  const [Rightcollapse, setRightcollapse] = useState(false);
-
   return (
     <header className="myNavbar">
       <Navbar bg="light" expand="sm">
