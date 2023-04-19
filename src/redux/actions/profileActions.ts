@@ -32,10 +32,16 @@ const getProfilesRequest = (): ProfileAction => ({
   loading: true,
 });
 
-const getProfilesSuccess = (profile: Profile): ProfileAction => ({
+const getProfilesSuccess = (profiles: Profile[]): ProfileAction => ({
   type: ActionTypes.GET_PROFILES_SUCCESS,
-  payload: profile,
+  payload: profiles,
   error: null,
+  loading: false,
+});
+
+const getProfilesFailure = (error: string): ProfileAction => ({
+  type: ActionTypes.GET_PROFILES_FAILURE,
+  error: error,
   loading: false,
 });
 
@@ -54,12 +60,6 @@ const editProfileSuccess = (profile: Profile): ProfileAction => ({
 
 const editProfileFailure = (error: string): ProfileAction => ({
   type: ActionTypes.EDIT_PROFILE_FAILURE,
-  error: error,
-  loading: false,
-});
-
-const getProfilesFailure = (error: string): ProfileAction => ({
-  type: ActionTypes.GET_PROFILES_FAILURE,
   error: error,
   loading: false,
 });
@@ -109,9 +109,9 @@ export const fetchProfiles = () => {
       if (!response.ok) {
         throw new Error(response.statusText);
       }
-      const profile = await response.json();
-      dispatch(getProfilesSuccess(profile));
-      console.log("nella fetch:", profile);
+      const profiles = await response.json();
+      dispatch(getProfilesSuccess(profiles));
+      console.log("nella fetch:", profiles);
     } catch (error: unknown) {
       if (error instanceof Error) {
         dispatch(getProfilesFailure(error.message));
@@ -122,17 +122,20 @@ export const fetchProfiles = () => {
   };
 };
 
-export const editProfile = (userId: string) => {
+export const editProfile = (new_profile: Profile) => {
   return async (dispatch: Dispatch<AnyAction>) => {
     dispatch(editProfileRequest());
 
     try {
       const response = await fetch(
-        `https://striveschool-api.herokuapp.com/api/profile/${userId}`,
+        `https://striveschool-api.herokuapp.com/api/profile/`,
         {
+          method: "PUT",
           headers: {
             Authorization: `Bearer ${apiKey}`,
+            "Content-Type": "application/json",
           },
+          body: JSON.stringify(new_profile),
         }
       );
       if (!response.ok) {
