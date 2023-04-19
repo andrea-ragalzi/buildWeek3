@@ -48,18 +48,21 @@
 }
 
 
-.HomeUncollapsed{
-    background-color: white;
-    height: 10px;
-    transition: all ease 0.6s;
+.HomeList li{
+    font-size: 12px;
+}
+
+.Homecollapse{
+ height: 0px;
+ overflow: hidden;
+ transition: all ease;
+ transition-duration: 0.3s;
+}
+.Homecollapse.Show{
+    height: 100%;
 }
 
 .HomeCollapsed{
-    height:100%;
-    background-color: white;
-    transition: all ease 0.6s;
-}
 
-.HomeList li{
-    font-size: 12px;
+    transition: height ease 0.5s;
 }

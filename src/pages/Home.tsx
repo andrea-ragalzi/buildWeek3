@@ -59,19 +59,20 @@ const Home = () => {
 
 
 
-        <Col md={6} className="border border-dark mx-4 h-100 bg-white " ><h1>MMMMMMMMMMM</h1></Col>
+        <Col md={6} >
+          <div className="sectionContainer"> ciao</div>
+        </Col>
 
 
 
         <Col md={3} xs={12}>
 
-          {Showlist ? (
-            <div className="HomeCollapsed">
-              <div className="bg-white h-100  border rounded border-secondary HomeUncollapsed">
-                <b className="bBottom text-secondary ms-2">
+            <div>
+              <div className="sectionContainer ">
+                <b className="bBottom text-secondary ms-2 ">
                   LinkedIn Notizie
                 </b>
-                <div className="fs-2 d-flex justify-content-start align-items-center h-10">
+                <div className="fs-2 d-flex justify-content-start align-items-center h-10 ">
                   <ul className=" Secondhover">
                     <li className="Second-List-collapse mt-1 fw-bold Homelist pe-3">
                       Le Top Companies del 2023 in Italia <br></br>
@@ -103,7 +104,9 @@ const Home = () => {
                         3 ore fa • 164 lettori
                       </p>
                     </li>
-                    <li className="Second-List-collapse fw-bold Homelist">
+
+                   
+                    <div className={ Showlist? "Homecollapse Show" : "Homecollapse" } ><li className="Second-List-collapse fw-bold Homelist">
                       Apple sfida le banche <br></br>
                       <p className="fw-normal Collapse-p text-secondary">
                         6 ore fa • 212 lettori{" "}
@@ -138,57 +141,14 @@ const Home = () => {
                       <p className="fw-normal Collapse-p text-secondary">
                         3 ore fa • 164 lettori
                       </p>
-                    </li>
+                    </li></div> 
+
+
                   </ul>
                 </div>
                 <button onClick={() => { setShowlist(!Showlist) }} className="ms-2 Btnseemore"> vedi meno </button>
               </div>
             </div>
-          ) : (
-            <div className="HomeUcollapsed">
-              <div className="bg-white h-100  border rounded border-secondary HomeCollapsed">
-                <span className="d-flex justify-content-around">  <b className="bBottom text-secondary ms-2"> LinkedIn Notizie </b> <i className="bi bi-info-square-fill"></i></span>
-                <div className="fs-2 d-flex justify-content-start align-items-center h-10">
-                  <ul className=" Secondhover">
-                    <li className="Second-List-collapse mt-1 fw-bold Homelist pe-3">
-                      Le Top Companies del 2023 in Italia <br></br>
-                      <p className="fw-normal Collapse-p text-secondary">
-                        Notizie principali • 534 lettori{" "}
-                      </p>
-                    </li>
-                    <li className="Second-List-collapse fw-bold Homelist">
-                      Ucraina: gli ultimi aggiornamenti <br></br>
-                      <p className="fw-normal Collapse-p text-secondary">
-                        6 ore fa • 414 lettori{" "}
-                      </p>
-                    </li>
-                    <li className="Second-List-collapse fw-bold Homelist">
-                      Che cosa succede al Salone del Mobile <br></br>
-                      <p className="fw-normal Collapse-p text-secondary">
-                        1 ora fa • 364 lettori{" "}
-                      </p>
-                    </li>
-                    <li className="Second-List-collapse fw-bold Homelist">
-                      Un nuovo modello contrattuale per la ricerca <br></br>
-                      <p className="fw-normal Collapse-p text-secondary">
-                        19 ore fa
-                      </p>
-                    </li>
-                    <li className="Second-List-collapse fw-bold Homelist">
-                      Learning Solutions <br></br>
-                      <p className="fw-normal Collapse-p text-secondary">
-                        3 ore fa • 164 lettori
-                      </p>
-                    </li>
-                  </ul>
-
-                </div>
-                <button onClick={() => { setShowlist(!Showlist) }} className="ms-2 Btnseemore"> vedi altro </button>
-              </div>
-            </div>
-          )}
-
-
           <div>HOLA sono futer dio po</div>
 
         </Col>
