@@ -1,8 +1,8 @@
 import { Dispatch } from "redux";
 import { ActionTypes, Action } from "./../../types/expReducer";
 import { Experience } from "./../../types/expCardTypes";
-import { store } from "./../store/store";
 import { AnyAction } from "@reduxjs/toolkit";
+
 const apiKey = process.env.REACT_APP_MY_KEY;
 
 // definizione delle azioni
@@ -21,6 +21,89 @@ const getExperiencesSuccess = (experiences: Experience[]): Action => ({
 
 const getExperiencesFailure = (error: string): Action => ({
   type: ActionTypes.GET_EXPERIENCES_FAILURE,
+  loading: false,
+  error: error,
+});
+
+// AGGIUNGERE ESPERIENZA
+
+const addExperienceRequest = (): Action => ({
+  type: ActionTypes.ADD_EXPERIENCE_REQUEST,
+  loading: true,
+  error: null,
+});
+
+const addExperienceSuccess = (experience: Experience): Action => ({
+  type: ActionTypes.ADD_EXPERIENCE_SUCCESS,
+  payload: experience,
+  loading: false,
+  error: null,
+});
+
+const addExperienceFailure = (error: string): Action => ({
+  type: ActionTypes.ADD_EXPERIENCE_FAILURE,
+  error: error,
+  loading: false,
+});
+
+// OTTENERE ESPERIENZA SINGOLA
+
+const getExperienceRequest = (): Action => ({
+  type: ActionTypes.GET_EXPERIENCE_REQUEST,
+  loading: true,
+  error: null,
+});
+
+const getExperienceSuccess = (experience: Experience): Action => ({
+  type: ActionTypes.GET_EXPERIENCE_SUCCESS,
+  payload: experience,
+  loading: false,
+  error: null,
+});
+
+const getExperienceFailure = (error: string): Action => ({
+  type: ActionTypes.GET_EXPERIENCE_FAILURE,
+  loading: false,
+  error: error,
+});
+
+// MODIFICA ESPERIENZA SINGOLA
+
+const editExperienceRequest = (): Action => ({
+  type: ActionTypes.EDIT_EXPERIENCE_REQUEST,
+  loading: true,
+  error: null,
+});
+
+const editExperienceSuccess = (experience: Experience): Action => ({
+  type: ActionTypes.EDIT_EXPERIENCE_SUCCESS,
+  payload: experience,
+  loading: false,
+  error: null,
+});
+
+const editExperienceFailure = (error: string): Action => ({
+  type: ActionTypes.EDIT_EXPERIENCE_FAILURE,
+  loading: false,
+  error: error,
+});
+
+
+const deleteExperienceRequest = (): Action => ({
+  type: ActionTypes.DELETE_EXPERIENCE_REQUEST,
+  loading: true,
+  error: null,
+});
+
+const deleteExperienceSuccess = (id: string): Action => ({
+  type: ActionTypes.DELETE_EXPERIENCE_SUCCESS,
+  payload: id,
+  loading: false,
+  error: null,
+});
+
+const deleteExperienceFailure = (error: string): Action => ({
+  type: ActionTypes.DELETE_EXPERIENCE_FAILURE,
   loading: false,
   error: error,
 });
@@ -54,30 +137,9 @@ export const fetchExperiences = (userId: string) => {
   };
 };
 
-// AGGIUNGERE ESPERIENZA
-
-const addExperienceRequest = (): Action => ({
-  type: ActionTypes.ADD_EXPERIENCE_REQUEST,
-  loading: true,
-  error: null,
-});
-
-const addExperienceSuccess = (experience: Experience): Action => ({
-  type: ActionTypes.ADD_EXPERIENCE_SUCCESS,
-  payload: experience,
-  loading: false,
-  error: null,
-});
-
-const addExperienceFailure = (error: string): Action => ({
-  type: ActionTypes.ADD_EXPERIENCE_FAILURE,
-  error: error,
-  loading: false,
-});
-
 export const addExperience = (userId: string, experience: Experience) => {
-  return async (dispatch: Dispatch) => {
-    store.dispatch(addExperienceRequest());
+  return async (dispatch: Dispatch<AnyAction>) => {
+    dispatch(addExperienceRequest());
 
     try {
       const response = await fetch(
@@ -85,6 +147,8 @@ export const addExperience = (userId: string, experience: Experience) => {
         {
           method: "POST",
           headers: {
+            Authorization: `Bearer ${apiKey}`,
+            "Access-Control-Allow-Origin": "https://striveschool-api.herokuapp.com",
             "Content-Type": "application/json",
           },
           body: JSON.stringify(experience),
@@ -93,44 +157,23 @@ export const addExperience = (userId: string, experience: Experience) => {
       const data = await response.json();
 
       if (response.ok) {
-        store.dispatch(addExperienceSuccess(data));
+        dispatch(addExperienceSuccess(data));
       } else {
-        store.dispatch(addExperienceFailure(data.error));
+        dispatch(addExperienceFailure(data.error));
       }
     } catch (error: unknown) {
       if (error instanceof Error) {
-        store.dispatch(getExperiencesFailure(error.message));
+        dispatch(getExperiencesFailure(error.message));
       } else {
-        store.dispatch(getExperiencesFailure("An unknown error occurred"));
+        dispatch(getExperiencesFailure("An unknown error occurred"));
       }
     }
   };
 };
 
-// OTTENERE ESPERIENZA SINGOLA
-
-const getExperienceRequest = (): Action => ({
-  type: ActionTypes.GET_EXPERIENCE_REQUEST,
-  loading: true,
-  error: null,
-});
-
-const getExperienceSuccess = (experience: Experience): Action => ({
-  type: ActionTypes.GET_EXPERIENCE_SUCCESS,
-  payload: experience,
-  loading: false,
-  error: null,
-});
-
-const getExperienceFailure = (error: string): Action => ({
-  type: ActionTypes.GET_EXPERIENCE_FAILURE,
-  loading: false,
-  error: error,
-});
-
 export const fetchExperience = (userId: string, experienceId: string) => {
   return async (dispatch: Dispatch<Action>) => {
-    store.dispatch(getExperienceRequest());
+    dispatch(getExperienceRequest());
 
     try {
       const response = await fetch(
@@ -140,41 +183,19 @@ export const fetchExperience = (userId: string, experienceId: string) => {
         throw new Error(response.statusText);
       }
       const experience = await response.json();
-      store.dispatch(getExperienceSuccess(experience));
+      dispatch(getExperienceSuccess(experience));
     } catch (error: unknown) {
       if (error instanceof Error) {
-        store.dispatch(getExperiencesFailure(error.message));
+        dispatch(getExperiencesFailure(error.message));
       } else {
-        store.dispatch(getExperiencesFailure("An unknown error occurred"));
+        dispatch(getExperiencesFailure("An unknown error occurred"));
       }
     }
   };
 };
 
-// MODIFICA ESPERIENZA SINGOLA
-
-const editExperienceRequest = (): Action => ({
-  type: ActionTypes.EDIT_EXPERIENCE_REQUEST,
-  loading: true,
-  error: null,
-});
-
-const editExperienceSuccess = (experience: Experience): Action => ({
-  type: ActionTypes.EDIT_EXPERIENCE_SUCCESS,
-  payload: experience,
-  loading: false,
-  error: null,
-});
-
-const editExperienceFailure = (error: string): Action => ({
-  type: ActionTypes.EDIT_EXPERIENCE_FAILURE,
-  loading: false,
-  error: error,
-});
-
-export const editExperience = 
-  (userId: string, experience: Experience) =>
-  async (dispatch: Dispatch<Action>) => {
+export const editExperience = (userId: string, experience: Experience) => {
+  return async (dispatch: Dispatch<AnyAction>) => {
     dispatch(editExperienceRequest());
 
     try {
@@ -203,26 +224,8 @@ export const editExperience =
         dispatch(editExperienceFailure("An unknown error occurred"));
       }
     }
-  };
-
-const deleteExperienceRequest = (): Action => ({
-  type: ActionTypes.DELETE_EXPERIENCE_REQUEST,
-  loading: true,
-  error: null,
-});
-
-const deleteExperienceSuccess = (id: string): Action => ({
-  type: ActionTypes.DELETE_EXPERIENCE_SUCCESS,
-  payload: id,
-  loading: false,
-  error: null,
-});
-
-const deleteExperienceFailure = (error: string): Action => ({
-  type: ActionTypes.DELETE_EXPERIENCE_FAILURE,
-  loading: false,
-  error: error,
-});
+  }
+};
 
 export const deleteExperience = (userId: string, experienceId: string) => {
   return async (dispatch: Dispatch) => {
