@@ -219,107 +219,108 @@ export const CustomNavbar = () => {
         {Rightcollapse ? (
           <div className="aziendeContent">
             <Container>
-              <h3 className="ms-2"> Per le aziende</h3>
-              <div className="Collapse border rounded p-3">
-                <b className="bBottom text-secondary">
-                  Scopri altri prodotti Linkedin
-                </b>
-                <hr className="my-2"></hr>
-                <div className="fs-2 d-flex justify-content-center align-items-center h-75">
-                  <ul className="List-collapse list-unstyled d-flex flex-wrap">
-                    <li className="text-secondary d-flex flex-column justify-content-center align-items-center mt-3 w-25">
-                      <i className="d-inline-block text-primary bi bi-play-btn-fill"></i>
-                      <span className="text-center">Learning</span>
-                    </li>
-                    <li className="text-secondary d-flex flex-column justify-content-center align-items-center mt-3 w-25">
-                      <i className="d-inline-block text-primary bi bi-file-bar-graph-fill"></i>
-                      <span className="text-center"> Insight</span>
-                    </li>
-                    <li className="text-secondary d-flex flex-column justify-content-center align-items-center mt-5 w-25">
-                      <i className="d-inline-block text-primary bi bi-image"></i>
-                      <span className="text-center">
-                        Pubblica un'offerda di lavoro
-                      </span>
-                    </li>
-                    <li className="text-secondary d-flex flex-column justify-content-center align-items-center mt-3 w-25">
-                      <i className="d-inline-block text-primary bi bi-bullseye"></i>
-                      <span className="text-center">Pubblicizza</span>
-                    </li>
-                    <li className="text-secondary d-flex flex-column justify-content-center align-items-center mt-2 w-25">
-                      <i className="d-inline-block text-primary bi bi-browser-safari"></i>
-                      <span className="text-center">Trova Lead</span>
-                    </li>
-                    <li className="text-secondary d-flex flex-column justify-content-center align-items-center mt-2 w-25">
-                      <i className="d-inline-block text-primary bi bi-people-fill"></i>
-                      <span className="text-center"> Gruppi</span>
-                    </li>
-                    <li className="text-secondary d-flex flex-column justify-content-center align-items-center mt-4 w-25">
-                      <i className="d-inline-block text-primary bi bi-person-fill-check"></i>
-                      <span className="text-center">
-                        {" "}
-                        Marketplace dei servizi
-                      </span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <div className="Second-Collapse border rounded p-3 mt-2 ">
-                <b className="bBottom text-secondary">
-                  Assistenza alle aziende di Linkedin
-                </b>
-                <hr className="my-2"></hr>
-                <div className="fs-2 d-flex justify-content-start align-items-center h-10">
-                  <ul className="list-unstyled ms-1 Secondhover">
-                    <li className="Second-List-collapse mt-1 fw-bold">
-                      Talent solutions <br></br>
-                      <p className="fw-normal Collapse-p text-secondary">
-                        Trova, attrai e assumi{" "}
+              <Row className="sticky-top">
+                <h3> Per le aziende</h3>
+              </Row>
+              <Row className="aziendeMenu">
+                <Col xs={12}>
+                  <p>
+                    <b>Scopri altri prodotti Linkedin</b>
+                  </p>
+                </Col>
+                <hr className="my-2" />
+                <Col xs={12}>
+                  <Row className="list-unstyled firstMenu">
+                    <Col xs={3}>
+                      <i className="bi bi-play-btn-fill"></i>
+                      <p>Learning</p>
+                    </Col>
+                    <Col xs={3}>
+                      <i className="bi bi-file-bar-graph-fill"></i>
+                      <p> Insight</p>
+                    </Col>
+                    <Col xs={3}>
+                      <i className="bi bi-image"></i>
+                      <p>Pubblica un'offerta di lavoro</p>
+                    </Col>
+                    <Col xs={3}>
+                      <i className="bi bi-bullseye"></i>
+                      <p>Pubblicizza</p>
+                    </Col>
+                    <Col xs={3}>
+                      <i className="bi bi-browser-safari"></i>
+                      <p>Trova Lead</p>
+                    </Col>
+                    <Col xs={3}>
+                      <i className="bi bi-people-fill"></i>
+                      <p> Gruppi</p>
+                    </Col>
+                    <Col xs={3}>
+                      <i className="bi bi-person-fill-check"></i>
+                      <p>Marketplace dei servizi</p>
+                    </Col>
+                  </Row>
+                </Col>
+              </Row>
+              <Row className="aziendeMenu">
+                <Col xs={12}>
+                  <p>
+                    <b>Assistenza alle aziende di Linkedin</b>
+                  </p>
+                </Col>
+                <hr className="my-2" />
+                <Col xs={12}>
+                  <Row>
+                    <Col xs={12}>
+                      <p className="linkBehave">
+                        <b> Talent solutions</b>
+                        <br />
+                        Trova, attrai e assumi
                       </p>
-                    </li>
-                    <li className="Second-List-collapse fw-bold">
-                      Sales Solutions <br></br>
-                      <p className="fw-normal Collapse-p text-secondary">
-                        Sblocca nuove opportunità di vendita{" "}
+                    </Col>
+                    <Col xs={12}>
+                      <p className="linkBehave">
+                        <b> Sales Solutions</b>
+                        <br />
+                        Sblocca nuove opportunità di vendita
                       </p>
-                    </li>
-                    <li className="Second-List-collapse fw-bold">
-                      Pubblica offerta di lavoro gratuita <br></br>
-                      <p className="fw-normal Collapse-p text-secondary">
+                    </Col>
+                    <Col xs={12}>
+                      <p className="linkBehave">
+                        <b>Pubblica offerta di lavoro gratuita</b>
+                        <br />
                         Raggiungi i migliori candidati con la tua offerta di
-                        lavoro{" "}
+                        lavoro
                       </p>
-                    </li>
-                    <li className="Second-List-collapse fw-bold">
-                      Marketing Solutions <br></br>
-                      <p className="fw-normal Collapse-p text-secondary">
+                    </Col>
+                    <Col xs={12}>
+                      <p className="linkBehave">
+                        <b>Marketing Solutions</b>
+                        <br />
                         Acquisisci clienti e fai crescere la tua azienda
                       </p>
-                    </li>
-                    <li className="Second-List-collapse fw-bold">
-                      Learning Solutions <br></br>
-                      <p className="fw-normal Collapse-p text-secondary">
+                    </Col>
+                    <Col xs={12}>
+                      <p className="linkBehave">
+                        <b>Learning Solutions</b>
+                        <br />
                         Promuovi l'acquisizione di competenze nella tua
                         organizzazione
                       </p>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <div className="Third-Collapse border rounded p-3">
-                <b className="fs-6">
-                  Crea una pagina aziendale{" "}
-                  <i className="fs-5 bi bi-plus-lg"></i>
-                </b>
-              </div>
+                    </Col>
+                  </Row>
+                </Col>
+              </Row>
+              <Row className="aziendeMenu">
+                <p>
+                  <b>Crea una pagina aziendale</b>
+                  <i className="bi bi-plus-lg fs-5 ms-2"></i>
+                </p>
+              </Row>
             </Container>
           </div>
         ) : (
-          <div className="Content">
-            {" "}
-            <Container>
-              <h3>Per le aziende</h3>
-            </Container>
-          </div>
+          <div className="aziendeNoContent"></div>
         )}
       </Navbar>
     </header>
