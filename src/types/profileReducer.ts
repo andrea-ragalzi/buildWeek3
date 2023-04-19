@@ -5,9 +5,9 @@ export enum ActionTypes {
   GET_PROFILES_REQUEST = "GET_PROFILES_REQUEST",
   GET_PROFILES_SUCCESS = "GET_PROFILES_SUCCESS",
   GET_PROFILES_FAILURE = "GET_PROFILES_FAILURE",
-  EDIT_PROFILE_REQUEST = "PUT_PROFILE",
-  EDIT_PROFILE_SUCCESS = "PUT_PROFILE_SUCCESS",
-  EDIT_PROFILE_FAILURE = "PUT_PROFILE_FAILURE"
+  EDIT_PROFILE_REQUEST = "EDIT_PROFILE_REQUEST",
+  EDIT_PROFILE_SUCCESS = "EDIT_PROFILE_SUCCESS",
+  EDIT_PROFILE_FAILURE = "EDIT_PROFILE_FAILURE"
 }
 
 export interface Profile {
@@ -31,7 +31,8 @@ export interface ProfileAction {
 
 // Definiamo i tipi per lo stato globale dell'applicazione
 export interface ProfileState {
-  profile: Profile | null;
+  list: Profile[];
+  selected: Profile | null;
   error: string | null;
   loading: boolean;
 }
