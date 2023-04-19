@@ -8,7 +8,7 @@ const LinkedinMain = () => {
         <img src="https://placekitten.com/g/80" alt="pic" className="rounded-5 mx-4" />
         </Col>
         <Col xs="10" className="p-0">
-          <ExpCard
+          {/*<ExpCard
             company={"Epicode"}
             role={"Rome"}
             //employmentType={""}
@@ -21,8 +21,8 @@ const LinkedinMain = () => {
             _id={""}
             description={""}
             username={""}
-            image={""}
-          />
+          image={""}
+          />*/}
         </Col>
       </Row>
     </>
