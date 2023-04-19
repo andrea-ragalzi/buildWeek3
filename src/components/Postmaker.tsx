@@ -38,12 +38,6 @@ export const Postmaker = () =>{
         </Modal.Header>
         <Modal.Body></Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Save Changes
-          </Button>
         </Modal.Footer>
       </Modal>
             </div>
