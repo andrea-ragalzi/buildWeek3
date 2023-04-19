@@ -1,4 +1,4 @@
-import { ExpCardInterface, MonthsMap } from "./../types/ExpCardTypes";
+import { Experience, MonthsMap } from "../types/expCardTypes";
 import { Container, Row, Col } from "react-bootstrap";
 import { useState, useEffect } from "react";
 
@@ -43,21 +43,24 @@ const employmentTime = (startDate: string, endDate: string): string => {
 };
 
 const ExpCard = ({
+  _id,
+  role,
   company,
-  position,
-  employmentType,
   startDate,
   endDate,
-  location,
+  description,
+  area,
+  username,
+  image,
   skills,
-}: ExpCardInterface) => {
+}: Experience) => {
   const [collapseButton, setCollapseButton] = useState<boolean>(false);
-  const [skillsStr, setSkillsStr] = useState<string>(skills.join(" · "));
+  const [skillsStr, setSkillsStr] = useState<string>(skills!.join(" · "));
   const MAX_LENGHT_SKILLS = 95;
 
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setCollapseButton(false);
-    setSkillsStr(skills.join(" · "));
+    setSkillsStr(skills!.join(" · "));
   };
 
   useEffect(() => {
@@ -75,7 +78,7 @@ const ExpCard = ({
         <Col></Col>
         <Col></Col>
         <Col xs={12}>
-          <strong>{position}</strong>
+          <strong>{role}</strong>
         </Col>
         <Col xs={12}>
           <p>{company}</p>
@@ -87,7 +90,7 @@ const ExpCard = ({
           )}`}</p>
         </Col>
         <Col xs={12}>
-          <p>{location}</p>
+          <p>{area}</p>
         </Col>
         <Col xs={12}>
           <p>

@@ -10,16 +10,13 @@ const LinkedinMain = () => {
         </Col>
         <Col xs='10' className="p-0">
         <ExpCard
-        company={"Epicode"}
-        position={"Rome"}
-        employmentType={""}
-        startDate={"2 "}
-        endDate={"3 "}
-        location={
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-        }
-        skills={["Html", "Css", "JS", "React"]}
-      /></Col></Row>
+              company={"Epicode"}
+              role={"Rome"}
+              //employmentType={""}
+              startDate={"2 "}
+              endDate={"3 "}
+              area={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."}
+              skills={["Html", "Css", "JS", "React"]} _id={""} description={""} username={""} image={""}      /></Col></Row>
           </>
 
     )
