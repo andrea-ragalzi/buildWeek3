@@ -49,7 +49,7 @@ const Profile = () => {
                   </button>
                 </div>
 
-                <div className="mt-5 mx-4 row">
+                <Row className="mt-5 mx-4 row">
 
                 {profile? <div className="col-8">
 
@@ -57,7 +57,7 @@ const Profile = () => {
                     <p>{profile.title}</p>
                     <p>{profile.area}</p>
                   </div>:<></>}
-                  <div className="col-4">
+                  <Col className="col-4">
                     <ul>
                       <li>image : azienda</li>
                     </ul>
