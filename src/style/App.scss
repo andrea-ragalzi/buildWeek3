@@ -1,7 +1,7 @@
 @import "./partials/mixin";
 @import "./partials/variables";
 @import "./partials/footer";
-@import "./partials/navbare";
+@import "./partials/navbar";
 @import "./partials/messages";
 @import "./partials/card";
 @import "./partials/profilecontainer";
@@ -19,11 +19,13 @@ body,
 .pageContainer {
   width: 100%;
   height: 100%;
+  margin-top: 3.7rem;
 }
 
 .pageContainer > .row {
   width: 100%;
   justify-content: center;
+  margin: 0;
 }
 
 .sectionContainer {

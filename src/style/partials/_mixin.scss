@@ -29,3 +29,10 @@
   background-color: white;
   margin-top: 15px;
 }
+
+@mixin centeringFlex {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

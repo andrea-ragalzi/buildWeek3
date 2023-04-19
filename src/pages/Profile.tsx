@@ -5,7 +5,7 @@ import { fetchExperiences } from "./../redux/actions/experiences";
 import { useSelector } from "react-redux";
 import type { RootState } from "./../redux/store/store";
 import { store } from "./../redux/store/store";
-import { Experience } from "../types/expCardTypes";
+//import { Experience } from "../types/expCardTypes";
 import LinkedinMain from "../components/LinkedinMain";
 import BoxInfo from "../components/BoxInfo";
 
@@ -25,16 +25,6 @@ const Profile = () => {
       <Row>
         <Col xs={12} md={9} className="mainColumn">
           <Row className="g-3">
-            {userExperiences.length > 0 &&
-              userExperiences.map((exp: Experience) => {
-                return (
-                  <div>
-                    <p>{exp.description}</p>
-                    <p>ciao</p>
-                  </div>
-                );
-              })}
-            {userExperiences.length <= 0 && <p>no experiences</p>}
             <Col xs={12}>
               <div className="sectionContainer profileHero">
                 <div className="profileImgs">
