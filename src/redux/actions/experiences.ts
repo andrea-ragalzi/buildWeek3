@@ -43,7 +43,7 @@ export const fetchExperiences = (userId: string) => {
       }
       const experiences = await response.json();
       dispatch(getExperiencesSuccess(experiences));
-      console.log("nella fetch:", experiences);
+      console.log("nella fetch exp:", experiences);
     } catch (error: unknown) {
       if (error instanceof Error) {
         dispatch(getExperiencesFailure(error.message));

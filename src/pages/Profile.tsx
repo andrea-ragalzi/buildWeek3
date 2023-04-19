@@ -2,7 +2,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import { MyFooter } from "./../components/MyFooter";
 import { useEffect } from "react";
 import { fetchExperiences } from "./../redux/actions/experiences";
-import { fetchProfile } from "../redux/actions/profileActions";
+import { fetchProfile, fetchProfiles } from "../redux/actions/profileActions";
 import { useSelector } from "react-redux";
 import type { RootState } from "./../redux/store/store";
 import { store } from "./../redux/store/store";
@@ -11,6 +11,7 @@ import LinkedinMain from "../components/LinkedinMain";
 import BoxInfo from "../components/BoxInfo";
 
 const Profile = () => {
+  const dispatch = store.dispatch;
   const profile = useSelector(
     (state: RootState) => state.profile.profile
   );
@@ -19,8 +20,10 @@ const Profile = () => {
   );
 
   useEffect(() => {
-    store.dispatch(fetchProfile('me'));
-    store.dispatch(fetchExperiences("643d139522a6ab00141a8568"));
+      dispatch(fetchProfile('643d139522a6ab00141a8568'));
+      dispatch(fetchExperiences("63fc85ebf193e60013807f65"));
+      dispatch(fetchProfiles())
+      console.log('in profile', userExperiences);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -49,7 +52,7 @@ const Profile = () => {
 
                 <div className="mt-5 mx-4 row">
 
-                 {profile? <div className="col-8">
+                {profile? <div className="col-8">
 
                     <h2>{profile.name} {profile.surname} </h2>
                     <p>{profile.title}</p>
