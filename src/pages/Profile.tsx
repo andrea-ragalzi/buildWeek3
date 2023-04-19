@@ -1,7 +1,7 @@
 import { Container, Row, Col, Button } from "react-bootstrap";
 import { MyFooter } from "./../components/MyFooter";
 import { useEffect } from "react";
-import { fetchExperiences } from "./../redux/actions/experiences";
+import { fetchExperiences, addExperience } from "./../redux/actions/experiences";
 import { fetchProfile, editProfile, fetchProfiles } from "../redux/actions/profileActions";
 import { useSelector } from "react-redux";
 import type { RootState } from "./../redux/store/store";
@@ -21,13 +21,38 @@ const Profile = () => {
 
   useEffect(() => {
     dispatch(fetchProfile('me'));
-    dispatch(fetchProfiles());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handlePut = () => {
     const profile_tmp = JSON.parse(JSON.stringify(profile));
+    profile_tmp.bio = 'ciao sara';
     dispatch(editProfile(profile_tmp!));
+  }
+
+  const handleAddExp = () => {
+    const exp1: Experience = {
+      role: "santone",
+      company: "me stesso",
+      startDate: "2019-06-16",
+      endDate: null, 									
+      description: "Spiego allaggente come vivere",
+      area: "Milano",
+      username: "andrearagalzi",
+      image: "https://picsum.photos/48/48"
+    }
+    const exp2: Experience = {
+      role: "santone",
+      company: "me stesso",
+      startDate: "2019-06-16",
+      endDate: null, 									
+      description: "Spiego allaggente come vivere",
+      area: "Milano",
+      username: "andrearagalzi",
+      image: "https://picsum.photos/48/48"
+    }
+    dispatch(addExperience(profile!._id, exp1));
+    dispatch(addExperience(profile!._id, exp2));
   }
 
   return (
@@ -40,7 +65,11 @@ const Profile = () => {
             <Button
               className="btn btn-primary"
               onClick={handlePut}
-            >PUT</Button>
+            >EDIT PROFILE</Button>
+            <Button
+              className="btn btn-primary"
+              onClick={handleAddExp}
+            >ADD EXPERIENCE</Button>
             {userExperiences.length > 0 &&
               userExperiences.map((exp: Experience) => {
                 return (
