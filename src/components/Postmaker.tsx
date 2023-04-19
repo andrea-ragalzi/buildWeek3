@@ -36,8 +36,9 @@ export const Postmaker = () =>{
         <Modal.Header closeButton>
           <Modal.Title>Crea un post</Modal.Title>
         </Modal.Header>
-        <Modal.Body></Modal.Body>
+        <Modal.Body><div><img src="https://picsum.photos/200/300" alt="avatar" className="rounded-circle" width={50} height={50}/> <span>Profile.name Profile.surname</span></div></Modal.Body>
         <Modal.Footer>
+            <div className="d-flex justify-content-between"><span>tutti</span><span><i className="bi bi-clock"></i> <button>Pubbilca</button></span></div>
         </Modal.Footer>
       </Modal>
             </div>
