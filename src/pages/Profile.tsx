@@ -2,6 +2,7 @@ import { Container, Row, Col, Button } from "react-bootstrap";
 import { MyFooter } from "./../components/MyFooter";
 import { Modal } from "react-bootstrap";
 import { useState, useEffect } from "react";
+import { Collapse } from "react-bootstrap";
 import {
   fetchExperiences,
   addExperience,
@@ -20,6 +21,9 @@ import BoxInfo from "../components/BoxInfo";
 const Profile = () => {
   const dispatch = store.dispatch;
   const [showexperience, setshowexperience] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [opensecond, setOpensec] = useState(false);
+  const [openthird, setOpenthir] = useState(false);
   const [lgShow, setLgShow] = useState(false);
   const profile = useSelector(
     (state: RootState) => state.profile.me
@@ -85,17 +89,69 @@ const Profile = () => {
                     </ul>
                   </Col>
                   <Modal
-                    size="lg"
                     show={lgShow}
                     onHide={() => setLgShow(false)}
                     aria-labelledby="example-modal-sizes-title-lg"
                   >
                     <Modal.Header closeButton>
                       <Modal.Title id="example-modal-sizes-title-lg">
-                        Large Modal
+                        Aggiungi sezione al profilo
                       </Modal.Title>
                     </Modal.Header>
-                    <Modal.Body>...</Modal.Body>
+                    <Modal.Body>
+                      <div>
+                        <button
+                          className="unstyledbtn"
+                          onClick={() => setOpen(!open)}
+                          aria-controls="example-collapse-text"
+                          aria-expanded={open}
+                        >
+                          click</button>
+                        <Collapse in={open}>
+                          <div id="example-collapse-text">
+                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
+                            terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer
+                            labore wes anderson cred nesciunt sapiente ea proident.
+                          </div>
+
+                        </Collapse>
+                      </div>
+                      <div>
+                        <button
+                          className="unstyledbtn"
+                          onClick={() => setOpensec(!opensecond)}
+                          aria-controls="example-collapse-text"
+                          aria-expanded={opensecond}
+                        >
+                          click</button>
+                        <Collapse in={opensecond}>
+                          <div id="example-collapse-text">
+                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
+                            terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer
+                            labore wes anderson cred nesciunt sapiente ea proident.
+                          </div>
+
+                        </Collapse>
+                      </div>
+                      <div>
+                        <button
+                          className="unstyledbtn"
+                          onClick={()=> setOpenthir(!openthird)}
+                          aria-controls="example-collapse-text"
+                          aria-expanded={openthird}
+                        >
+                          click</button>
+                        <Collapse in={openthird}>
+                          <div id="example-collapse-text">
+                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
+                            terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer
+                            labore wes anderson cred nesciunt sapiente ea proident.
+                          </div>
+
+                        </Collapse>
+                      </div>
+
+                    </Modal.Body>
                   </Modal>
                 </Row>
               </div>
@@ -105,6 +161,7 @@ const Profile = () => {
                 <BoxInfo title='Informazioni' />
                 <p className="mx-3">{profile.bio}</p>
               </div>
+
             </Col> : <></>}
 
             {showexperience ?
