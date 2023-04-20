@@ -1,49 +1,31 @@
-import { Container, Row, Col, Button } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import { MyFooter } from "./../components/MyFooter";
 import { useState, useEffect } from "react";
-import {
-  fetchExperiences,
-  addExperience,
-  deleteExperience,
-  fetchExperience,
-  editExperience,
-} from "../redux/actions/experienceActions";
-import {
-  fetchProfile,
-  editProfile,
-  fetchProfiles,
-} from "../redux/actions/profileActions";
+import { fetchExperiences } from "../redux/actions/experienceActions";
+import { fetchProfile } from "../redux/actions/profileActions";
 import { useSelector } from "react-redux";
 import type { RootState } from "./../redux/store/store";
 import { store } from "./../redux/store/store";
 import BoxInfo from "../components/BoxInfo";
 import { Modalbuttons } from "../components/Profilecomponents/Modalbuttons";
-import { Ads } from "../components/Profilecomponents/Ads"
-import { Info } from "../components/Profilecomponents/Info"
-
+import { Ads } from "../components/Profilecomponents/Ads";
+import { Info } from "../components/Profilecomponents/Info";
+import { useParams } from "react-router-dom";
 
 const Profile = () => {
   const dispatch = store.dispatch;
-  const [showexperience, setshowexperience] = useState(false);
-  const profile = useSelector((state: RootState) => state.profile.me);
+  const profile = useSelector((state: RootState) => state.profile.selected);
   const userExperiences = useSelector(
     (state: RootState) => state.experience.list
   );
-  const selectedExperience = useSelector(
-    (state: RootState) => state.experience.selected
-  );
 
-  const checkexperiece = () => {
-    if (userExperiences.length <= 0) {
-    } else {
-      setshowexperience(!showexperience);
-    }
-  };
+  const params = useParams();
+  const user: string = params.id!;
 
   useEffect(() => {
-    dispatch(fetchProfile("me"));
-    dispatch(fetchExperiences("me"));
-    checkexperiece();
+    dispatch(fetchProfile(user));
+    dispatch(fetchExperiences(user));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   console.log(userExperiences);
@@ -72,12 +54,12 @@ const Profile = () => {
                 <Row className="mt-5 mb-3 mx-3 row">
                   <div className="col-8">
                     <h2>
-                      {profile?.name} {profile?.surname}{" "}
+                      {profile?.name} {profile?.surname}
                     </h2>
                     <p>{profile?.title}</p>
                     <p>{profile?.area}</p>
                     <div>
-                      <Modalbuttons />{" "}
+                      <Modalbuttons />
                     </div>
                   </div>
 
@@ -86,22 +68,15 @@ const Profile = () => {
                       <li>image : azienda</li>
                     </ul>
                   </Col>
-
                 </Row>
               </div>
             </Col>
 
-
             {profile ? <Info {...profile} /> : <></>}
-
-
-
-
-
 
             <Col xs={12}>
               <div className="sectionContainer">
-                <BoxInfo title="Esperienza" />
+                <h2>Esperienza</h2>
               </div>
             </Col>
             <Col xs={12}>
@@ -123,12 +98,11 @@ const Profile = () => {
         </Col>
 
         <Ads />
-
-      </Row >
+      </Row>
       <Row>
         <MyFooter></MyFooter>
       </Row>
-    </Container >
+    </Container>
   );
 };
 
