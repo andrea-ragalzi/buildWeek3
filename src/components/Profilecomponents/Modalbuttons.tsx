@@ -26,7 +26,7 @@ export const Modalbuttons = () => {
         </Dropdown>
 
         <button className="btnBlue ps-0 ms-0" onClick={() => setLgShow(true)}>
-            Aggiungi sezione del profilo
+            Aggiungi <span className="d-none d-md-none d-lg-block d-xl-inline"> sezione al profilo </span>
         </button>
 
         <Dropdown >
@@ -48,7 +48,7 @@ export const Modalbuttons = () => {
         >
             <Modal.Header closeButton>
                 <Modal.Title id="example-modal-sizes-title-lg">
-                    Aggiungi <span className="d-md-none d-sm-none "> sezione al profilo </span>
+                    Aggiungi <span className="d-md-none"> sezione al profilo </span>
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
