@@ -11,13 +11,13 @@ const PNF = () => {
             <h3>
               Uh oh, we can't seem to find the page you're looking for. Try
               going back to
-              <Link to={"/"}>
+              <Link to={"/"} className="strong404">
                 <strong> Home </strong>
               </Link>
               for more information.
             </h3>
-            <Link to="/" className="bntFeed">
-              Go to your feed
+            <Link to="/">
+             <button className="btnFeed">Go to your feed</button> 
             </Link>
           </div>
         </Col>
