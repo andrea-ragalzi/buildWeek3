@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import type { RootState } from "./../redux/store/store";
 import { store } from "./../redux/store/store";
 import { fetchProfile } from "../redux/actions/profileActions";
+import { MiniFooter } from "../components/MyFooter";
 
 const Home = () => {
   const dispatch = store.dispatch;
@@ -160,7 +161,7 @@ const Home = () => {
                 <button onClick={() => { setShowlist(!Showlist) }} className="ms-2 Btnseemore"> {Showlist?<span>Meno dettagli<i className="bi bi-caret-up-fill"></i></span>  :<span>Visualizza altro <i className="bi bi-caret-down-fill"></i></span>} </button>
               </div>
             </div>
-          <div>HOLA sono futer dio po</div>
+          <MiniFooter></MiniFooter>
 
         </Col>
       </Row>
