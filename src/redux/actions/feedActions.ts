@@ -106,13 +106,13 @@ const deletePostFailure = (error: string): FeedAction => ({
   error: error,
 });
 
-export const fetchPosts = (userId: string) => {
+export const fetchPosts = () => {
   return async (dispatch: Dispatch<AnyAction>) => {
     dispatch(getPostsRequest());
 
     try {
       const response = await fetch(
-        `https://striveschool-api.herokuapp.com/api/profile/${userId}/posts`,
+        `https://striveschool-api.herokuapp.com/api/posts/`,
         {
           headers: {
             Authorization: `Bearer ${apiKey}`,
@@ -135,13 +135,13 @@ export const fetchPosts = (userId: string) => {
   };
 };
 
-export const addPost = (userId: string, post: Post) => {
+export const addPost = (post: Post) => {
   return async (dispatch: Dispatch<AnyAction>) => {
     dispatch(addPostRequest());
 
     try {
       const response = await fetch(
-        `https://striveschool-api.herokuapp.com/api/profile/${userId}/posts/`,
+        `https://striveschool-api.herokuapp.com/api/posts/`,
         {
           method: "POST",
           headers: {
@@ -168,13 +168,13 @@ export const addPost = (userId: string, post: Post) => {
   };
 };
 
-export const fetchPost = (userId: string, postId: string) => {
+export const fetchPost = (postId: string) => {
   return async (dispatch: Dispatch<AnyAction>) => {
     dispatch(getPostRequest());
 
     try {
       const response = await fetch(
-        `https://striveschool-api.herokuapp.com/api/profile/${userId}/posts/${postId}`,
+        `https://striveschool-api.herokuapp.com/api/posts/${postId}`,
         {
           headers: {
             Authorization: `Bearer ${apiKey}`,
@@ -196,13 +196,13 @@ export const fetchPost = (userId: string, postId: string) => {
   };
 };
 
-export const editPost = (userId: string, post: Post) => {
+export const editPost = (post: Post) => {
   return async (dispatch: Dispatch<AnyAction>) => {
     dispatch(editPostRequest());
 
     try {
       const response = await fetch(
-        `https://striveschool-api.herokuapp.com/api/profile/${userId}/posts/${post._id}`,
+        `https://striveschool-api.herokuapp.com/api/posts/${post._id}`,
         {
           method: "PUT",
           headers: {
@@ -230,13 +230,13 @@ export const editPost = (userId: string, post: Post) => {
   };
 };
 
-export const deletePost = (userId: string, postId: string) => {
+export const deletePost = (postId: string) => {
   return async (dispatch: Dispatch) => {
     dispatch(deletePostRequest());
 
     try {
       const response = await fetch(
-        `https://striveschool-api.herokuapp.com/api/profile/${userId}/posts/${postId}`,
+        `https://striveschool-api.herokuapp.com/api/posts/${postId}`,
         {
           method: "DELETE",
           headers: {

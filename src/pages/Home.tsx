@@ -8,15 +8,18 @@ import { fetchProfile } from "../redux/actions/profileActions";
 import { Link } from "react-router-dom";
 import { MiniFooter } from "../components/MyFooter";
 import SinglePost from "../components/SinglePost";
+import { fetchPosts } from "../redux/actions/feedActions";
 
 const Home = () => {
   const dispatch = store.dispatch;
   const [Showlist, setShowlist] = useState(false);
+
   const myProfile = useSelector((state: RootState) => state.profile.me);
+  const allPosts = useSelector((state: RootState) => state.feed.list);
 
   useEffect(() => {
     dispatch(fetchProfile("me"));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    dispatch(fetchPosts());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -68,7 +71,7 @@ const Home = () => {
             <ul className="list-unstyled HomeList fw-bold text-primary ms-2">
               <li className="mb-3 mt-2">Gruppi</li>
               <li className="mb-3 d-flex justify-content-between">
-                Eventi <i className="bi bi-plus-lg text-black me-2"></i>{" "}
+                Eventi <i className="bi bi-plus-lg text-black me-2"></i>
               </li>
               <li>Hashtag seguiti</li>
             </ul>
@@ -79,7 +82,27 @@ const Home = () => {
 
         <Col lg={6} md={8} xs={12}>
           <Postmaker />
-          <SinglePost />
+          <Row>
+            {allPosts.length > 0 ? (
+              <>
+                {allPosts.map((post) => {
+                  return (
+                    <Col xs={12} key={post._id}>
+                      <SinglePost
+                        _id={post._id}
+                        image={post.image}
+                        text={post.text}
+                        username={post.username}
+                        createdAt={post.createdAt}
+                      />
+                    </Col>
+                  );
+                })}
+              </>
+            ) : (
+              <></>
+            )}
+          </Row>
         </Col>
 
         <Col lg={3} md={8} xs={12} className="offset-0 offset-md-4 offset-lg-0">
@@ -91,13 +114,13 @@ const Home = () => {
                   <li className="Second-List-collapse mt-1 fw-bold Homelist pe-3">
                     Le Top Companies del 2023 in Italia <br></br>
                     <p className="fw-normal Collapse-p text-secondary">
-                      Notizie principali • 534 lettori{" "}
+                      Notizie principali • 534 lettori
                     </p>
                   </li>
                   <li className="Second-List-collapse fw-bold Homelist">
                     Ucraina: gli ultimi aggiornamenti <br></br>
                     <p className="fw-normal Collapse-p text-secondary">
-                      6 ore fa • 414 lettori{" "}
+                      6 ore fa • 414 lettori
                     </p>
                   </li>
                   <li className="Second-List-collapse fw-bold Homelist">

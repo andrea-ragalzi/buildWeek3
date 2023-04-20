@@ -3,20 +3,16 @@ import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import Button from "react-bootstrap/Button";
 import { Col, Image, Row } from "react-bootstrap";
 import { Link, NavLink } from "react-router-dom";
 import "../style/App.scss";
 import { useState } from "react";
-import { store } from "./../redux/store/store";
 import { useSelector } from "react-redux";
 import type { RootState } from "./../redux/store/store";
 
 export const CustomNavbar = () => {
   const [Rightcollapse, setRightcollapse] = useState(false);
-  const myProfile = useSelector(
-    (state: RootState) => state.profile.me
-  );
+  const myProfile = useSelector((state: RootState) => state.profile.me);
 
   return (
     <header className="myNavbar">
@@ -109,10 +105,7 @@ export const CustomNavbar = () => {
                     <NavDropdown
                       title={
                         <div className="dropdown-title">
-                          <Image
-                            id="myProfile"
-                            src={myProfile?.image}
-                          ></Image>
+                          <Image id="myProfile" src={myProfile?.image}></Image>
                           <p>Tu</p>
                         </div>
                       }
@@ -126,15 +119,14 @@ export const CustomNavbar = () => {
                     >
                       <Row>
                         <Col xs={3} className="p-0">
-                          <img
-                            src={myProfile?.image}
-                            alt="Foto dropdowns"
-                          />
+                          <img src={myProfile?.image} alt="Foto dropdowns" />
                         </Col>
                         <Col xs={9}>
                           <div>
                             <p>
-                              <b>{myProfile?.name} {myProfile?.surname}</b>
+                              <b>
+                                {myProfile?.name} {myProfile?.surname}
+                              </b>
                             </p>
                             <p>{myProfile?.title}</p>
                           </div>
