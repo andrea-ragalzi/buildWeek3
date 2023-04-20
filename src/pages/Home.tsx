@@ -85,7 +85,7 @@ const Home = () => {
           <Row>
             {allPosts.length > 0 ? (
               <>
-                {allPosts.slice(0, counterPosts).map(post => {
+                {allPosts.slice().reverse().slice(0, counterPosts).map(post => {
                   return (
                     <Col xs={12} key={post._id}>
                       <SinglePost
