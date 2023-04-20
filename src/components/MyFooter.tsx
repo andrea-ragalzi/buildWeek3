@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export const MyFooter: React.FC = function () {
   return (
-    <Container className="pageContainer">
+    <Container>
       <footer className="footerContainer">
         <Row>
           <Col xs={12} sm={6} className="leftCol">

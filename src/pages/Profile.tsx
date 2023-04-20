@@ -12,15 +12,15 @@ import { fetchProfile, editProfile, fetchProfiles } from "../redux/actions/profi
 import { useSelector } from "react-redux";
 import type { RootState } from "./../redux/store/store";
 import { store } from "./../redux/store/store";
-import { Experience } from "../types/expCardTypes";
 import LinkedinMain from "../components/LinkedinMain";
 import BoxInfo from "../components/BoxInfo";
 
 
 const Profile = () => {
   const dispatch = store.dispatch;
+  const [showexperience, setshowexperience] = useState(false);
   const profile = useSelector(
-    (state: RootState) => state.profile.selected
+    (state: RootState) => state.profile.me
   );
   const userExperiences = useSelector(
     (state: RootState) => state.experience.list
@@ -28,12 +28,27 @@ const Profile = () => {
   const selectedExperience = useSelector(
     (state: RootState) => state.experience.selected)
 
+      const checkexperiece =()=>{
+        if (userExperiences.length <= 0) {
+
+        }else{
+          setshowexperience(!showexperience)
+        }
+      } 
+
+  useEffect(() => {
+    dispatch(fetchProfile("me"))
+    dispatch(fetchExperiences("me"))
+    checkexperiece();
+  }, [])
+
+  console.log(userExperiences)
   return (
     <Container className="pageContainer">
       <Row>
         <Col xs={12} md={9} className="mainColumn">
           <Row className="g-3">
-            {userExperiences?.length <= 0 && <p>no experiences</p>}
+
             <Col xs={12}>
               <div className="sectionContainer profileHero">
                 <div className="profileImgs">
@@ -51,13 +66,15 @@ const Profile = () => {
                   </button>
                 </div>
 
-                <Row className="mt-5 mx-4 row">
+                <Row className="mt-5 mx-3 row">
 
                   {profile ? <div className="col-8">
 
                     <h2>{profile.name} {profile.surname} </h2>
                     <p>{profile.title}</p>
                     <p>{profile.area}</p>
+                    <div> <button>Aggiungi sezione del profilo</button> </div>
+                    
                   </div> : <></>}
                   <Col className="col-4">
                     <ul>
@@ -70,22 +87,28 @@ const Profile = () => {
             {profile ? <Col xs={12}>
               <div style={{ width: '100%', backgroundColor: 'white' }} className="border border-1 border-secondary rounded-3">
                 <BoxInfo title='Informazioni' />
-                <p>{profile.bio}</p>
+                <p className="mx-3">{profile.bio}</p>
               </div>
             </Col> : <></>}
+
+            {showexperience? 
             <Col xs={12}>
               <div className="sectionContainer">
                 <BoxInfo title="Esperienza" />
-                <LinkedinMain />
-                <LinkedinMain />
+                <Row>
+                  <Col xs='2'>
+                    <img src="https://placekitten.com/g/80" alt="pic" className="rounded-5 mx-4" />
+                  </Col>
+                  <Col xs="10" className="p-0">
+                  </Col>
+                </Row>
               </div>
-            </Col>
+            </Col> : <></>}
+            
             <Col xs={12}>
               <div className="sectionContainer">
                 <BoxInfo title="Formazione" />
-                <LinkedinMain />
-                <LinkedinMain />
-                <LinkedinMain />
+
               </div>
             </Col>
             <Col xs={12}>
