@@ -39,6 +39,13 @@ const getProfilesSuccess = (profiles: Profile[]): ProfileAction => ({
   loading: false,
 });
 
+const getMyProfileSuccess = (profile: Profile): ProfileAction => ({
+  type: ActionTypes.GET_MY_PROFILE_SUCCESS,
+  payload: profile,
+  error: null,
+  loading: false,
+});
+
 const getProfilesFailure = (error: string): ProfileAction => ({
   type: ActionTypes.GET_PROFILES_FAILURE,
   error: error,
@@ -81,7 +88,12 @@ export const fetchProfile = (userId: string) => {
         throw new Error(response.statusText);
       }
       const profile = await response.json();
-      dispatch(getProfileSuccess(profile));
+      if (userId === 'me') {
+        dispatch(getMyProfileSuccess(profile));
+      }
+      else {
+        dispatch(getProfileSuccess(profile));
+      }
       console.log("nella fetch:", profile);
     } catch (error: unknown) {
       if (error instanceof Error) {
