@@ -5,7 +5,7 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Button from "react-bootstrap/Button";
 import { Col, Image, Row } from "react-bootstrap";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "../style/App.scss";
 import { useState } from "react";
 
@@ -135,9 +135,9 @@ export const CustomNavbar = () => {
                         </Col>
                         <Col xs={12}>
                           <NavDropdown.Item className="d-flex">
-                            <Button className="btnWhite w-100">
+                            <Link to={"/profile/:id"} className="btnWhite w-100">
                               Visualizza profilo
-                            </Button>
+                            </Link>
                           </NavDropdown.Item>
                         </Col>
                       </Row>
