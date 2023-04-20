@@ -18,7 +18,7 @@ import {
 import { useSelector } from "react-redux";
 import type { RootState } from "./../redux/store/store";
 import { store } from "./../redux/store/store";
-import LinkedinMain from "../components/LinkedinMain";
+import ListGroup from 'react-bootstrap/ListGroup';
 import BoxInfo from "../components/BoxInfo";
 
 const Profile = () => {
@@ -117,7 +117,15 @@ const Profile = () => {
                           Sezioni Principali
                         </button>
                         <Collapse in={open}>
-                          <ul id="example-collapse-text"></ul>
+                          <ListGroup id="example-collapse-text">
+                            <ListGroup.Item>Cras justo odio</ListGroup.Item>
+                            <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
+                            <ListGroup.Item>Morbi leo risus</ListGroup.Item>
+                            <ListGroup.Item>Porta ac consectetur ac</ListGroup.Item>
+                            <ListGroup.Item><button>Aggiungi Competenze</button></ListGroup.Item>
+                          </ListGroup>
+
+
                         </Collapse>
                       </div>
                       <div>
@@ -130,12 +138,14 @@ const Profile = () => {
                           Sezioni consigliate
                         </button>
                         <Collapse in={opensecond}>
-                          <div id="example-collapse-text">
-                            Anim pariatur cliche reprehenderit, enim eiusmod
-                            high life accusamus terry richardson ad squid. Nihil
-                            anim keffiyeh helvetica, craft beer labore wes
-                            anderson cred nesciunt sapiente ea proident.
-                          </div>
+                        <ListGroup id="example-collapse-text">
+                            <ListGroup.Item>Cras justo odio</ListGroup.Item>
+                            <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
+                            <ListGroup.Item>Morbi leo risus</ListGroup.Item>
+                            <ListGroup.Item>Porta ac consectetur ac</ListGroup.Item>
+                            <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
+                          </ListGroup>
+
                         </Collapse>
                       </div>
                       <div>
@@ -148,12 +158,14 @@ const Profile = () => {
                           Altro
                         </button>
                         <Collapse in={openthird}>
-                          <div id="example-collapse-text">
-                            Anim pariatur cliche reprehenderit, enim eiusmod
-                            high life accusamus terry richardson ad squid. Nihil
-                            anim keffiyeh helvetica, craft beer labore wes
-                            anderson cred nesciunt sapiente ea proident.
-                          </div>
+                        <ListGroup id="example-collapse-text">
+                            <ListGroup.Item>Cras justo odio</ListGroup.Item>
+                            <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
+                            <ListGroup.Item>Morbi leo risus</ListGroup.Item>
+                            <ListGroup.Item>Porta ac consectetur ac</ListGroup.Item>
+                            <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
+                          </ListGroup>
+
                         </Collapse>
                       </div>
                     </Modal.Body>
@@ -177,8 +189,6 @@ const Profile = () => {
             <Col xs={12}>
               <div className="sectionContainer">
                 <BoxInfo title="Esperienza" />
-                <LinkedinMain />
-                <LinkedinMain />
               </div>
             </Col>
             <Col xs={12}>
