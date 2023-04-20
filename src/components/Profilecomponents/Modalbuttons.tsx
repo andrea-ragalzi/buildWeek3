@@ -13,9 +13,9 @@ export const Modalbuttons = () => {
 
     return (<div className="ps-0 ms-0 d-flex">
 
-        <Dropdown >
+        <Dropdown className="">
             <Dropdown.Toggle className="btnBlue ps-0 ms-0" id="dropdown-basic">
-                <span>Disponibile per</span>
+                <span className="mx-2">Disponibile per</span>
             </Dropdown.Toggle>
 
             <Dropdown.Menu>
@@ -26,12 +26,12 @@ export const Modalbuttons = () => {
         </Dropdown>
 
         <button className="btnBlue ps-0 ms-0" onClick={() => setLgShow(true)}>
-            Aggiungi <span className="d-none d-md-none d-lg-block d-xl-inline"> sezione al profilo </span>
+            <span className="mx-2"> Aggiungi <span className="d-none d-md-none d-lg-block d-xl-inline"> sezione al profilo </span></span>
         </button>
 
-        <Dropdown >
+        <Dropdown>
             <Dropdown.Toggle className="btnGrey ps-0 ms-0" id="dropdown-basic">
-                <span>Altro</span>
+                <span className="mx-3">Altro</span>
             </Dropdown.Toggle>
 
             <Dropdown.Menu>
@@ -61,6 +61,7 @@ export const Modalbuttons = () => {
                     >
                         Sezioni Principali
                     </button>
+
                     <Collapse in={open}>
                         <ListGroup id="example-collapse-text">
                             <ListGroup.Item><button className="unstyledbtn py-0 my-0 px-0">Aggiungi foto del profilo</button></ListGroup.Item>
@@ -73,6 +74,7 @@ export const Modalbuttons = () => {
 
 
                     </Collapse>
+
                 </div>
                 <div>
                     <button
@@ -92,6 +94,7 @@ export const Modalbuttons = () => {
                         </ListGroup>
 
                     </Collapse>
+
                 </div>
                 <div>
                     <button
@@ -102,6 +105,7 @@ export const Modalbuttons = () => {
                     >
                         Altro
                     </button>
+
                     <Collapse in={openthird}>
                         <ListGroup id="example-collapse-text">
                             <ListGroup.Item><button className="unstyledbtn py-0 my-0 px-0">Aggiungi esperienza di volontariato</button></ListGroup.Item>
@@ -116,6 +120,7 @@ export const Modalbuttons = () => {
                         </ListGroup>
 
                     </Collapse>
+
                 </div>
             </Modal.Body>
         </Modal>
