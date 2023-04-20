@@ -12,7 +12,7 @@ const Home = () => {
         <Col lg={2} md={4} xs={12} className="h-100" >
           <div className="border rounded text-center p-0 w-100 mb-2 h-100 bg-white">
             <div className="border rounded">
-              <img className="homeProfileBanner rounded w-100 " src="https://picsum.photos/200/300" alt="Home profile picture" />
+              <img className="homeProfileBanner rounded w-100 " src="https://picsum.photos/200/300" alt="Home profile" />
             </div>
             <div className="homeprofilebuttonContainer">
               <button className="homeprofileButton">
