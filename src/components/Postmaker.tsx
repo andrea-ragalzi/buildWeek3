@@ -2,7 +2,7 @@ import { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import { useSelector } from "react-redux";
 import { RootState, store } from "./../redux/store/store";
-import { Button, Form } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 import { addPost } from "../redux/actions/feedActions";
 import { FormEvent } from "react";
 
