@@ -1,5 +1,5 @@
-import { ExperienceState } from "../../types/expReducer";
-import { ActionTypes, Action } from "../../types/expReducer";
+import { ExperienceState } from "../../types/experienceTypes";
+import { ActionTypes, Action } from "../../types/experienceTypes";
 
 const initialState: ExperienceState = {
   list: [],
@@ -53,9 +53,7 @@ const experienceReducer = (
     case ActionTypes.DELETE_EXPERIENCE_SUCCESS:
       return {
         ...state,
-        list: state.list.filter(
-          (exp) => exp._id !== action.payload
-        ),
+        list: state.list.filter((exp) => exp._id !== action.payload),
         loading: false,
       };
 

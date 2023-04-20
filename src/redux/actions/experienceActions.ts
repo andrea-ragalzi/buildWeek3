@@ -1,6 +1,6 @@
 import { Dispatch } from "redux";
-import { ActionTypes, Action } from "./../../types/expReducer";
-import { Experience } from "./../../types/expCardTypes";
+import { ActionTypes, Action } from "../../types/experienceTypes";
+import { Experience } from "../../types/expCardTypes";
 import { AnyAction } from "@reduxjs/toolkit";
 
 const apiKey = process.env.REACT_APP_MY_KEY;
@@ -87,7 +87,6 @@ const editExperienceFailure = (error: string): Action => ({
   loading: false,
   error: error,
 });
-
 
 const deleteExperienceRequest = (): Action => ({
   type: ActionTypes.DELETE_EXPERIENCE_REQUEST,
@@ -179,8 +178,8 @@ export const fetchExperience = (userId: string, experienceId: string) => {
         `https://striveschool-api.herokuapp.com/api/profile/${userId}/experiences/${experienceId}`,
         {
           headers: {
-            Authorization: `Bearer ${apiKey}`
-          }
+            Authorization: `Bearer ${apiKey}`,
+          },
         }
       );
       if (!response.ok) {
@@ -229,7 +228,7 @@ export const editExperience = (userId: string, experience: Experience) => {
         dispatch(editExperienceFailure("An unknown error occurred"));
       }
     }
-  }
+  };
 };
 
 export const deleteExperience = (userId: string, experienceId: string) => {
@@ -242,8 +241,8 @@ export const deleteExperience = (userId: string, experienceId: string) => {
         {
           method: "DELETE",
           headers: {
-            Authorization: `Bearer ${apiKey}`
-          }
+            Authorization: `Bearer ${apiKey}`,
+          },
         }
       );
 

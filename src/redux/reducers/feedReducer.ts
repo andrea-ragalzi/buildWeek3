@@ -1,4 +1,4 @@
-import { FeedState, ActionTypes, FeedAction } from "../../types/feedReducer";
+import { FeedState, ActionTypes, FeedAction } from "../../types/feedTypes";
 
 const initialState: FeedState = {
   list: [],
