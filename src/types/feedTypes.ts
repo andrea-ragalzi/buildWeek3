@@ -1,7 +1,7 @@
 export interface Post {
-  _id: string; // server generated
+  _id?: string;
   username: string;
-  createdAt: string; // server generated
+  createdAt?: string;
   text: string;
   image?: string;
 }

@@ -2,6 +2,8 @@ import { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import { useSelector } from "react-redux";
 import { RootState, store } from "./../redux/store/store";
+import { Button, Form } from "react-bootstrap";
+import { addPost } from "../redux/actions/feedActions";
 
 export const Postmaker = () => {
   const [Photo, setPhoto] = useState(false);
@@ -16,6 +18,11 @@ export const Postmaker = () => {
   const handleShow = () => setShow(!show);
 
   const dispatch = store.dispatch;
+
+  const handleSubmit = (e: Event) => {
+    e.preventDefault();
+    dispatch(addPost());
+  };
 
   return (
     <div>
@@ -73,25 +80,31 @@ export const Postmaker = () => {
             <Modal.Title>Crea un post</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <img
-              src={myProfile?.image}
-              alt="avatar"
-              className="rounded-circle"
-              width={50}
-              height={50}
-            />
-            <span>
-              {myProfile?.name} {myProfile?.surname}
-            </span>
-            <input type="text" className="inputfield" />
-          </Modal.Body>
-
-          <Modal.Footer>
-            <div className="d-flex justify-content-between">
-              <i className="bi bi-clock"></i>{" "}
-              <button className="ms-3 btnGrey">Pubbilca</button>
+            <div className="linkBehave">
+              <img
+                src={myProfile?.image}
+                alt="avatar"
+                className="rounded-circle"
+                width={50}
+                height={50}
+              />
+              <div>
+                <p>
+                  {myProfile?.name} {myProfile?.surname}
+                </p>
+                <p className="text-muted">
+                  <small>Pubblica: Chiunque</small>
+                </p>
+              </div>
             </div>
-          </Modal.Footer>
+            <Form onSubmit={handleSubmit()}>
+              <Form.Label>Scrivi qualcosa!</Form.Label>
+              <Form.Control as="textarea" rows={2}></Form.Control>
+              <button type="submit" className="btnBlue">
+                Pubbilca
+              </button>
+            </Form>
+          </Modal.Body>
         </Modal>
       </div>
     </div>
