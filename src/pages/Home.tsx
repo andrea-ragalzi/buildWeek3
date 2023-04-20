@@ -13,7 +13,7 @@ import { fetchPosts } from "../redux/actions/feedActions";
 const Home = () => {
   const dispatch = store.dispatch;
   const [Showlist, setShowlist] = useState(false);
-
+  const [counterPosts, setCounterPosts] = useState(30);
   const myProfile = useSelector((state: RootState) => state.profile.me);
   const allPosts = useSelector((state: RootState) => state.feed.list);
 
@@ -85,7 +85,7 @@ const Home = () => {
           <Row>
             {allPosts.length > 0 ? (
               <>
-                {allPosts.map((post) => {
+                {allPosts.slice(0, counterPosts).map(post => {
                   return (
                     <Col xs={12} key={post._id}>
                       <SinglePost
@@ -93,6 +93,7 @@ const Home = () => {
                         image={post.image}
                         text={post.text}
                         username={post.username}
+                        user={post.user}
                         createdAt={post.createdAt}
                       />
                     </Col>
@@ -102,6 +103,9 @@ const Home = () => {
             ) : (
               <></>
             )}
+            <Col xs={12}>
+              <button onClick={()=> setCounterPosts(counterPosts+30)}>Mostra Altri Post</button>
+            </Col>
           </Row>
         </Col>
 
