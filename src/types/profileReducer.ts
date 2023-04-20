@@ -1,5 +1,6 @@
 export enum ActionTypes {
   GET_PROFILE_REQUEST = "GET_PROFILE_REQUEST",
+  GET_MY_PROFILE_SUCCESS = "GET_MY_PROFILE_SUCCESS",
   GET_PROFILE_SUCCESS = "GET_PROFILE_SUCCESS",
   GET_PROFILE_FAILURE = "GET_PROFILE_FAILURE",
   GET_PROFILES_REQUEST = "GET_PROFILES_REQUEST",
@@ -33,6 +34,7 @@ export interface ProfileAction {
 export interface ProfileState {
   list: Profile[];
   selected: Profile | null;
+  me: Profile | null;
   error: string | null;
   loading: boolean;
 }
