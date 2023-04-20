@@ -17,7 +17,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />}></Route>
           <Route path="/profile/:id" element={<Profile />}></Route>
-          <Route path="/page-not-found" element={<PNF />}></Route>
+          <Route path="*" element={<PNF />}></Route>
         </Routes>
         <Messages />
       </div>
