@@ -1,6 +1,7 @@
 import Button from "react-bootstrap/Button";
 import { Post } from "../types/feedTypes";
 import { Link } from "react-router-dom";
+
 const SinglePost = ({ _id, image, text, username, user, createdAt }: Post) => {
   return (
     <div className="sectionContainer">

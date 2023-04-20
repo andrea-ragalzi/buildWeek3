@@ -4,7 +4,7 @@ import { Postmaker } from "../components/Postmaker";
 import { useSelector } from "react-redux";
 import type { RootState } from "./../redux/store/store";
 import { store } from "./../redux/store/store";
-import { fetchProfile } from "../redux/actions/profileActions";
+import { fetchMyProfile } from "../redux/actions/profileActions";
 import { Link } from "react-router-dom";
 import { MiniFooter } from "../components/MyFooter";
 import SinglePost from "../components/SinglePost";
@@ -18,7 +18,7 @@ const Home = () => {
   const allPosts = useSelector((state: RootState) => state.feed.list);
 
   useEffect(() => {
-    dispatch(fetchProfile("me"));
+    dispatch(fetchMyProfile());
     dispatch(fetchPosts());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
