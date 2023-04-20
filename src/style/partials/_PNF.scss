@@ -1,0 +1,32 @@
+.container404{
+    width: 100vw;
+    height: 100vh;
+}
+
+.row404-1{
+height: 70%;
+width: 100%;
+.col{
+   @include fullDimensions;
+    @include centeringFlex;
+}
+}
+
+.error404{
+    @include centeringFlex;
+    height: 100%;
+    width: 50%;
+    text-align: center;
+}
+
+.footer404 {
+    width: 100%;
+    position: fixed;
+    height: 30%;
+    @include centeringFlex;
+    justify-content: flex-end;
+    img{
+        width: 100%;
+
+    }
+}
