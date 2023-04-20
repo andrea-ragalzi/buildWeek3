@@ -145,7 +145,7 @@ const Home = () => {
 
                   </ul>
                 </div>
-                <button onClick={() => { setShowlist(!Showlist) }} className="ms-2 Btnseemore"> {Showlist? "vedi meno" : "vedi piu"} </button>
+                <button onClick={() => { setShowlist(!Showlist) }} className="ms-2 Btnseemore"> {Showlist?<span>Meno dettagli<i className="bi bi-caret-up-fill"></i></span>  :<span>Visualizza altro <i className="bi bi-caret-down-fill"></i></span>} </button>
               </div>
             </div>
           <div>HOLA sono futer dio po</div>
