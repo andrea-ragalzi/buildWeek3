@@ -6,6 +6,7 @@ import type { RootState } from "./../redux/store/store";
 import { store } from "./../redux/store/store";
 import { fetchProfile } from "../redux/actions/profileActions";
 import { MiniFooter } from "../components/MyFooter";
+import SinglePost from "../components/SinglePost";
 
 const Home = () => {
   const dispatch = store.dispatch;
@@ -16,7 +17,7 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(fetchProfile('me'));
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -72,9 +73,10 @@ const Home = () => {
 
 
 
-      
-        <Postmaker />
-
+        <Col lg={6} md={8} xs={12}>
+          <Postmaker />
+          <SinglePost />
+        </Col>
 
 
         <Col lg={3} md={8} xs={12} className="offset-0 offset-md-4 offset-lg-0">
@@ -156,11 +158,11 @@ const Home = () => {
                     </li></div>
 
 
-                  </ul>
-                </div>
-                <button onClick={() => { setShowlist(!Showlist) }} className="ms-2 Btnseemore"> {Showlist?<span>Meno dettagli<i className="bi bi-caret-up-fill"></i></span>  :<span>Visualizza altro <i className="bi bi-caret-down-fill"></i></span>} </button>
+                </ul>
               </div>
+              <button onClick={() => { setShowlist(!Showlist) }} className="ms-2 Btnseemore"> {Showlist ? <span>Meno dettagli<i className="bi bi-caret-up-fill"></i></span> : <span>Visualizza altro <i className="bi bi-caret-down-fill"></i></span>} </button>
             </div>
+          </div>
           <MiniFooter></MiniFooter>
 
         </Col>

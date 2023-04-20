@@ -15,7 +15,7 @@ export const Messages = () => {
                 src="https://picsum.photos/50/50"
                 width="30px"
                 height="30px"
-                className="rounded-circle"
+                className="rounded-circle me-2"
                 alt="avatar_small"
               />
               Messaggistica{" "}
