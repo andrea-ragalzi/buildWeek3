@@ -7,33 +7,51 @@ import {
   deleteExperience,
   fetchExperience,
   editExperience,
-} from "./../redux/actions/experiences";
-import { fetchProfile, editProfile, fetchProfiles } from "../redux/actions/profileActions";
+} from "../redux/actions/experienceActions";
+import {
+  fetchProfile,
+  editProfile,
+  fetchProfiles,
+} from "../redux/actions/profileActions";
 import { useSelector } from "react-redux";
 import type { RootState } from "./../redux/store/store";
 import { store } from "./../redux/store/store";
-import { Experience } from "../types/expCardTypes";
-import LinkedinMain from "../components/LinkedinMain";
 import BoxInfo from "../components/BoxInfo";
+import { Modalbuttons } from "../components/Profilecomponents/Modalbuttons";
+import { Ads } from "../components/Profilecomponents/Ads"
+import { Info } from "../components/Profilecomponents/Info"
 
 
 const Profile = () => {
   const dispatch = store.dispatch;
-  const profile = useSelector(
-    (state: RootState) => state.profile.selected
-  );
+  const [showexperience, setshowexperience] = useState(false);
+  const profile = useSelector((state: RootState) => state.profile.me);
   const userExperiences = useSelector(
     (state: RootState) => state.experience.list
   );
   const selectedExperience = useSelector(
-    (state: RootState) => state.experience.selected)
+    (state: RootState) => state.experience.selected
+  );
 
+  const checkexperiece = () => {
+    if (userExperiences.length <= 0) {
+    } else {
+      setshowexperience(!showexperience);
+    }
+  };
+
+  useEffect(() => {
+    dispatch(fetchProfile("me"));
+    dispatch(fetchExperiences("me"));
+    checkexperiece();
+  }, []);
+
+  console.log(userExperiences);
   return (
     <Container className="pageContainer">
       <Row>
         <Col xs={12} md={9} className="mainColumn">
           <Row className="g-3">
-            {userExperiences?.length <= 0 && <p>no experiences</p>}
             <Col xs={12}>
               <div className="sectionContainer profileHero">
                 <div className="profileImgs">
@@ -51,41 +69,44 @@ const Profile = () => {
                   </button>
                 </div>
 
-                <Row className="mt-5 mx-4 row">
+                <Row className="mt-5 mb-3 mx-3 row">
+                  <div className="col-8">
+                    <h2>
+                      {profile?.name} {profile?.surname}{" "}
+                    </h2>
+                    <p>{profile?.title}</p>
+                    <p>{profile?.area}</p>
+                    <div>
+                      <Modalbuttons />{" "}
+                    </div>
+                  </div>
 
-                  {profile ? <div className="col-8">
-
-                    <h2>{profile.name} {profile.surname} </h2>
-                    <p>{profile.title}</p>
-                    <p>{profile.area}</p>
-                  </div> : <></>}
                   <Col className="col-4">
                     <ul>
                       <li>image : azienda</li>
                     </ul>
                   </Col>
+
                 </Row>
               </div>
             </Col>
-            {profile ? <Col xs={12}>
-              <div style={{ width: '100%', backgroundColor: 'white' }} className="border border-1 border-secondary rounded-3">
-                <BoxInfo title='Informazioni' />
-                <p>{profile.bio}</p>
-              </div>
-            </Col> : <></>}
+
+
+            {profile ? <Info {...profile} /> : <></>}
+
+
+
+
+
+
             <Col xs={12}>
               <div className="sectionContainer">
                 <BoxInfo title="Esperienza" />
-                <LinkedinMain />
-                <LinkedinMain />
               </div>
             </Col>
             <Col xs={12}>
               <div className="sectionContainer">
                 <BoxInfo title="Formazione" />
-                <LinkedinMain />
-                <LinkedinMain />
-                <LinkedinMain />
               </div>
             </Col>
             <Col xs={12}>
@@ -100,30 +121,14 @@ const Profile = () => {
             </Col>
           </Row>
         </Col>
-        <Col md={3} className="d-none d-md-block">
-          <Row className="g-3">
-            <Col xs={12}>
-              <div className="sectionContainer">
-                <h2>Esperienza</h2>
-              </div>
-            </Col>
-            <Col xs={12}>
-              <div className="sectionContainer">
-                <h2>Esperienza</h2>
-              </div>
-            </Col>
-            <Col xs={12}>
-              <div className="sectionContainer">
-                <h2>Esperienza</h2>
-              </div>
-            </Col>
-          </Row>
-        </Col>
-      </Row>
+
+        <Ads />
+
+      </Row >
       <Row>
         <MyFooter></MyFooter>
       </Row>
-    </Container>
+    </Container >
   );
 };
 

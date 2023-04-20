@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export const MyFooter: React.FC = function () {
   return (
-    <Container className="pageContainer">
+    <Container>
       <footer className="footerContainer">
         <Row>
           <Col xs={12} sm={6} className="leftCol">
@@ -167,20 +167,17 @@ export const MiniFooter: React.FC = function () {
               <Link to={"/"}>Accessibilità</Link>
             </li>
             <li className="linkWrap">
-              <Link to={"/"}>Centro Assistenza</Link>
-            </li>
-            <li className="linkWrap">
-              <Link to={"/"}>Linee guida della community</Link>
+              <Link to={"/"}>Centro Ass.</Link>
             </li>
             <li className="linkWrap">
               <Dropdown>
                 <Dropdown.Toggle
                   id="privacy-dropdown"
                   variant="link"
-                  className="linkWrap"
-                >
+                  className="Benvenuto">
                   Privacy e condizioni
                 </Dropdown.Toggle>
+
                 <Dropdown.Menu>
                   <Dropdown.Item as={Link} to={"/privacy"}>
                     Informativa sulla privacy
@@ -196,9 +193,6 @@ export const MiniFooter: React.FC = function () {
                   </Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
-            </li>
-            <li className="linkWrap">
-              <Link to={"/"}>Opzioni per gli annunci pubblicitari</Link>
             </li>
             <li className="linkWrap">
               <Link to={"/"}>Sales Solutions</Link>
@@ -222,7 +216,7 @@ export const MiniFooter: React.FC = function () {
               height={"20px"}
               className="me-3"
             />
-            <p>LinkedIn Corporation © 2023</p>
+            <p className="Benvenuto" >LinkedIn Corporation © 2023</p>
           </Col>
         </Row>
       </Container>

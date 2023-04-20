@@ -8,9 +8,15 @@ import { Col, Image, Row } from "react-bootstrap";
 import { Link, NavLink } from "react-router-dom";
 import "../style/App.scss";
 import { useState } from "react";
+import { store } from "./../redux/store/store";
+import { useSelector } from "react-redux";
+import type { RootState } from "./../redux/store/store";
 
 export const CustomNavbar = () => {
   const [Rightcollapse, setRightcollapse] = useState(false);
+  const myProfile = useSelector(
+    (state: RootState) => state.profile.me
+  );
 
   return (
     <header className="myNavbar">
@@ -105,7 +111,7 @@ export const CustomNavbar = () => {
                         <div className="dropdown-title">
                           <Image
                             id="myProfile"
-                            src="https://content.linkedin.com/content/dam/me/business/en-us/amp/brand-site/v2/bg/LI-Bug.svg.original.svg"
+                            src={myProfile?.image}
                           ></Image>
                           <p>Tu</p>
                         </div>
@@ -121,21 +127,21 @@ export const CustomNavbar = () => {
                       <Row>
                         <Col xs={3} className="p-0">
                           <img
-                            src="https://picsum.photos/50/50"
+                            src={myProfile?.image}
                             alt="Foto dropdowns"
                           />
                         </Col>
                         <Col xs={9}>
                           <div>
                             <p>
-                              <b>Martin Linke-din</b>
+                              <b>{myProfile?.name} {myProfile?.surname}</b>
                             </p>
-                            <p>Ruolo Lavorativo</p>
+                            <p>{myProfile?.title}</p>
                           </div>
                         </Col>
                         <Col xs={12}>
                           <NavDropdown.Item className="d-flex">
-                            <Link to={"/profile/:id"} className="btnWhite w-100">
+                            <Link to="/profile/me" className="btnWhite w-100">
                               Visualizza profilo
                             </Link>
                           </NavDropdown.Item>

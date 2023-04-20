@@ -28,9 +28,11 @@ footer {
 }
 
 .miniFooter {
+    position: sticky;
   ul {
     li {
       padding: 3px 10px;
+      font-size: 12px;
     }
   }
 }

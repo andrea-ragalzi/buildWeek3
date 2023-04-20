@@ -1,9 +1,5 @@
 import { Dispatch } from "redux";
-import {
-  ActionTypes,
-  ProfileAction,
-  Profile,
-} from "./../../types/profileReducer";
+import { ActionTypes, ProfileAction, Profile } from "../../types/profileTypes";
 import { AnyAction } from "@reduxjs/toolkit";
 const apiKey = process.env.REACT_APP_MY_KEY;
 
@@ -35,6 +31,13 @@ const getProfilesRequest = (): ProfileAction => ({
 const getProfilesSuccess = (profiles: Profile[]): ProfileAction => ({
   type: ActionTypes.GET_PROFILES_SUCCESS,
   payload: profiles,
+  error: null,
+  loading: false,
+});
+
+const getMyProfileSuccess = (profile: Profile): ProfileAction => ({
+  type: ActionTypes.GET_MY_PROFILE_SUCCESS,
+  payload: profile,
   error: null,
   loading: false,
 });
@@ -81,7 +84,11 @@ export const fetchProfile = (userId: string) => {
         throw new Error(response.statusText);
       }
       const profile = await response.json();
-      dispatch(getProfileSuccess(profile));
+      if (userId === "me") {
+        dispatch(getMyProfileSuccess(profile));
+      } else {
+        dispatch(getProfileSuccess(profile));
+      }
       console.log("nella fetch:", profile);
     } catch (error: unknown) {
       if (error instanceof Error) {

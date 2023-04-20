@@ -6,6 +6,7 @@
 @import "./partials/messages";
 @import "./partials/profilecontainer";
 @import "./partials/home";
+@import "./partials/post";
 
 html,
 body,
@@ -37,7 +38,7 @@ body,
 }
 
 .footerContainer {
-  @include mySection;
+  font-size: 14px;
   padding: 1rem;
   padding: 10px 20px;
 }
