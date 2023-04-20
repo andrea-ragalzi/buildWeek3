@@ -42,8 +42,10 @@ const Profile = () => {
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+  
   useEffect(()=>{    
     dispatch(fetchMyProfile());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [profile])
 
   console.log(userExperiences);
