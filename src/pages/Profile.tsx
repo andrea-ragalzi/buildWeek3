@@ -88,7 +88,7 @@ const Profile = () => {
                 </Row>
               </div>
             </Col>
-            {profile ? (
+            {profile?.bio ? (
               <Col xs={12}>
                 <div
                   style={{ width: "100%", backgroundColor: "white" }}
