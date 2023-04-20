@@ -92,7 +92,8 @@ const Profile = () => {
             </Col>
 
 
-            <Info />
+            {profile ? <Info {...profile} /> : <></>}
+
 
 
 
