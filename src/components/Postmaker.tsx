@@ -2,20 +2,24 @@ import { Col } from "react-bootstrap"
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import { Row } from "react-bootstrap";
-//import EmojiPicker from 'emoji-picker-react';
+import EmojiPicker from 'emoji-picker-react';
+import { useSelector } from "react-redux";
+import type { RootState } from "./../redux/store/store";
+import { profile } from "console";
 
 export const Postmaker = () => {
-    const [Photo, setPhoto] = useState(false)
-    const [Video, setVideo] = useState(false)
-    const [Event, setEvent] = useState(false)
-    const [Article, setArticle] = useState(false)
-
-
+    const [Photo, setPhoto] = useState(false);
+    const [Video, setVideo] = useState(false);
+    const [Event, setEvent] = useState(false);
+    const [Article, setArticle] = useState(false);
     const [show, setShow] = useState(false);
+
+    const myProfile = useSelector(
+        (state: RootState) => state.profile.me
+    );
+
     const handleClose = () => setShow(!show);
     const handleShow = () => setShow(!show);
-
 
 
 
@@ -37,15 +41,11 @@ export const Postmaker = () => {
                     <Modal.Header closeButton>
                         <Modal.Title>Crea un post</Modal.Title>
                     </Modal.Header>
-                    <Modal.Body>
-                        <div className="d-flex">
-                            <img src="https://picsum.photos/200/300" alt="avatar" className="rounded-circle" width={50} height={50} />
-
-                            <div>
-                                <span className="ms-1 d-block">Profile.name  Profile.surname</span>
-
-                                <button className="ms-1  btnGrey Modalbutton"><i className="bi bi-globe-americas"></i> Chiunque <i className="bi bi-caret-down-fill"></i></button>
-                            </div>
+                    <Modal.Body><div>
+                        <img src={myProfile?.image} alt="avatar" className="rounded-circle" width={50} height={50} />
+                        <span>{myProfile?.name} {myProfile?.surname}</span>
+                        <div>
+                            <EmojiPicker />
                         </div>
                         <input type="text" className="inputfield" />
                     </Modal.Body>

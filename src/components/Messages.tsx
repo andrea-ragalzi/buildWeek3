@@ -1,8 +1,14 @@
 import { useState } from "react";
 import { ListGroup } from "react-bootstrap";
+import type { RootState } from "./../redux/store/store";
+import { useSelector } from "react-redux";
 
 export const Messages = () => {
   const [onoff, setOnoff] = useState(true);
+  const myProfile = useSelector(
+    (state: RootState) => state.profile.me
+  );
+
 
   return (
     <div>
@@ -12,7 +18,7 @@ export const Messages = () => {
             <span>
               {" "}
               <img
-                src="https://picsum.photos/50/50"
+                src={myProfile?.image}
                 width="30px"
                 height="30px"
                 className="rounded-circle me-2"
@@ -37,7 +43,7 @@ export const Messages = () => {
             <span onClick={() => setOnoff(!onoff)}>
               {" "}
               <img
-                src="https://picsum.photos/50/50"
+                src={myProfile?.image}
                 width="30px"
                 height="30px"
                 className="rounded-circle"

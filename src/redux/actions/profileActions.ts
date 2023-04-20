@@ -1,9 +1,5 @@
 import { Dispatch } from "redux";
-import {
-  ActionTypes,
-  ProfileAction,
-  Profile,
-} from "./../../types/profileReducer";
+import { ActionTypes, ProfileAction, Profile } from "../../types/profileTypes";
 import { AnyAction } from "@reduxjs/toolkit";
 const apiKey = process.env.REACT_APP_MY_KEY;
 
@@ -88,10 +84,9 @@ export const fetchProfile = (userId: string) => {
         throw new Error(response.statusText);
       }
       const profile = await response.json();
-      if (userId === 'me') {
+      if (userId === "me") {
         dispatch(getMyProfileSuccess(profile));
-      }
-      else {
+      } else {
         dispatch(getProfileSuccess(profile));
       }
       console.log("nella fetch:", profile);

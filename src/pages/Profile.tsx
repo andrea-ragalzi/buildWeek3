@@ -9,14 +9,17 @@ import {
   deleteExperience,
   fetchExperience,
   editExperience,
-} from "./../redux/actions/experiences";
-import { fetchProfile, editProfile, fetchProfiles } from "../redux/actions/profileActions";
+} from "../redux/actions/experienceActions";
+import {
+  fetchProfile,
+  editProfile,
+  fetchProfiles,
+} from "../redux/actions/profileActions";
 import { useSelector } from "react-redux";
 import type { RootState } from "./../redux/store/store";
 import { store } from "./../redux/store/store";
 import LinkedinMain from "../components/LinkedinMain";
 import BoxInfo from "../components/BoxInfo";
-
 
 const Profile = () => {
   const dispatch = store.dispatch;
@@ -25,36 +28,33 @@ const Profile = () => {
   const [opensecond, setOpensec] = useState(false);
   const [openthird, setOpenthir] = useState(false);
   const [lgShow, setLgShow] = useState(false);
-  const profile = useSelector(
-    (state: RootState) => state.profile.me
-  );
+  const profile = useSelector((state: RootState) => state.profile.me);
   const userExperiences = useSelector(
     (state: RootState) => state.experience.list
   );
   const selectedExperience = useSelector(
-    (state: RootState) => state.experience.selected)
+    (state: RootState) => state.experience.selected
+  );
 
   const checkexperiece = () => {
     if (userExperiences.length <= 0) {
-
     } else {
-      setshowexperience(!showexperience)
+      setshowexperience(!showexperience);
     }
-  }
+  };
 
   useEffect(() => {
-    dispatch(fetchProfile("me"))
-    dispatch(fetchExperiences("me"))
+    dispatch(fetchProfile("me"));
+    dispatch(fetchExperiences("me"));
     checkexperiece();
-  }, [])
+  }, []);
 
-  console.log(userExperiences)
+  console.log(userExperiences);
   return (
     <Container className="pageContainer">
       <Row>
         <Col xs={12} md={9} className="mainColumn">
           <Row className="g-3">
-
             <Col xs={12}>
               <div className="sectionContainer profileHero">
                 <div className="profileImgs">
@@ -73,15 +73,23 @@ const Profile = () => {
                 </div>
 
                 <Row className="mt-5 mx-3 row">
-
-                  {profile ? <div className="col-8">
-
-                    <h2>{profile.name} {profile.surname} </h2>
-                    <p>{profile.title}</p>
-                    <p>{profile.area}</p>
-                    <div> <button onClick={() => setLgShow(true)}>Aggiungi sezione del profilo</button> </div>
-
-                  </div> : <></>}
+                  {profile ? (
+                    <div className="col-8">
+                      <h2>
+                        {profile.name} {profile.surname}{" "}
+                      </h2>
+                      <p>{profile.title}</p>
+                      <p>{profile.area}</p>
+                      <div>
+                        {" "}
+                        <button onClick={() => setLgShow(true)}>
+                          Aggiungi sezione del profilo
+                        </button>{" "}
+                      </div>
+                    </div>
+                  ) : (
+                    <></>
+                  )}
 
                   <Col className="col-4">
                     <ul>
@@ -106,14 +114,15 @@ const Profile = () => {
                           aria-controls="example-collapse-text"
                           aria-expanded={open}
                         >
-                          click</button>
+                          click
+                        </button>
                         <Collapse in={open}>
                           <div id="example-collapse-text">
-                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
-                            terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer
-                            labore wes anderson cred nesciunt sapiente ea proident.
+                            Anim pariatur cliche reprehenderit, enim eiusmod
+                            high life accusamus terry richardson ad squid. Nihil
+                            anim keffiyeh helvetica, craft beer labore wes
+                            anderson cred nesciunt sapiente ea proident.
                           </div>
-
                         </Collapse>
                       </div>
                       <div>
@@ -123,65 +132,63 @@ const Profile = () => {
                           aria-controls="example-collapse-text"
                           aria-expanded={opensecond}
                         >
-                          click</button>
+                          click
+                        </button>
                         <Collapse in={opensecond}>
                           <div id="example-collapse-text">
-                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
-                            terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer
-                            labore wes anderson cred nesciunt sapiente ea proident.
+                            Anim pariatur cliche reprehenderit, enim eiusmod
+                            high life accusamus terry richardson ad squid. Nihil
+                            anim keffiyeh helvetica, craft beer labore wes
+                            anderson cred nesciunt sapiente ea proident.
                           </div>
-
                         </Collapse>
                       </div>
                       <div>
                         <button
                           className="unstyledbtn"
-                          onClick={()=> setOpenthir(!openthird)}
+                          onClick={() => setOpenthir(!openthird)}
                           aria-controls="example-collapse-text"
                           aria-expanded={openthird}
                         >
-                          click</button>
+                          click
+                        </button>
                         <Collapse in={openthird}>
                           <div id="example-collapse-text">
-                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
-                            terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer
-                            labore wes anderson cred nesciunt sapiente ea proident.
+                            Anim pariatur cliche reprehenderit, enim eiusmod
+                            high life accusamus terry richardson ad squid. Nihil
+                            anim keffiyeh helvetica, craft beer labore wes
+                            anderson cred nesciunt sapiente ea proident.
                           </div>
-
                         </Collapse>
                       </div>
-
                     </Modal.Body>
                   </Modal>
                 </Row>
               </div>
             </Col>
-            {profile ? <Col xs={12}>
-              <div style={{ width: '100%', backgroundColor: 'white' }} className="border border-1 border-secondary rounded-3">
-                <BoxInfo title='Informazioni' />
-                <p className="mx-3">{profile.bio}</p>
-              </div>
-
-            </Col> : <></>}
-
-            {showexperience ?
+            {profile ? (
               <Col xs={12}>
-                <div className="sectionContainer">
-                  <BoxInfo title="Esperienza" />
-                  <Row>
-                    <Col xs='2'>
-                      <img src="https://placekitten.com/g/80" alt="pic" className="rounded-5 mx-4" />
-                    </Col>
-                    <Col xs="10" className="p-0">
-                    </Col>
-                  </Row>
+                <div
+                  style={{ width: "100%", backgroundColor: "white" }}
+                  className="border border-1 border-secondary rounded-3"
+                >
+                  <BoxInfo title="Informazioni" />
+                  <p>{profile.bio}</p>
                 </div>
-              </Col> : <></>}
-
+              </Col>
+            ) : (
+              <></>
+            )}
+            <Col xs={12}>
+              <div className="sectionContainer">
+                <BoxInfo title="Esperienza" />
+                <LinkedinMain />
+                <LinkedinMain />
+              </div>
+            </Col>
             <Col xs={12}>
               <div className="sectionContainer">
                 <BoxInfo title="Formazione" />
-
               </div>
             </Col>
             <Col xs={12}>

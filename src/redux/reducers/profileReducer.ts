@@ -2,15 +2,14 @@ import {
   ProfileState,
   ActionTypes,
   ProfileAction,
-} from "../../types/profileReducer";
-import { fetchProfile } from './../actions/profileActions'
+} from "../../types/profileTypes";
 
 const initialState: ProfileState = {
   list: [],
   selected: null,
   me: null,
   loading: false,
-  error: null
+  error: null,
 };
 
 const profileReducer = (
@@ -41,13 +40,13 @@ const profileReducer = (
         error: null,
         loading: false,
       };
-      case ActionTypes.GET_MY_PROFILE_SUCCESS:
-        return {
-          ...state,
-          me: action.payload,
-          error: null,
-          loading: false,
-        };
+    case ActionTypes.GET_MY_PROFILE_SUCCESS:
+      return {
+        ...state,
+        me: action.payload,
+        error: null,
+        loading: false,
+      };
     case ActionTypes.GET_PROFILES_SUCCESS:
       return {
         ...state,
