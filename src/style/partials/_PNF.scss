@@ -1,0 +1,51 @@
+.container404 {
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+}
+
+.row404-1 {
+  height: 70%;
+  width: 100%;
+  .col {
+    @include fullDimensions;
+    @include centeringFlex;
+  }
+}
+
+.error404 {
+  @include centeringFlex;
+  height: 50%;
+  width: 50%;
+  text-align: center;
+  justify-content: space-evenly !important ;
+  
+}
+
+.error404 h1, h3{
+    margin-bottom: 40px;
+}
+.strong404{
+    text-decoration: none;
+}
+
+.footer404 {
+  width: 100%;
+  position: fixed;
+  height: 30%;
+  @include centeringFlex;
+  justify-content: flex-end;
+  img {
+    width: 100%;
+    padding: 0;
+    z-index: -1;
+  }
+}
+
+.btnFeed{
+    border:3px solid #007bff;
+    color: #007bff;
+    background-color: white;
+    border-radius: 8px;
+    font-weight: bolder;
+}
