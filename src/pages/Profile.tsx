@@ -1,5 +1,6 @@
 import { Container, Row, Col, Button } from "react-bootstrap";
 import { MyFooter } from "./../components/MyFooter";
+import { Modal } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import {
   fetchExperiences,
@@ -19,6 +20,7 @@ import BoxInfo from "../components/BoxInfo";
 const Profile = () => {
   const dispatch = store.dispatch;
   const [showexperience, setshowexperience] = useState(false);
+  const [lgShow, setLgShow] = useState(false);
   const profile = useSelector(
     (state: RootState) => state.profile.me
   );
@@ -28,13 +30,13 @@ const Profile = () => {
   const selectedExperience = useSelector(
     (state: RootState) => state.experience.selected)
 
-      const checkexperiece =()=>{
-        if (userExperiences.length <= 0) {
+  const checkexperiece = () => {
+    if (userExperiences.length <= 0) {
 
-        }else{
-          setshowexperience(!showexperience)
-        }
-      } 
+    } else {
+      setshowexperience(!showexperience)
+    }
+  }
 
   useEffect(() => {
     dispatch(fetchProfile("me"))
@@ -73,14 +75,28 @@ const Profile = () => {
                     <h2>{profile.name} {profile.surname} </h2>
                     <p>{profile.title}</p>
                     <p>{profile.area}</p>
-                    <div> <button>Aggiungi sezione del profilo</button> </div>
-                    
+                    <div> <button onClick={() => setLgShow(true)}>Aggiungi sezione del profilo</button> </div>
+
                   </div> : <></>}
+
                   <Col className="col-4">
                     <ul>
                       <li>image : azienda</li>
                     </ul>
                   </Col>
+                  <Modal
+                    size="lg"
+                    show={lgShow}
+                    onHide={() => setLgShow(false)}
+                    aria-labelledby="example-modal-sizes-title-lg"
+                  >
+                    <Modal.Header closeButton>
+                      <Modal.Title id="example-modal-sizes-title-lg">
+                        Large Modal
+                      </Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>...</Modal.Body>
+                  </Modal>
                 </Row>
               </div>
             </Col>
@@ -91,20 +107,20 @@ const Profile = () => {
               </div>
             </Col> : <></>}
 
-            {showexperience? 
-            <Col xs={12}>
-              <div className="sectionContainer">
-                <BoxInfo title="Esperienza" />
-                <Row>
-                  <Col xs='2'>
-                    <img src="https://placekitten.com/g/80" alt="pic" className="rounded-5 mx-4" />
-                  </Col>
-                  <Col xs="10" className="p-0">
-                  </Col>
-                </Row>
-              </div>
-            </Col> : <></>}
-            
+            {showexperience ?
+              <Col xs={12}>
+                <div className="sectionContainer">
+                  <BoxInfo title="Esperienza" />
+                  <Row>
+                    <Col xs='2'>
+                      <img src="https://placekitten.com/g/80" alt="pic" className="rounded-5 mx-4" />
+                    </Col>
+                    <Col xs="10" className="p-0">
+                    </Col>
+                  </Row>
+                </div>
+              </Col> : <></>}
+
             <Col xs={12}>
               <div className="sectionContainer">
                 <BoxInfo title="Formazione" />
