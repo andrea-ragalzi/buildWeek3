@@ -42,8 +42,9 @@ const Profile = () => {
 
   useEffect(() => {
     dispatch(fetchProfile("me"));
-    dispatch(fetchExperiences("me"));
+    dispatch(fetchExperiences(profile!._id));
     checkexperiece();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   console.log(userExperiences);
