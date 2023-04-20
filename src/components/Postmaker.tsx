@@ -40,12 +40,9 @@ export const Postmaker = () => {
           <Modal.Header closeButton>
             <Modal.Title>Crea un post</Modal.Title>
           </Modal.Header>
-          <Modal.Body><div>
+          <Modal.Body>
             <img src={myProfile?.image} alt="avatar" className="rounded-circle" width={50} height={50} />
             <span>{myProfile?.name} {myProfile?.surname}</span>
-            <div>
-              <EmojiPicker />
-            </div>
             <input type="text" className="inputfield" />
           </Modal.Body>
 
