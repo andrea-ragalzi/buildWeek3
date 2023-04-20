@@ -1,5 +1,6 @@
 import Button from "react-bootstrap/Button";
 import { Post } from "../types/feedTypes";
+import { Link } from "react-router-dom";
 const SinglePost = ({ _id, image, text, username, user, createdAt }: Post) => {
   return (
     <div className="sectionContainer">
@@ -8,9 +9,13 @@ const SinglePost = ({ _id, image, text, username, user, createdAt }: Post) => {
           <img src={user?.image} alt="Foto profilo" />
         </div>
         <div className="PostProfile d-inline-block ms-3">
-          <span className="d-inline-block">{user?.name} {user?.surname}</span>{" "}
+          <Link to={`/profile/${user?._id}`}>
+            <span className="d-inline-block">
+              {user?.name} {user?.surname}
+            </span>
+          </Link>
           <p className="d-inline-block">• Già segui</p>
-          <p>Avvocato direttore di leggepertutti.it</p>
+          <p>{user?.title}</p>
           <p>
             {createdAt} • <i className="bi bi-globe-americas text-black"></i>{" "}
           </p>
