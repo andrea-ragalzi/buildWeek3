@@ -1,9 +1,11 @@
+import { Profile } from './../types/profileTypes';
 export interface Post {
   _id?: string;
-  username: string;
+  username?: string;
   createdAt?: string;
   text: string;
   image?: string;
+  user?: Profile
 }
 
 // Definiamo i tipi delle azioni
