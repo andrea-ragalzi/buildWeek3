@@ -1,14 +1,14 @@
 import Button from "react-bootstrap/Button";
 import { Post } from "../types/feedTypes";
-const SinglePost = ({ _id, image, text, username, createdAt }: Post) => {
+const SinglePost = ({ _id, image, text, username, user, createdAt }: Post) => {
   return (
     <div className="sectionContainer">
       <div>
         <div className="PostButton d-inline-block">
-          <img src="https://picsum.photos/48/48" alt="Foto profilo" />
+          <img src={user?.image} alt="Foto profilo" />
         </div>
         <div className="PostProfile d-inline-block ms-3">
-          <span className="d-inline-block">{username}</span>{" "}
+          <span className="d-inline-block">{user?.name} {user?.surname}</span>{" "}
           <p className="d-inline-block">• Già segui</p>
           <p>Avvocato direttore di leggepertutti.it</p>
           <p>
