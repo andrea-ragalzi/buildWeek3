@@ -160,9 +160,9 @@ export const addPost = (post: Post) => {
       }
     } catch (error: unknown) {
       if (error instanceof Error) {
-        dispatch(getPostsFailure(error.message));
+        dispatch(getPostFailure(error.message));
       } else {
-        dispatch(getPostsFailure("An unknown error occurred"));
+        dispatch(getPostFailure("An unknown error occurred"));
       }
     }
   };
