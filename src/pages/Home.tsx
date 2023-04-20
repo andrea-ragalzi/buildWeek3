@@ -1,10 +1,11 @@
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Image } from "react-bootstrap";
 import { useState, useEffect } from "react"
 import { Postmaker } from "../components/Postmaker";
 import { useSelector } from "react-redux";
 import type { RootState } from "./../redux/store/store";
 import { store } from "./../redux/store/store";
 import { fetchProfile } from "../redux/actions/profileActions";
+import { Link } from "react-router-dom"
 
 const Home = () => {
   const dispatch = store.dispatch;
@@ -15,30 +16,27 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(fetchProfile('me'));
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <Container className="pageContainer ">
       <Row className="g-3">
         <Col lg={2} md={4} xs={12} className="h-100" >
-          <div className="border rounded text-center p-0 w-100 mb-2 h-100 bg-white">
-            <div className="border rounded">
-              <img className="homeProfileBanner rounded w-100 " src="https://picsum.photos/200/300" alt="Home profile" />
-            </div>
-            <div className="homeprofilebuttonContainer">
-              <button className="homeprofileButton">
-                <img
-                  src="https://picsum.photos/800/200"
-                  alt="profile"
-                  className="profilePic"
-                ></img>
-              </button>
-            </div>
-            <div className="Benvenuto">
-              <h6>Ti diamo il benvenuto Martin!</h6>
-              <p>Aggiungi una foto</p>
-            </div>
+          <div className="sectionContainer">
+          <img className="homeProfileBanner rounded w-100 " src="https://picsum.photos/200/300" alt="Home profile" />
+            <Link className="linkProfileCard" to="/profile/me">
+              <div>
+                <button className="homeprofileButton">
+                  <Image
+                    src={myProfile?.image}
+                    alt="profile"
+                    className="profilePic"
+                  ></Image>
+                </button>
+              </div>
+              <h6 className="linkBehave">{myProfile?.name} {myProfile?.surname}</h6>
+            </Link>
             <hr className="my-2"></hr>
             <div className="text-start ms-2 list-unstyled Second-List-collapse fw-bold Homelist border-secondary">
               Analisi e strumenti <br></br>

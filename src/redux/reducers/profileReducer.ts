@@ -3,7 +3,6 @@ import {
   ActionTypes,
   ProfileAction,
 } from "../../types/profileReducer";
-import { fetchProfile } from './../actions/profileActions'
 
 const initialState: ProfileState = {
   list: [],

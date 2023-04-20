@@ -3,18 +3,23 @@ import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import EmojiPicker from 'emoji-picker-react';
+import { useSelector } from "react-redux";
+import type { RootState } from "./../redux/store/store";
+import { profile } from "console";
 
 export const Postmaker = () => {
-    const [Photo, setPhoto] = useState(false)
-    const [Video, setVideo] = useState(false)
-    const [Event, setEvent] = useState(false)
-    const [Article, setArticle] = useState(false)
-
+    const [Photo, setPhoto] = useState(false);
+    const [Video, setVideo] = useState(false);
+    const [Event, setEvent] = useState(false);
+    const [Article, setArticle] = useState(false);
     const [show, setShow] = useState(false);
+
+    const myProfile = useSelector(
+        (state: RootState) => state.profile.me
+    );
 
     const handleClose = () => setShow(!show);
     const handleShow = () => setShow(!show);
-
 
 
 
@@ -37,8 +42,8 @@ export const Postmaker = () => {
                         <Modal.Title>Crea un post</Modal.Title>
                     </Modal.Header>
                     <Modal.Body><div>
-                        <img src="https://picsum.photos/200/300" alt="avatar" className="rounded-circle" width={50} height={50} />
-                        <span>Profile.name Profile.surname</span>
+                        <img src={myProfile?.image} alt="avatar" className="rounded-circle" width={50} height={50} />
+                        <span>{myProfile?.name} {myProfile?.surname}</span>
                         <div>
                             <EmojiPicker />
                         </div>
