@@ -18,6 +18,8 @@ import type { RootState } from "./../redux/store/store";
 import { store } from "./../redux/store/store";
 import BoxInfo from "../components/BoxInfo";
 import { Modalbuttons } from "../components/Profilecomponents/Modalbuttons";
+import { Ads } from "../components/Profilecomponents/Ads"
+import { Info } from "../components/Profilecomponents/Info"
 
 
 const Profile = () => {
@@ -67,7 +69,7 @@ const Profile = () => {
                   </button>
                 </div>
 
-                <Row className="mt-5 mx-3 row">
+                <Row className="mt-5 mb-3 mx-3 row">
                   <div className="col-8">
                     <h2>
                       {profile?.name} {profile?.surname}{" "}
@@ -88,19 +90,14 @@ const Profile = () => {
                 </Row>
               </div>
             </Col>
-            {profile?.bio ? (
-              <Col xs={12}>
-                <div
-                  style={{ width: "100%", backgroundColor: "white" }}
-                  className="border border-1 border-secondary rounded-3"
-                >
-                  <BoxInfo title="Informazioni" />
-                  <p className="ms-3">{profile.bio} </p>
-                </div>
-              </Col>
-            ) : (
-              <></>
-            )}
+
+
+            <Info />
+
+
+
+
+
             <Col xs={12}>
               <div className="sectionContainer">
                 <BoxInfo title="Esperienza" />
@@ -123,30 +120,14 @@ const Profile = () => {
             </Col>
           </Row>
         </Col>
-        <Col md={3} className="d-none d-md-block">
-          <Row className="g-3">
-            <Col xs={12}>
-              <div className="sectionContainer">
-                <h2>Esperienza</h2>
-              </div>
-            </Col>
-            <Col xs={12}>
-              <div className="sectionContainer">
-                <h2>Esperienza</h2>
-              </div>
-            </Col>
-            <Col xs={12}>
-              <div className="sectionContainer">
-                <h2>Esperienza</h2>
-              </div>
-            </Col>
-          </Row>
-        </Col>
-      </Row>
+
+        <Ads />
+
+      </Row >
       <Row>
         <MyFooter></MyFooter>
       </Row>
-    </Container>
+    </Container >
   );
 };
 
