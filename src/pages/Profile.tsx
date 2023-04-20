@@ -106,13 +106,11 @@ const Profile = () => {
                           aria-controls="example-collapse-text"
                           aria-expanded={open}
                         >
-                          click</button>
+                          Sezioni Principali</button>
                         <Collapse in={open}>
-                          <div id="example-collapse-text">
-                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
-                            terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer
-                            labore wes anderson cred nesciunt sapiente ea proident.
-                          </div>
+                          <ul id="example-collapse-text">
+                              
+                          </ul>
 
                         </Collapse>
                       </div>
@@ -123,7 +121,7 @@ const Profile = () => {
                           aria-controls="example-collapse-text"
                           aria-expanded={opensecond}
                         >
-                          click</button>
+                          Sezioni consigliate</button>
                         <Collapse in={opensecond}>
                           <div id="example-collapse-text">
                             Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
@@ -140,7 +138,7 @@ const Profile = () => {
                           aria-controls="example-collapse-text"
                           aria-expanded={openthird}
                         >
-                          click</button>
+                          Altro</button>
                         <Collapse in={openthird}>
                           <div id="example-collapse-text">
                             Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
