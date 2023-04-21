@@ -1,7 +1,6 @@
 import { Row, Col } from "react-bootstrap";
 import { Modal, Button } from "react-bootstrap";
 import InputGroup from "react-bootstrap/InputGroup";
-import { Experience } from "../../types/expCardTypes";
 import { store } from "../../redux/store/store";
 import { useState, useEffect } from "react";
 import { addExperience, fetchExperiences } from "../../redux/actions/experienceActions";

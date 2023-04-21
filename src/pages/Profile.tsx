@@ -8,7 +8,7 @@ import { store } from "./../redux/store/store";
 import type { RootState } from "./../redux/store/store";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { fetchExperiences } from "../redux/actions/experienceActions";
 import { fetchMyProfile, fetchProfile } from "../redux/actions/profileActions";
 import ExperienceSection from "../components/Profilecomponents/ExperienceSection";
