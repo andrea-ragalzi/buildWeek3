@@ -82,7 +82,7 @@ const ExperienceSection = (myProfile: Profile) => {
                                 })
                             }
                         />
-                        {/*<span className="text-muted">Immagine : </span>
+                        <span className="text-muted">Immagine : </span>
                         <input
                             type="text"
                             className="w-100"
@@ -92,7 +92,7 @@ const ExperienceSection = (myProfile: Profile) => {
                                     image: e.target.value,
                                 })
                             }
-                        />*/}
+                        />
                         <span className="text-muted">Descrizione : </span>
                         <input
                             type="text"
