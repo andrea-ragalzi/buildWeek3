@@ -28,7 +28,7 @@ const Profile = () => {
     dispatch(fetchMyProfile());
     dispatch(fetchProfile(userId));
     if (userId === "me") {
-      dispatch(fetchExperiences(myProfile!._id));
+      dispatch(fetchExperiences("me"));
     } else {
       dispatch(fetchExperiences(userId));
     }
