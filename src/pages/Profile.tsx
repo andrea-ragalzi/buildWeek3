@@ -4,16 +4,14 @@ import ExperienceCard from "../components/ExperienceCard";
 import { Modalbuttons } from "../components/Profilecomponents/Modalbuttons";
 import { Ads } from "../components/Profilecomponents/Ads";
 import { Info } from "../components/Profilecomponents/Info";
-
 import { store } from "./../redux/store/store";
 import type { RootState } from "./../redux/store/store";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-
 import { fetchExperiences } from "../redux/actions/experienceActions";
 import { fetchMyProfile, fetchProfile } from "../redux/actions/profileActions";
-
+ 
 const Profile = () => {
   const dispatch = store.dispatch;
   const profile = useSelector((state: RootState) => state.profile.selected);
@@ -79,15 +77,10 @@ const Profile = () => {
                     <p>{profile?.title}</p>
                     <p>{profile?.area}</p>
                     <div>
-                      <Modalbuttons />
+                     <Modalbuttons {...myProfile!} />
                     </div>
                   </div>
 
-                  <Col className="col-4">
-                    <ul>
-                      <li>image : azienda</li>
-                    </ul>
-                  </Col>
                 </Row>
               </div>
             </Col>
