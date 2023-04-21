@@ -25,13 +25,20 @@ footer {
   .dropdown-menu {
     padding: 10px;
   }
+  .dropdown-toggle::after {
+    position: absolute;
+    bottom: 25%;
+    right: -10%;
+  }
 }
 
 .miniFooter {
-    position: sticky;
   ul {
     li {
       padding: 3px 10px;
+    }
+    li,
+    .dropdown-toggle {
       font-size: 12px;
     }
   }

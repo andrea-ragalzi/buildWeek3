@@ -193,7 +193,7 @@
 
 .aziendeMenu {
   border-radius: 15px;
-  border: 0.4px solid grey;
+  border: 0.4px solid rgb(187, 187, 187);
   margin: 5% auto;
   padding-top: 5%;
 }
@@ -208,8 +208,14 @@
     width: 90%;
     aspect-ratio: 1/1;
     border-radius: 10%;
-    border: 0.4px solid grey;
+    border: 0.4px solid rgb(187, 187, 187);
     @include centeringFlex;
+  }
+  i:hover {
+    cursor: pointer;
+    -webkit-box-shadow: 4px 4px 11px 0px rgba(0, 0, 0, 0.62);
+    -moz-box-shadow: 4px 4px 11px 0px rgba(0, 0, 0, 0.62);
+    box-shadow: 4px 4px 11px 0px rgba(0, 0, 0, 0.62);
   }
   p {
     padding-top: 5px;
