@@ -9,10 +9,12 @@ import InputGroup from "react-bootstrap/InputGroup";
 import { store } from "../redux/store/store";
 import { editPost } from "../redux/actions/feedActions";
 import { deletePost } from "../redux/actions/feedActions";
+import { useSelector } from "react-redux";
+import type { RootState } from "../redux/store/store";
 
 const SinglePost = ({ _id, image, text, username, user, createdAt }: Post) => {
   const [expanded, setExpanded] = useState(false);
-
+  const myProfile = useSelector((state: RootState) => state.profile.me);
   const [show, setShow] = useState(false);
   const [showDelete, setShowDelete] = useState(false);
 
@@ -21,7 +23,7 @@ const SinglePost = ({ _id, image, text, username, user, createdAt }: Post) => {
   };
   const handleShow = () => setShow(true);
   const dispatch = store.dispatch;
-
+  const [isItMine, setIsItMine] = useState(false);
   const handleCloseDelete = () => {
     setShowDelete(false);
   };
@@ -95,7 +97,7 @@ const SinglePost = ({ _id, image, text, username, user, createdAt }: Post) => {
                   ...
                 </Dropdown.Toggle>
 
-                <Dropdown.Menu>
+                <Dropdown.Menu className={isItMine? "modify" : "d-none"}>
                   <Dropdown.Item onClick={handleShow}>
                     <i className="bi bi-pencil"></i>
                   </Dropdown.Item>

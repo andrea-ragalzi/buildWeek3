@@ -29,19 +29,19 @@ const ExperienceSection = (myProfile: Profile) => {
     area: "",
   });
 
-  const [newExpImg, setNewExpImg] = useState('');
+  // const [newExpImg, setNewExpImg] = useState('');
   const expList = useSelector((state: RootState) => state.experience.list)
   const newExp: Experience = expList[-1]
 
 
-  const handleFile = (ev: ChangeEvent<HTMLInputElement>) => {
+  /*const handleFile = (ev: ChangeEvent<HTMLInputElement>) => {
     setNewExpImg((img) => {
     //per cambiare i formData, bisogna "appendere" una nuova coppia chiave/valore, usando il metodo .append()
       img.delete("post") //ricordatevi di svuotare il FormData prima :)
       img.append("post", ev.target.files![0]) //L'API richiede un "nome" diverso per ogni rotta, per caricare un'immagine ad un post, nel form data andra' inserito un valore con nome "post"
       return img
     })
-  }
+  }*/
 
   const handleSave = () => {
     dispatch(addExperience(myProfile._id, newExperience));
@@ -57,10 +57,10 @@ const ExperienceSection = (myProfile: Profile) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [newExperience]);
 
-  useEffect(() => {
+  /*useEffect(() => {
     dispatch(fetchExperiences(myProfile._id));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [newExpImg]);
+  }, [newExpImg]);*/
 
   return (
     <Row>
@@ -113,7 +113,6 @@ const ExperienceSection = (myProfile: Profile) => {
             <input
               type="file"
               className="w-100"
-              onChange={(e) => {handleFile(e)}
             />
 
             <span className="text-muted">Descrizione : </span>
