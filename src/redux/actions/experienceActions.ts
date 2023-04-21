@@ -153,7 +153,7 @@ export const addExperience = (userId: string, experience: Experience) => {
         }
       );
       const data = await response.json();
-      console.log('addExperience', data);
+      console.log("addExperience", data);
       if (response.ok) {
         dispatch(addExperienceSuccess(data));
       } else {

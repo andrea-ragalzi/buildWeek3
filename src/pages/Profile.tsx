@@ -8,10 +8,11 @@ import { store } from "./../redux/store/store";
 import type { RootState } from "./../redux/store/store";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { fetchExperiences } from "../redux/actions/experienceActions";
 import { fetchMyProfile, fetchProfile } from "../redux/actions/profileActions";
 import ExperienceSection from "../components/Profilecomponents/ExperienceSection";
+import { addImageProfile } from "../redux/actions/imageActions";
 
 const Profile = () => {
   const dispatch = store.dispatch;
@@ -24,15 +25,26 @@ const Profile = () => {
   const params = useParams();
   const userId: string = params.id!;
 
+  const [isItMe, setIsItMe] = useState(false);
+
+  const changeImage = () => {
+    if (isItMe === false) {
+      return;
+    } else {
+      return;
+    }
+  };
+
   useEffect(() => {
-    
     dispatch(fetchMyProfile());
     dispatch(fetchProfile(userId));
 
     if (userId === "me") {
       dispatch(fetchExperiences(myProfile!._id));
+      setIsItMe(true);
     } else {
       dispatch(fetchExperiences(userId));
+      setIsItMe(false);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -40,7 +52,7 @@ const Profile = () => {
   useEffect(() => {
     dispatch(fetchMyProfile());
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [profile||myProfile]);
+  }, [profile || myProfile]);
 
   console.log(userExperiences);
   return (
@@ -56,7 +68,7 @@ const Profile = () => {
                     className="profileBanner"
                     alt="banner"
                   />
-                  <button className="profileButton">
+                  <button className="profileButton" onClick={changeImage}>
                     <img
                       src={profile?.image}
                       alt="profile"
@@ -72,7 +84,7 @@ const Profile = () => {
                     </h2>
                     <p>{profile?.title}</p>
                     <p>{profile?.area}</p>
-                    <div>
+                    <div className={isItMe ? "modify" : "d-none"}>
                       <Modalbuttons {...myProfile!} />
                     </div>
                   </div>

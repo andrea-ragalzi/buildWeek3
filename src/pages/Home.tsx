@@ -5,7 +5,6 @@ import { useSelector } from "react-redux";
 import type { RootState } from "./../redux/store/store";
 import { store } from "./../redux/store/store";
 import { fetchMyProfile } from "../redux/actions/profileActions";
-import { Link } from "react-router-dom";
 import { MiniFooter } from "../components/MyFooter";
 import SinglePost from "../components/SinglePost";
 import { fetchPosts } from "../redux/actions/feedActions";
@@ -96,33 +95,33 @@ const Home = () => {
               <Col xs={12}>
                 <b className="text-secondary">LinkedIn Notizie</b>
                 <div>
-                  <ul className="secondHover">
+                  <ul className="secondHover fs-7">
                     <li>
-                      <p>
+                      <p className="mb-1 mt-2">
                         <b> Le Top Companies del 2023 in Italia</b>
                       </p>
                       <p>Notizie principali • 534 lettori</p>
                     </li>
                     <li>
-                      <p>
+                      <p className="mb-1">
                         <b>Ucraina: gli ultimi aggiornamenti </b>
                       </p>
                       <p>6 ore fa • 414 lettori</p>
                     </li>
                     <li>
-                      <p>
+                      <p className="mb-1">
                         <b>Che cosa succede al Salone del Mobile </b>
                       </p>
                       <p>1 ora fa • 364 lettori</p>
                     </li>
                     <li>
-                      <p>
+                      <p className="mb-1">
                         <b>Un nuovo modello contrattuale per la ricerca </b>
                       </p>
                       <p>19 ore fa</p>
                     </li>
                     <li>
-                      <p>
+                      <p className="mb-1">
                         <b>Learning Solutions </b>
                       </p>
                       <p>3 ore fa • 164 lettori</p>
@@ -133,13 +132,13 @@ const Home = () => {
                   >
                     <ul>
                       <li>
-                        <p>
+                        <p className="mb-1">
                           <b>Apple sfida le banche</b>
                         </p>
                         <p>6 ore fa • 212 lettori</p>
                       </li>
                       <li>
-                        <p>
+                        <p className="mb-1">
                           <b>
                             SONDAGGIO: cosa guardi di un'azienda quando cerchi
                             lavoro?
@@ -148,25 +147,25 @@ const Home = () => {
                         <p>5 giorni fa • 606 lettori</p>
                       </li>
                       <li>
-                        <p>
+                        <p className="mb-1">
                           <b>Frena il venture capital</b>
                         </p>
                         <p>1 giorno fa</p>
                       </li>
                       <li>
-                        <p>
+                        <p className="mb-1">
                           <b>L'importanza di mettersi in ascolto</b>
                         </p>
                         <p>1 giorno fa</p>
                       </li>
                       <li>
-                        <p>
+                        <p className="mb-1">
                           <b>Arrivano i tutor in classe</b>
                         </p>
                         <p>1 ora fa</p>
                       </li>
                       <li>
-                        <p>
+                        <p className="mb-1">
                           <b>Learning Solutions</b>
                         </p>
                         <p>3 ore fa • 164 lettori</p>

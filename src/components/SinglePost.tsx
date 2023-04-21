@@ -3,9 +3,13 @@ import { Post } from "../types/feedTypes";
 import { Col, Row } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { RootState } from "../redux/store/store";
 
 const SinglePost = ({ image, text, username, user, createdAt }: Post) => {
   const [expanded, setExpanded] = useState(false);
+  const myProfile = useSelector((state: RootState) => state.profile.me);
+  const [isItMine, setIsItMine] = useState(false);
 
   const toggleExpand = () => {
     setExpanded(!expanded);
@@ -14,6 +18,9 @@ const SinglePost = ({ image, text, username, user, createdAt }: Post) => {
   useEffect(() => {
     if (text.length < 200) {
       setExpanded(true);
+    }
+    if (user?._id === myProfile?._id) {
+      setIsItMine(true);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
