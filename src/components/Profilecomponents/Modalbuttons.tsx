@@ -4,11 +4,9 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import { Modal, Button } from "react-bootstrap";
 import ListGroup from 'react-bootstrap/ListGroup';
 import InputGroup from "react-bootstrap/InputGroup";
-import { Form } from "react-bootstrap";
 import { Profile } from "../../types/profileTypes";
 import { store } from "../../redux/store/store";
 import { editProfile } from "../../redux/actions/profileActions";
-import { ChangeEventHandler, ChangeEvent } from 'react';
 
 export const Modalbuttons = ({
     _id,
@@ -94,12 +92,15 @@ export const Modalbuttons = ({
                     <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
                 </Dropdown.Menu>
             </Dropdown>
+
             <button onClick={handleShow} className="ms-3 unstyledbtn z-1"> <i className="bi bi-pencil"> </i> </button>
+
             <Modal show={show} onHide={handleClose} animation={false} size="lg"
                 aria-labelledby="example-modal-sizes-title-lg">
                 <Modal.Header closeButton>
                     <Modal.Title>Modal heading</Modal.Title>
                 </Modal.Header>
+
                 <Modal.Body>
                     <InputGroup>
 
