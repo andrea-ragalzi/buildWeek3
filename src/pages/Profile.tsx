@@ -25,12 +25,12 @@ const Profile = () => {
   const userId: string = params.id!;
 
   useEffect(() => {
-    
+
     dispatch(fetchMyProfile());
     dispatch(fetchProfile(userId));
 
     if (userId === "me") {
-      dispatch(fetchExperiences(myProfile!._id));
+      dispatch(fetchExperiences("me"));
     } else {
       dispatch(fetchExperiences(userId));
     }
@@ -40,7 +40,7 @@ const Profile = () => {
   useEffect(() => {
     dispatch(fetchMyProfile());
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [profile||myProfile]);
+  }, [profile || myProfile]);
 
   console.log(userExperiences);
   return (

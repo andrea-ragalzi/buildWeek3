@@ -17,13 +17,17 @@ export const Ads = () => {
                 </div>
             </Col>
             <Col xs={12}>
-                <div className="sectionContainer">
-                    <h2>Esperienza</h2>
+                <div className="sectionContainer p-0 border border-none">
+                    <img src="/img/fotoLinkedin.png" className="img-fluid" alt="foto linkedin"></img>
                 </div>
             </Col>
             <Col xs={12}>
                 <div className="sectionContainer">
-                    <h2>Esperienza</h2>
+                    <h6 className="text-secondary">Altri profili consultati</h6>
+                    <div className="d-flex flex-row fs-6 ">
+                        <div className="me-3"><img src="https://picsum.photos/48/48" className="postProfileImage" alt="" /> </div>
+                        <div className="profileRightSection"><p> <b> David Scattone </b>• 3°+ <br></br>Impiegato presso TRE ESSE <br></br>ITALIA Srl</p></div>
+                    </div>
                 </div>
             </Col>
         </Row >
