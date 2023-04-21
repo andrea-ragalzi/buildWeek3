@@ -78,7 +78,7 @@ export const Modalbuttons = ({
             </Dropdown>
 
             <button className="btnBlue ps-0 ms-0" onClick={() => setLgShow(true)}>
-                <span className="mx-2"> Aggiungi <span className="d-none d-md-none d-lg-block d-xl-inline"> sezione al profilo </span></span>
+                <span className="mx-2"> Aggiungi </span>
             </button>
 
             <Dropdown>
