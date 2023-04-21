@@ -53,7 +53,7 @@ export const Info = ({
           >
             <div className="d-flex justify-content-between">
               <BoxInfo title="Informazioni" />
-              <button onClick={handleShow} className="unstyledbtn">
+              <button onClick={handleShow} className="unstyledbtn me-3">
                 {" "}
                 <i className="bi bi-pencil"></i>
               </button>
