@@ -174,7 +174,8 @@ export const MiniFooter: React.FC = function () {
                 <Dropdown.Toggle
                   id="privacy-dropdown"
                   variant="link"
-                  className="Benvenuto">
+                  className="Benvenuto"
+                >
                   Privacy e condizioni
                 </Dropdown.Toggle>
 
@@ -216,7 +217,7 @@ export const MiniFooter: React.FC = function () {
               height={"20px"}
               className="me-3"
             />
-            <p className="Benvenuto" >LinkedIn Corporation © 2023</p>
+            <p className="Benvenuto">LinkedIn Corporation © 2023</p>
           </Col>
         </Row>
       </Container>

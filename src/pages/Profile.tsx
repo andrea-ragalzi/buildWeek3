@@ -1,17 +1,24 @@
 import { Container, Row, Col } from "react-bootstrap";
 import { MyFooter } from "./../components/MyFooter";
-import ExperienceCard from "../components/ExperienceCard";
+import ExperienceCard from "../components/Profilecomponents/ExperienceCard";
 import { Modalbuttons } from "../components/Profilecomponents/Modalbuttons";
 import { Ads } from "../components/Profilecomponents/Ads";
 import { Info } from "../components/Profilecomponents/Info";
 import { store } from "./../redux/store/store";
 import type { RootState } from "./../redux/store/store";
 import { useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { fetchExperiences } from "../redux/actions/experienceActions";
 import { fetchMyProfile, fetchProfile } from "../redux/actions/profileActions";
 import ExperienceSection from "../components/Profilecomponents/ExperienceSection";
+import languages from "../Json/Lingue.json"
+import { CustomNavbar } from "../components/CustomNavbar";
+
+interface Lingue {
+  name: string
+  code: string
+}
 
 const Profile = () => {
   const dispatch = store.dispatch;
@@ -19,10 +26,16 @@ const Profile = () => {
   const myProfile = useSelector((state: RootState) => state.profile.me);
   const userExperiences = useSelector(
     (state: RootState) => state.experience.list
+
   );
 
   const params = useParams();
   const userId: string = params.id!;
+  const selectLang = () => {
+    const random = Math.floor(Math.random() * languages.length)
+    const lingua = languages[random].name
+    return (lingua)
+  }
 
   useEffect(() => {
 
@@ -45,6 +58,7 @@ const Profile = () => {
   console.log(userExperiences);
   return (
     <Container className="pageContainer">
+      <CustomNavbar />
       <Row>
         <Col xs={12} md={9} className="mainColumn">
           <Row className="g-3">
@@ -71,7 +85,7 @@ const Profile = () => {
                       {profile?.name} {profile?.surname}
                     </h2>
                     <p>{profile?.title}</p>
-                    <p>{profile?.area}</p>
+                    <p>{profile?.area} . <Link to={"/"}>informazioni contatto</Link> </p>
                     <div>
                       <Modalbuttons {...myProfile!} />
                     </div>
@@ -99,16 +113,43 @@ const Profile = () => {
                   </>
                 ) : (
                   <Col xs={12}>
-                    <h2>Ancora nessuna esperienza!</h2>
+                    <h2>Nessuna esperienza</h2>
                   </Col>
                 )}
               </div>
             </Col>
             <Col xs={12}>
               <div className="sectionContainer">
-                <Row>
-                  <Col xs={12}>
+                <Row className="justify-content-center">
+                  <Col xs={12} className="mb-2">
                     <h2>Lingue</h2>
+                  </Col>
+                  <Col xs={12}>
+                    <p className="mb-1">
+                      <b>{selectLang()}</b>
+                      <br />
+                      Conoscenza base
+                    </p>
+                  </Col>
+                  <Col xs={12}>
+                    <hr />
+                  </Col>
+                  <Col xs={12}>
+                    <p className="mb-1">
+                      <b>{selectLang()}</b>
+                      <br />
+                      Conoscenza professionale
+                    </p>
+                  </Col>
+                  <Col xs={12}>
+                    <hr />
+                  </Col>
+                  <Col xs={12}>
+                    <p>
+                      <b>{selectLang()}</b>
+                      <br />
+                      Conoscenza madrelingua o bilingue
+                    </p>
                   </Col>
                 </Row>
               </div>

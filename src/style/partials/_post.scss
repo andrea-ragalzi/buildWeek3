@@ -46,3 +46,21 @@
   color: gray;
   margin: 0;
 }
+
+.unstyledDropdown{
+  background-color: white;
+  color: black;
+  border: none;
+  font-size: 18px;
+}
+.unstyledDropdown:hover{
+  background-color: white;
+  color: black;
+  border: none;
+  font-size: 18px;
+}
+.unstyledDropdown::after{
+  background-color: white;
+  color: black;
+  border: none;
+}

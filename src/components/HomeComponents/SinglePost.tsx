@@ -1,16 +1,16 @@
 import Button from "react-bootstrap/Button";
-import { Post } from "../types/feedTypes";
+import { Post } from "../../types/feedTypes";
 import { Col, Row, Form } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Dropdown from "react-bootstrap/Dropdown";
 import { Modal } from "react-bootstrap";
 import InputGroup from "react-bootstrap/InputGroup";
-import { store } from "../redux/store/store";
-import { editPost } from "../redux/actions/feedActions";
-import { deletePost } from "../redux/actions/feedActions";
+import { store } from "../../redux/store/store";
+import { editPost } from "../../redux/actions/feedActions";
+import { deletePost } from "../../redux/actions/feedActions";
 import { useSelector } from "react-redux";
-import { RootState } from "../redux/store/store";
+import { RootState } from "../../redux/store/store";
 
 
 const SinglePost = ({ _id, image, text, username, user, createdAt }: Post) => {
@@ -255,4 +255,6 @@ export default SinglePost;
                     }}
                   >
                     Delete Bio
-                  </Button> */
+                  </Button>
+                   */
+                  

@@ -1,7 +1,7 @@
-import { Experience } from "../types/expCardTypes";
+import { Experience } from "../../types/expCardTypes";
 import { Container, Row, Col } from "react-bootstrap";
 import { useSelector } from "react-redux";
-import type { RootState } from "./../redux/store/store";
+import type { RootState } from "../../redux/store/store";
 import { Modal, Button } from "react-bootstrap";
 import InputGroup from "react-bootstrap/InputGroup";
 import { useState } from "react";
@@ -9,8 +9,8 @@ import {
   editExperience,
   fetchExperiences,
   deleteExperience,
-} from "../redux/actions/experienceActions";
-import { store } from "./../redux/store/store";
+} from "../../redux/actions/experienceActions";
+import { store } from "../../redux/store/store";
 
 const ExperienceCard = ({
   _id,
@@ -29,7 +29,7 @@ const ExperienceCard = ({
   const finishDate = endDate ? endDate : "Presente";
   const handleClose = () => setShow(false);
   const dispatch = store.dispatch;
-  
+
   const handleShow = () => setShow(true);
   const [show, setShow] = useState(false);
 
@@ -65,11 +65,11 @@ const ExperienceCard = ({
     handleClose();
   };
 
-const handleDelete = () =>{
-  dispatch(deleteExperience(myProfile!._id, _id!));
-  dispatch(fetchExperiences(myProfile!._id));
-  handleCloseDelete();
-}
+  const handleDelete = () => {
+    dispatch(deleteExperience(myProfile!._id, _id!));
+    dispatch(fetchExperiences(myProfile!._id));
+    handleCloseDelete();
+  };
 
   return (
     <Row>
@@ -81,13 +81,16 @@ const handleDelete = () =>{
           <Row>
             <Col xs={12}>
               <h4 className="d-flex justify-content-between">
-              <strong>{role}</strong>
+                <strong>{role}</strong>
                 <div>
-                <button onClick={handleShowDelete} className=" unstyledbtn">
-                <i className="bi bi-trash"></i></button>
+                  <button onClick={handleShowDelete} className=" unstyledbtn">
+                    <i className="bi bi-trash"></i>
+                  </button>
 
-                <button onClick={handleShow} className=" unstyledbtn"> <i className="bi bi-pencil"> </i>
-                </button>
+                  <button onClick={handleShow} className=" unstyledbtn">
+                    {" "}
+                    <i className="bi bi-pencil"> </i>
+                  </button>
                 </div>
               </h4>
             </Col>
@@ -118,11 +121,10 @@ const handleDelete = () =>{
             Close
           </Button>
           <Button variant="danger" onClick={handleDelete}>
-           Delete
+            Delete
           </Button>
         </Modal.Footer>
       </Modal>
-
 
       <Modal
         show={show}

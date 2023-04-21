@@ -43,20 +43,22 @@
   width: inherit;
 }
 
-.unstyledbtn{
+.unstyledbtn {
   border: none;
   margin-bottom: 20px;
   background-color: white;
-
-
 }
 
-.profileRightSection p{
+.BtnNoarrow::after {
+  display: none;
+}
+
+.profilePageRightSection p {
   font-size: 11.5px;
+  display: flex;
   color: gray;
 }
 
-.profileRightSection b{
-  font-size:15px;
-  color: rgba(39, 38, 38, 0.815);
+.profilePageRightSection b {
+  font-size: 15px;
 }
