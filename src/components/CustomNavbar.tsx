@@ -9,6 +9,7 @@ import "../style/App.scss";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import type { RootState } from "./../redux/store/store";
+import { Messages } from "./Messages";
 
 export const CustomNavbar = () => {
   const [Rightcollapse, setRightcollapse] = useState(false);
@@ -324,6 +325,7 @@ export const CustomNavbar = () => {
         ) : (
           <div className="aziendeNoContent"></div>
         )}
+        <Messages />
       </Navbar>
     </header>
   );

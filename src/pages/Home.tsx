@@ -10,6 +10,7 @@ import { MiniFooter } from "../components/MyFooter";
 import SinglePost from "../components/SinglePost";
 import { fetchPosts } from "../redux/actions/feedActions";
 import HomeProfileCard from "../components/HomeProfileCard";
+import { CustomNavbar } from "../components/CustomNavbar";
 
 const Home = () => {
   const dispatch = store.dispatch;
@@ -25,6 +26,7 @@ const Home = () => {
 
   return (
     <Container className="pageContainer ">
+      <CustomNavbar />
       <Row>
         <Col xs={12} md={4} lg={3} className="sxColumn">
           <Row>

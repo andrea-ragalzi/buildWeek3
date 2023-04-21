@@ -65,15 +65,15 @@ export const Modalbuttons = ({
     return (
         <div className="ps-0 ms-0 d-flex">
 
-            <Dropdown className="">
-                <Dropdown.Toggle className="btnBlue ps-0 ms-0" id="dropdown-basic">
+            <Dropdown >
+                <Dropdown.Toggle className="btnBlue ps-0 ms-0 BtnNoarrow" id="dropdown-basic">
                     <span className="mx-2">Disponibile per</span>
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu>
-                    <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                    <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                    <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                    <Dropdown.Item>Action</Dropdown.Item>
+                    <Dropdown.Item>Another action</Dropdown.Item>
+                    <Dropdown.Item>Something else</Dropdown.Item>
                 </Dropdown.Menu>
             </Dropdown>
 
@@ -82,14 +82,14 @@ export const Modalbuttons = ({
             </button>
 
             <Dropdown>
-                <Dropdown.Toggle className="btnGrey ps-0 ms-0" id="dropdown-basic">
+                <Dropdown.Toggle className="btnGrey ps-0 ms-0 BtnNoarrow " id="dropdown-basic">
                     <span className="mx-3">Altro</span>
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu>
-                    <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                    <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                    <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                    <Dropdown.Item>Action</Dropdown.Item>
+                    <Dropdown.Item>Another action</Dropdown.Item>
+                    <Dropdown.Item>Something else</Dropdown.Item>
                 </Dropdown.Menu>
             </Dropdown>
 
