@@ -1,13 +1,21 @@
 import Button from "react-bootstrap/Button";
 import { Post } from "../types/feedTypes";
 import { Col, Row } from "react-bootstrap";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const SinglePost = ({ image, text, username, user, createdAt }: Post) => {
   const [expanded, setExpanded] = useState(false);
+
   const toggleExpand = () => {
     setExpanded(!expanded);
   };
+
+  useEffect(() => {
+    if (text.length < 200) {
+      setExpanded(true);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div className="sectionContainer">
@@ -36,7 +44,10 @@ const SinglePost = ({ image, text, username, user, createdAt }: Post) => {
           <Row className="postText">
             <p className={expanded ? "expanded" : "collapsed"}>{text}</p>
             {!expanded && (
-              <p className="linkBehave" onClick={toggleExpand}>
+              <p
+                className="linkBehave text-center w-100"
+                onClick={toggleExpand}
+              >
                 Mostra tutto
               </p>
             )}
