@@ -12,6 +12,12 @@ import { useEffect } from "react";
 import { fetchExperiences } from "../redux/actions/experienceActions";
 import { fetchMyProfile, fetchProfile } from "../redux/actions/profileActions";
 import ExperienceSection from "../components/Profilecomponents/ExperienceSection";
+import languages from "../Json/Lingue.json"
+
+interface Lingue {
+  name: string
+  code: string
+}
 
 const Profile = () => {
   const dispatch = store.dispatch;
@@ -19,10 +25,16 @@ const Profile = () => {
   const myProfile = useSelector((state: RootState) => state.profile.me);
   const userExperiences = useSelector(
     (state: RootState) => state.experience.list
+
   );
 
   const params = useParams();
   const userId: string = params.id!;
+  const selectLang = () => {
+    const random = Math.floor(Math.random() * languages.length)
+    const lingua = languages[random].name
+    return (lingua)
+  }
 
   useEffect(() => {
     dispatch(fetchMyProfile());
@@ -110,7 +122,7 @@ const Profile = () => {
                   </Col>
                   <Col xs={12}>
                     <p className="mb-1">
-                      <b>Francese</b>
+                      <b>{selectLang()}</b>
                       <br />
                       Conoscenza base
                     </p>
@@ -120,7 +132,7 @@ const Profile = () => {
                   </Col>
                   <Col xs={12}>
                     <p className="mb-1">
-                      <b>Inglese</b>
+                      <b>{selectLang()}</b>
                       <br />
                       Conoscenza professionale
                     </p>
@@ -130,7 +142,7 @@ const Profile = () => {
                   </Col>
                   <Col xs={12}>
                     <p>
-                      <b>Italiano</b>
+                      <b>{selectLang()}</b>
                       <br />
                       Conoscenza madrelingua o bilingue
                     </p>
