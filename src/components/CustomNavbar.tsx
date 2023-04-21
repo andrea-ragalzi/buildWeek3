@@ -105,7 +105,7 @@ export const CustomNavbar = () => {
                     <NavDropdown
                       title={
                         <div className="dropdown-title">
-                          <Image id="myProfile" src={myProfile?.image}></Image>
+                          <Image src={myProfile?.image}></Image>
                           <p>Tu</p>
                         </div>
                       }

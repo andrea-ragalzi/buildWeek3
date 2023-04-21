@@ -39,6 +39,39 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
+  .dropdown-toggle {
+    position: relative;
+    top: 0;
+    left: 0;
+  }
+
+  .dropdown-toggle::after {
+    position: absolute;
+    bottom: 15%;
+    right: -1px;
+  }
+  .dropdown-menu {
+    max-width: 300px;
+    .row {
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      padding: 0 1rem;
+      margin: 0;
+      img {
+        width: 100%;
+        aspect-ratio: 1/1;
+        border-radius: 50%;
+        object-fit: cover;
+        object-position: center;
+      }
+    }
+  }
+
+  .dropdown-menu[data-bs-popper] {
+    right: -25px;
+    left: auto;
+  }
 }
 
 .navbar-nav > a,
@@ -69,18 +102,6 @@
   // height: fit-content;
 }
 
-.dropdown-toggle {
-  position: relative;
-  top: 0;
-  left: 0;
-}
-
-.dropdown-toggle::after {
-  position: absolute;
-  bottom: 15%;
-  right: -1px;
-}
-
 .dropdown-title {
   @include fullDimensions;
   display: flex;
@@ -94,29 +115,6 @@
     object-fit: cover;
     object-position: center;
   }
-}
-
-.dropdown-menu {
-  max-width: 300px;
-  .row {
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    padding: 0 1rem;
-    margin: 0;
-    img {
-      width: 100%;
-      aspect-ratio: 1/1;
-      border-radius: 50%;
-      object-fit: cover;
-      object-position: center;
-    }
-  }
-}
-
-.dropdown-menu[data-bs-popper] {
-  right: -25px;
-  left: auto;
 }
 
 #aziendeToggle {

@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import { RootState, store } from "./../redux/store/store";
+import { RootState, store } from "../../redux/store/store";
 import { Form, Col, Modal, Row } from "react-bootstrap";
-import { addPost } from "../redux/actions/feedActions";
+import { addPost } from "../../redux/actions/feedActions";
 import { FormEvent } from "react";
 
 export const Postmaker = () => {

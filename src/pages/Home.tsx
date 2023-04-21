@@ -1,15 +1,14 @@
 import { Container, Row, Col } from "react-bootstrap";
 import { useState, useEffect } from "react";
-import { Postmaker } from "../components/Postmaker";
+import { Postmaker } from "../components/HomeComponents/Postmaker";
 import { useSelector } from "react-redux";
 import type { RootState } from "./../redux/store/store";
 import { store } from "./../redux/store/store";
 import { fetchMyProfile } from "../redux/actions/profileActions";
-import { Link } from "react-router-dom";
 import { MiniFooter } from "../components/MyFooter";
-import SinglePost from "../components/SinglePost";
+import SinglePost from "../components/HomeComponents/SinglePost";
 import { fetchPosts } from "../redux/actions/feedActions";
-import HomeProfileCard from "../components/HomeProfileCard";
+import HomeProfileCard from "../components/HomeComponents/HomeProfileCard";
 
 const Home = () => {
   const dispatch = store.dispatch;
@@ -91,7 +90,7 @@ const Home = () => {
           lg={4}
           className="dxColumn offset-0 offset-md-4 offset-lg-0"
         >
-          <Row>
+          <Row className="sticky-lg-top">
             <div className="sectionContainer linkedinNotizie">
               <Col xs={12}>
                 <b className="text-secondary">LinkedIn Notizie</b>

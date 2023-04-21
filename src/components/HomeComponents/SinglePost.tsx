@@ -1,11 +1,28 @@
 import Button from "react-bootstrap/Button";
-import { Post } from "../types/feedTypes";
+import { Post } from "../../types/feedTypes";
 import { Col, Row } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const SinglePost = ({ image, text, username, user, createdAt }: Post) => {
   const [expanded, setExpanded] = useState(false);
+  const [timePassed, setTimePassed] = useState("");
+
+  function dateDistance() {
+    const data = new Date(createdAt!);
+    const oggi = new Date();
+    const distanzaInMsec = oggi.getTime() - data.getTime();
+    const distanzaInGiorni = Math.floor(distanzaInMsec / (1000 * 60 * 60 * 24));
+    let tempo: string = "";
+    if (distanzaInGiorni === 0) {
+      tempo = "oggi";
+    } else if (distanzaInGiorni === 1) {
+      tempo = "ieri";
+    } else {
+      tempo = `${distanzaInGiorni} giorni fa`;
+    }
+    setTimePassed(tempo);
+  }
 
   const toggleExpand = () => {
     setExpanded(!expanded);
@@ -14,6 +31,7 @@ const SinglePost = ({ image, text, username, user, createdAt }: Post) => {
   useEffect(() => {
     if (text.length < 200) {
       setExpanded(true);
+      dateDistance();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -41,7 +59,7 @@ const SinglePost = ({ image, text, username, user, createdAt }: Post) => {
               <p className="d-inline-block">• Già segui</p>
               <p>{user?.title}</p>
               <p>
-                {createdAt} •{" "}
+                {timePassed} •{" "}
                 <i className="bi bi-globe-americas text-black"></i>
               </p>
             </Col>
@@ -97,7 +115,7 @@ const SinglePost = ({ image, text, username, user, createdAt }: Post) => {
               <Button className="text-secondary">
                 <i className="bi bi-send-fill"></i>
                 <br />
-                <span> Invia</span>
+                <span>Invia</span>
               </Button>
             </Col>
           </Row>

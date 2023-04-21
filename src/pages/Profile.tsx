@@ -1,6 +1,6 @@
 import { Container, Row, Col } from "react-bootstrap";
 import { MyFooter } from "./../components/MyFooter";
-import ExperienceCard from "../components/ExperienceCard";
+import ExperienceCard from "../components/Profilecomponents/ExperienceCard";
 import { Modalbuttons } from "../components/Profilecomponents/Modalbuttons";
 import { Ads } from "../components/Profilecomponents/Ads";
 import { Info } from "../components/Profilecomponents/Info";
@@ -97,16 +97,43 @@ const Profile = () => {
                   </>
                 ) : (
                   <Col xs={12}>
-                    <h2>Ancora nessuna esperienza!</h2>
+                    <h2>Nessuna esperienza</h2>
                   </Col>
                 )}
               </div>
             </Col>
             <Col xs={12}>
               <div className="sectionContainer">
-                <Row>
-                  <Col xs={12}>
+                <Row className="justify-content-center">
+                  <Col xs={12} className="mb-2">
                     <h2>Lingue</h2>
+                  </Col>
+                  <Col xs={12}>
+                    <p className="mb-1">
+                      <b>Francese</b>
+                      <br />
+                      Conoscenza base
+                    </p>
+                  </Col>
+                  <Col xs={12}>
+                    <hr />
+                  </Col>
+                  <Col xs={12}>
+                    <p className="mb-1">
+                      <b>Inglese</b>
+                      <br />
+                      Conoscenza professionale
+                    </p>
+                  </Col>
+                  <Col xs={12}>
+                    <hr />
+                  </Col>
+                  <Col xs={12}>
+                    <p>
+                      <b>Italiano</b>
+                      <br />
+                      Conoscenza madrelingua o bilingue
+                    </p>
                   </Col>
                 </Row>
               </div>
