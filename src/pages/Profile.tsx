@@ -11,7 +11,8 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { fetchExperiences } from "../redux/actions/experienceActions";
 import { fetchMyProfile, fetchProfile } from "../redux/actions/profileActions";
- 
+import ExperienceSection from "../components/Profilecomponents/ExperienceSection";
+
 const Profile = () => {
   const dispatch = store.dispatch;
   const profile = useSelector((state: RootState) => state.profile.selected);
@@ -20,31 +21,24 @@ const Profile = () => {
     (state: RootState) => state.experience.list
   );
 
-  const [isItMe, setIsItMe] = useState(false);
-
-  const modify: string = (isItMe === true ? 'd-inline-block' : 'd-none')
-
   const params = useParams();
   const userId: string = params.id!;
 
   useEffect(() => {
     dispatch(fetchMyProfile());
     dispatch(fetchProfile(userId));
-    if(userId==='me'){
+    if (userId === "me") {
       dispatch(fetchExperiences(myProfile!._id));
-      setIsItMe(true);
-    }
-    else{
+    } else {
       dispatch(fetchExperiences(userId));
-      setIsItMe(false);
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  
-  useEffect(()=>{    
+
+  useEffect(() => {
     dispatch(fetchMyProfile());
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [profile])
+  }, [profile]);
 
   console.log(userExperiences);
   return (
@@ -77,43 +71,43 @@ const Profile = () => {
                     <p>{profile?.title}</p>
                     <p>{profile?.area}</p>
                     <div>
-                     <Modalbuttons {...myProfile!} />
+                      <Modalbuttons {...myProfile!} />
                     </div>
                   </div>
-
                 </Row>
               </div>
+
             </Col>
-
-            {profile ? <Info {...profile} /> : <></>}
-
             <Col xs={12}>
+            {profile ? <Info {...profile} /> : <></>}
+                
+            
               <div className="sectionContainer">
-              <Row>
-                <Col xs={12}>
-                <h2>Esperienza</h2>
+              <ExperienceSection {...myProfile!} />
+              {userExperiences.length > 0 ? (
+          <>
+            {userExperiences.slice().reverse().map((exp) => {
+              return (
+                <Col xs={12} key={exp._id}>
+                  <ExperienceCard {...exp} />
                 </Col>
-                {userExperiences.length > 0 
-                ? (
-                <>
-                {userExperiences.map((exp) => {
-                  return (
-                  <Col xs={12} key={exp._id}>
-                    <ExperienceCard {...exp}/>
-                  </Col>)}
-                  )} 
-                </>)
-                : (<Col xs={12}><h2>Ancora nessuna esperienza!</h2></Col>)}
-              </Row>
+              );
+            })}
+          </>
+        ) : (
+          <Col xs={12}>
+            <h2>Ancora nessuna esperienza!</h2>
+          </Col>
+        )}
               </div>
             </Col>
             <Col xs={12}>
               <div className="sectionContainer">
                 <Row>
                   <Col xs={12}>
-                  <h2>Lingue</h2>
-                </Col>
-              </Row>
+                    <h2>Lingue</h2>
+                  </Col>
+                </Row>
               </div>
             </Col>
           </Row>
@@ -122,7 +116,7 @@ const Profile = () => {
         <Ads />
       </Row>
       <Row>
-        <MyFooter/>
+        <MyFooter />
       </Row>
     </Container>
   );
