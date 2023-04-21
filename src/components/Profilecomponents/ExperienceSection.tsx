@@ -24,14 +24,15 @@ const ExperienceSection = (myProfile: Profile) => {
 
     const handleSave = () => {
         dispatch(addExperience(myProfile._id, newExperience));
-        dispatch(fetchExperiences(myProfile._id));
         handleClose();
+        dispatch(fetchExperiences(myProfile._id));
     };
 
     useEffect(() => {
         dispatch(fetchExperiences(myProfile._id));
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [newExperience]);
+
 
     return (
 
