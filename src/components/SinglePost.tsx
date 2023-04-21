@@ -9,12 +9,18 @@ import InputGroup from "react-bootstrap/InputGroup";
 import { store } from "../redux/store/store";
 import { editPost } from "../redux/actions/feedActions";
 import { deletePost } from "../redux/actions/feedActions";
+import { useSelector } from "react-redux";
+import { RootState } from "../redux/store/store";
+
 
 const SinglePost = ({ _id, image, text, username, user, createdAt }: Post) => {
   const [expanded, setExpanded] = useState(false);
 
+  const myProfile = useSelector((state: RootState) => state.profile.me);
+
   const [show, setShow] = useState(false);
   const [showDelete, setShowDelete] = useState(false);
+  const [gerico, setGerico] = useState(false) 
 
   const handleClose = () => {
     setShow(false);
@@ -27,6 +33,7 @@ const SinglePost = ({ _id, image, text, username, user, createdAt }: Post) => {
     
     setShowDelete(false);
 };
+
 
   const handleShowDelete = () => setShowDelete(true);
 
@@ -59,6 +66,10 @@ const SinglePost = ({ _id, image, text, username, user, createdAt }: Post) => {
   };
 
   useEffect(() => {
+    if (myProfile!._id === user?._id) {
+        setGerico(true)
+    }
+
     if (text.length < 200) {
       setExpanded(true);
     }
@@ -86,7 +97,7 @@ const SinglePost = ({ _id, image, text, username, user, createdAt }: Post) => {
                 />
               </Link>
 
-              <Dropdown className="d-inline mx-2 p-0">
+             {gerico && <Dropdown className="d-inline mx-2 p-0">
                 <Dropdown.Toggle
                   id="dropdown-autoclose-true"
                   className="p-0 unstyledDropdown"
@@ -94,7 +105,8 @@ const SinglePost = ({ _id, image, text, username, user, createdAt }: Post) => {
                   ...
                 </Dropdown.Toggle>
 
-                <Dropdown.Menu>
+            
+              <Dropdown.Menu>
                   <Dropdown.Item onClick={handleShow}>
                     <i className="bi bi-pencil"></i>
                   </Dropdown.Item>
@@ -102,7 +114,8 @@ const SinglePost = ({ _id, image, text, username, user, createdAt }: Post) => {
                   <i className="bi bi-trash"></i>
                   </Dropdown.Item>
                 </Dropdown.Menu>
-              </Dropdown>
+              </Dropdown>}
+            
 
               <Modal show={showDelete} onHide={handleCloseDelete}>
                 <Modal.Header closeButton>
