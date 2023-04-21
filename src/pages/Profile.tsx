@@ -7,7 +7,7 @@ import { Info } from "../components/Profilecomponents/Info";
 import { store } from "./../redux/store/store";
 import type { RootState } from "./../redux/store/store";
 import { useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { fetchExperiences } from "../redux/actions/experienceActions";
 import { fetchMyProfile, fetchProfile } from "../redux/actions/profileActions";
@@ -37,8 +37,10 @@ const Profile = () => {
   }
 
   useEffect(() => {
+
     dispatch(fetchMyProfile());
     dispatch(fetchProfile(userId));
+
     if (userId === "me") {
       dispatch(fetchExperiences(myProfile!._id));
     } else {
@@ -50,11 +52,12 @@ const Profile = () => {
   useEffect(() => {
     dispatch(fetchMyProfile());
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [profile]);
+  }, [profile || myProfile]);
 
   console.log(userExperiences);
   return (
     <Container className="pageContainer">
+      <CustomNavbar />
       <Row>
         <Col xs={12} md={9} className="mainColumn">
           <Row className="g-3">
@@ -81,7 +84,7 @@ const Profile = () => {
                       {profile?.name} {profile?.surname}
                     </h2>
                     <p>{profile?.title}</p>
-                    <p>{profile?.area}</p>
+                    <p>{profile?.area} . <Link to={"/"}>informazioni contatto</Link> </p>
                     <div>
                       <Modalbuttons {...myProfile!} />
                     </div>

@@ -24,14 +24,15 @@ const ExperienceSection = (myProfile: Profile) => {
 
     const handleSave = () => {
         dispatch(addExperience(myProfile._id, newExperience));
-        dispatch(fetchExperiences(myProfile._id));
         handleClose();
+        dispatch(fetchExperiences(myProfile._id));
     };
 
     useEffect(() => {
         dispatch(fetchExperiences(myProfile._id));
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [newExperience]);
+
 
     return (
 
@@ -82,7 +83,7 @@ const ExperienceSection = (myProfile: Profile) => {
                                 })
                             }
                         />
-                        {/*<span className="text-muted">Immagine : </span>
+                        <span className="text-muted">Immagine : </span>
                         <input
                             type="text"
                             className="w-100"
@@ -92,7 +93,7 @@ const ExperienceSection = (myProfile: Profile) => {
                                     image: e.target.value,
                                 })
                             }
-                        />*/}
+                        />
                         <span className="text-muted">Descrizione : </span>
                         <input
                             type="text"

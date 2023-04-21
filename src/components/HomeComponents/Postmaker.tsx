@@ -80,7 +80,7 @@ export const Postmaker = () => {
               }}
             >
               <i className="bi bi-journal-text"></i>
-              <span>Scrivi un articolo</span>
+              <span>Articolo</span>
             </button>
           </Col>
         </Row>
