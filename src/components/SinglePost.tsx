@@ -1,34 +1,46 @@
 import Button from "react-bootstrap/Button";
 import { Post } from "../types/feedTypes";
-import { Col, Row, Form} from "react-bootstrap";
+import { Col, Row, Form } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Dropdown from "react-bootstrap/Dropdown";
 import { Modal } from "react-bootstrap";
 import InputGroup from "react-bootstrap/InputGroup";
 import { store } from "../redux/store/store";
-import  {editPost}  from "../redux/actions/feedActions";
+import { editPost } from "../redux/actions/feedActions";
+import { deletePost } from "../redux/actions/feedActions";
 
-const SinglePost = ({_id, image, text, username, user, createdAt }: Post) => {
+const SinglePost = ({ _id, image, text, username, user, createdAt }: Post) => {
   const [expanded, setExpanded] = useState(false);
 
   const [show, setShow] = useState(false);
-  const handleClose = () => {setShow(false)};
+  const [showDelete, setShowDelete] = useState(false);
+
+  const handleClose = () => {
+    setShow(false);
+  };
   const handleShow = () => setShow(true);
   const dispatch = store.dispatch;
 
-  const [editPostduo, setEditPostduo] = useState({
-    _id, 
-    image, 
-    text, 
-    username, 
-    user, 
-    createdAt
+  const handleCloseDelete = () => {
+      
+    dispatch(deletePost(_id!))
+    setShowDelete(false);
+};
 
-  })
+  const handleShowDelete = () => setShowDelete(true);
+
+  const [editPostduo, setEditPostduo] = useState({
+    _id,
+    image,
+    text,
+    username,
+    user,
+    createdAt,
+  });
 
   const handleSave = () => {
-
+    text = editPostduo.text;
     dispatch(
       editPost({
         _id,
@@ -79,14 +91,34 @@ const SinglePost = ({_id, image, text, username, user, createdAt }: Post) => {
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu>
-                  <Dropdown.Item>Menu Item</Dropdown.Item>
-                  <Dropdown.Item>Menu Item</Dropdown.Item>
+                  <Dropdown.Item onClick={handleShow}>
+                    <i className="bi bi-pencil"></i>
+                  </Dropdown.Item>
+                  <Dropdown.Item onClick={handleShowDelete}>
+                    Menu Item
+                  </Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
 
+              <Modal show={showDelete} onHide={handleCloseDelete}>
+                <Modal.Header closeButton>
+                  <Modal.Title>
+                    Sei sicuro di eliminare questo Post?
+                  </Modal.Title>
+                </Modal.Header>
+                <Modal.Footer>
+                  <Button variant="secondary" onClick={()=>setShowDelete(false)}>
+                    Close
+                  </Button>
+                  <Button variant="danger" onClick={handleCloseDelete}>
+                    Delete
+                  </Button>
+                </Modal.Footer>
+              </Modal>
+
               <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                  <Modal.Title>Modifica Bio</Modal.Title>
+                  <Modal.Title>Modifica questo post</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                   <InputGroup>
@@ -94,7 +126,9 @@ const SinglePost = ({_id, image, text, username, user, createdAt }: Post) => {
                       as="textarea"
                       rows={2}
                       value={editPostduo.text}
-                      onChange={(e) => setEditPostduo({...editPostduo, text: e.target.value})}
+                      onChange={(e) =>
+                        setEditPostduo({ ...editPostduo, text: e.target.value })
+                      }
                       placeholder="Inserisci qui il tuo messaggio"
                     />
                   </InputGroup>
@@ -110,7 +144,6 @@ const SinglePost = ({_id, image, text, username, user, createdAt }: Post) => {
                   >
                     Save Changes
                   </Button>
-                 
                 </Modal.Footer>
               </Modal>
             </Col>
@@ -190,7 +223,6 @@ const SinglePost = ({_id, image, text, username, user, createdAt }: Post) => {
 };
 
 export default SinglePost;
-
 
 /* <Button
                    variant="primary"
