@@ -7,27 +7,13 @@ import { Info } from "../components/Profilecomponents/Info";
 import { store } from "./../redux/store/store";
 import type { RootState } from "./../redux/store/store";
 import { useSelector } from "react-redux";
-<<<<<<< HEAD
-import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { fetchExperiences } from "../redux/actions/experienceActions";
 import { fetchMyProfile, fetchProfile } from "../redux/actions/profileActions";
 import ExperienceSection from "../components/Profilecomponents/ExperienceSection";
-import { addImageProfile } from "../redux/actions/imageActions";
-=======
 import { Link, useParams } from "react-router-dom";
-import { useEffect } from "react";
-import { fetchExperiences } from "../redux/actions/experienceActions";
-import { fetchMyProfile, fetchProfile } from "../redux/actions/profileActions";
-import ExperienceSection from "../components/Profilecomponents/ExperienceSection";
-import languages from "../Json/Lingue.json"
+import languages from "../Json/Lingue.json";
 import { CustomNavbar } from "../components/CustomNavbar";
-
-interface Lingue {
-  name: string
-  code: string
-}
->>>>>>> develop
 
 const Profile = () => {
   const dispatch = store.dispatch;
@@ -35,16 +21,15 @@ const Profile = () => {
   const myProfile = useSelector((state: RootState) => state.profile.me);
   const userExperiences = useSelector(
     (state: RootState) => state.experience.list
-
   );
 
   const params = useParams();
   const userId: string = params.id!;
   const selectLang = () => {
-    const random = Math.floor(Math.random() * languages.length)
-    const lingua = languages[random].name
-    return (lingua)
-  }
+    const random = Math.floor(Math.random() * languages.length);
+    const lingua = languages[random].name;
+    return lingua;
+  };
 
   const [isItMe, setIsItMe] = useState(false);
 
@@ -57,20 +42,12 @@ const Profile = () => {
   };
 
   useEffect(() => {
-<<<<<<< HEAD
-=======
-
->>>>>>> develop
     dispatch(fetchMyProfile());
     dispatch(fetchProfile(userId));
 
     if (userId === "me") {
-<<<<<<< HEAD
       dispatch(fetchExperiences(myProfile!._id));
       setIsItMe(true);
-=======
-      dispatch(fetchExperiences("me"));
->>>>>>> develop
     } else {
       dispatch(fetchExperiences(userId));
       setIsItMe(false);
@@ -113,13 +90,12 @@ const Profile = () => {
                       {profile?.name} {profile?.surname}
                     </h2>
                     <p>{profile?.title}</p>
-<<<<<<< HEAD
-                    <p>{profile?.area}</p>
+
+                    <p>
+                      {profile?.area} .{" "}
+                      <Link to={"/"}>informazioni contatto</Link>{" "}
+                    </p>
                     <div className={isItMe ? "modify" : "d-none"}>
-=======
-                    <p>{profile?.area} . <Link to={"/"}>informazioni contatto</Link> </p>
-                    <div>
->>>>>>> develop
                       <Modalbuttons {...myProfile!} />
                     </div>
                   </div>
