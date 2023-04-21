@@ -85,10 +85,14 @@ const SinglePost = ({ image, text, username, user, createdAt }: Post) => {
             <img className="w-100" src={image} alt="Foto post" />
           </Row>
           <Row className="commentSection d-flex justify-content-between">
-            <p>
-              <i className="bi bi-hand-thumbs-up-fill"></i> 104
-            </p>
-            <p> 880 commenti • 202 diffusioni post</p>
+            <Col xs={3}>
+              <p>
+                <i className="bi bi-hand-thumbs-up-fill"></i> 104
+              </p>
+            </Col>
+            <Col className="text-end">
+              <p> 880 commenti • 202 diffusioni post</p>
+            </Col>
           </Row>
           <hr />
           <Row className="btnSection text-center" xs={4}>
