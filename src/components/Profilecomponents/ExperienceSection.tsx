@@ -1,24 +1,23 @@
 import { Row, Col } from "react-bootstrap";
 import { Modal, Button } from "react-bootstrap";
 import InputGroup from "react-bootstrap/InputGroup";
-import { RootState, store } from "../../redux/store/store";
-import { useState, useEffect, ChangeEvent } from "react";
+import { store } from "../../redux/store/store";
+import { useState, useEffect } from "react";
 import {
   addExperience,
   fetchExperiences,
 } from "../../redux/actions/experienceActions";
 import { Profile } from "./../../types/profileTypes";
-import { addImageExperience } from "../../redux/actions/imageActions";
-import { useSelector } from "react-redux";
-import { Experience } from "../../types/expCardTypes";
 
 const ExperienceSection = (myProfile: Profile) => {
-  const handleClose = () => {setShow(false)};
+  const handleClose = () => {
+    setShow(false);
+  };
   const dispatch = store.dispatch;
   const handleShow = () => setShow(true);
   const [show, setShow] = useState(false);
   const [newExperience, setNewExperience] = useState({
-    _id: '',
+    _id: "",
     role: "",
     company: "",
     startDate: "",
@@ -30,9 +29,6 @@ const ExperienceSection = (myProfile: Profile) => {
   });
 
   // const [newExpImg, setNewExpImg] = useState('');
-  const expList = useSelector((state: RootState) => state.experience.list)
-  const newExp: Experience = expList[-1]
-
 
   /*const handleFile = (ev: ChangeEvent<HTMLInputElement>) => {
     setNewExpImg((img) => {
@@ -110,10 +106,7 @@ const ExperienceSection = (myProfile: Profile) => {
               }
             />
             <span className="text-muted">Immagine : </span>
-            <input
-              type="file"
-              className="w-100"
-            />
+            <input type="file" className="w-100" />
 
             <span className="text-muted">Descrizione : </span>
             <input
