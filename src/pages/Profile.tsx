@@ -56,7 +56,7 @@ const Profile = () => {
                   />
                   <button className="profileButton">
                     <img
-                      src="https://picsum.photos/800/200"
+                      src={profile?.image}
                       alt="profile"
                       className="profilePic"
                     ></img>

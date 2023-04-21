@@ -2,6 +2,7 @@ import Button from "react-bootstrap/Button";
 import { Post } from "../types/feedTypes";
 import { Col, Row } from "react-bootstrap";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const SinglePost = ({ image, text, username, user, createdAt }: Post) => {
   const [expanded, setExpanded] = useState(false);
@@ -23,16 +24,20 @@ const SinglePost = ({ image, text, username, user, createdAt }: Post) => {
         <Col xs={12}>
           <Row>
             <Col xs={2}>
-              <img
-                src={user?.image}
-                alt="Foto profilo"
-                className="postProfileImage"
-              />
+              <Link to={`/profile/${user?._id}`}>
+                <img
+                  src={user?.image}
+                  alt="Foto profilo"
+                  className="postProfileImage"
+                />
+              </Link>
             </Col>
             <Col className="postProfile">
-              <span className="d-inline-block">
-                {user?.name} {user?.surname}
-              </span>
+              <Link to={`/profile/${user?._id}`}>
+                <span className="d-inline-block">
+                  {user?.name} {user?.surname}
+                </span>
+              </Link>
               <p className="d-inline-block">• Già segui</p>
               <p>{user?.title}</p>
               <p>
