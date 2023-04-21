@@ -68,6 +68,10 @@ const SinglePost = ({ _id, image, text, username, user, createdAt }: Post) => {
 {" "}
 <i className="bi bi-pencil"></i>
 </button>*/
+  /*   <button onClick={handleShow} className="unstyledbtn me-3">
+{" "}
+<i className="bi bi-pencil"></i>
+</button>*/
   return (
     <div className="sectionContainer">
       <Row>
