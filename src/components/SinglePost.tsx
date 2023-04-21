@@ -24,7 +24,7 @@ const SinglePost = ({ _id, image, text, username, user, createdAt }: Post) => {
 
   const handleCloseDelete = () => {
       
-    dispatch(deletePost(_id!))
+    
     setShowDelete(false);
 };
 
@@ -99,7 +99,7 @@ const SinglePost = ({ _id, image, text, username, user, createdAt }: Post) => {
                     <i className="bi bi-pencil"></i>
                   </Dropdown.Item>
                   <Dropdown.Item onClick={handleShowDelete}>
-                    Menu Item
+                  <i className="bi bi-trash"></i>
                   </Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
@@ -114,7 +114,7 @@ const SinglePost = ({ _id, image, text, username, user, createdAt }: Post) => {
                   <Button variant="secondary" onClick={()=>setShowDelete(false)}>
                     Close
                   </Button>
-                  <Button variant="danger" onClick={handleCloseDelete}>
+                  <Button variant="danger" onClick={()=>{handleCloseDelete();dispatch(deletePost(_id!))}}>
                     Delete
                   </Button>
                 </Modal.Footer>
