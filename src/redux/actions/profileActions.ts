@@ -67,6 +67,35 @@ const editProfileFailure = (error: string): ProfileAction => ({
   loading: false,
 });
 
+export const fetchMyProfile = () => {
+  return async (dispatch: Dispatch<AnyAction>) => {
+    dispatch(getProfileRequest());
+
+    try {
+      const response = await fetch(
+        `https://striveschool-api.herokuapp.com/api/profile/me`,
+        {
+          headers: {
+            Authorization: `Bearer ${apiKey}`,
+          },
+        }
+      );
+      if (!response.ok) {
+        throw new Error(response.statusText);
+      }
+      const profile = await response.json();
+      dispatch(getMyProfileSuccess(profile));
+      console.log("nella fetch:", profile);
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        dispatch(getProfileFailure(error.message));
+      } else {
+        dispatch(getProfileFailure("Please log in"));
+      }
+    }
+  };
+};
+
 export const fetchProfile = (userId: string) => {
   return async (dispatch: Dispatch<AnyAction>) => {
     dispatch(getProfileRequest());
@@ -84,11 +113,7 @@ export const fetchProfile = (userId: string) => {
         throw new Error(response.statusText);
       }
       const profile = await response.json();
-      if (userId === "me") {
-        dispatch(getMyProfileSuccess(profile));
-      } else {
-        dispatch(getProfileSuccess(profile));
-      }
+      dispatch(getProfileSuccess(profile));
       console.log("nella fetch:", profile);
     } catch (error: unknown) {
       if (error instanceof Error) {
