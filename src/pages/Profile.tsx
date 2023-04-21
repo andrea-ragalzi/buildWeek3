@@ -2,7 +2,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import { MyFooter } from "./../components/MyFooter";
 import { useState, useEffect } from "react";
 import { fetchExperiences } from "../redux/actions/experienceActions";
-import { fetchProfile } from "../redux/actions/profileActions";
+import { fetchMyProfile } from "../redux/actions/profileActions";
 import { useSelector } from "react-redux";
 import type { RootState } from "./../redux/store/store";
 import { store } from "./../redux/store/store";
@@ -23,10 +23,9 @@ const Profile = () => {
   const user: string = params.id!;
 
   useEffect(() => {
-    dispatch(fetchProfile("me"));
+    dispatch(fetchMyProfile());
     dispatch(fetchExperiences(profile!._id));
-    checkexperiece();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   console.log(userExperiences);
