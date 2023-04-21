@@ -8,7 +8,7 @@ import { fetchMyProfile } from "../redux/actions/profileActions";
 import { MiniFooter } from "../components/MyFooter";
 import SinglePost from "../components/HomeComponents/SinglePost";
 import { fetchPosts } from "../redux/actions/feedActions";
-import HomeProfileCard from "../components/HomeProfileCard";
+import HomeProfileCard from "../components/HomeComponents/HomeProfileCard";
 import { CustomNavbar } from "../components/CustomNavbar";
 
 const Home = () => {
