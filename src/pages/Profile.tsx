@@ -1,32 +1,44 @@
 import { Container, Row, Col } from "react-bootstrap";
 import { MyFooter } from "./../components/MyFooter";
-import { useState, useEffect } from "react";
-import { fetchExperiences } from "../redux/actions/experienceActions";
-import { fetchMyProfile } from "../redux/actions/profileActions";
-import { useSelector } from "react-redux";
-import type { RootState } from "./../redux/store/store";
-import { store } from "./../redux/store/store";
-import BoxInfo from "../components/BoxInfo";
+import ExperienceCard from "../components/ExperienceCard";
 import { Modalbuttons } from "../components/Profilecomponents/Modalbuttons";
 import { Ads } from "../components/Profilecomponents/Ads";
 import { Info } from "../components/Profilecomponents/Info";
+import { store } from "./../redux/store/store";
+import type { RootState } from "./../redux/store/store";
+import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import { useEffect } from "react";
+import { fetchExperiences } from "../redux/actions/experienceActions";
+import { fetchMyProfile, fetchProfile } from "../redux/actions/profileActions";
+import ExperienceSection from "../components/Profilecomponents/ExperienceSection";
 
 const Profile = () => {
   const dispatch = store.dispatch;
   const profile = useSelector((state: RootState) => state.profile.selected);
+  const myProfile = useSelector((state: RootState) => state.profile.me);
   const userExperiences = useSelector(
     (state: RootState) => state.experience.list
   );
 
   const params = useParams();
-  const user: string = params.id!;
+  const userId: string = params.id!;
 
   useEffect(() => {
     dispatch(fetchMyProfile());
-    dispatch(fetchExperiences(profile!._id));
+    dispatch(fetchProfile(userId));
+    if (userId === "me") {
+      dispatch(fetchExperiences(myProfile!._id));
+    } else {
+      dispatch(fetchExperiences(userId));
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  useEffect(() => {
+    dispatch(fetchMyProfile());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [profile]);
 
   console.log(userExperiences);
   return (
@@ -59,39 +71,44 @@ const Profile = () => {
                     <p>{profile?.title}</p>
                     <p>{profile?.area}</p>
                     <div>
-                      <Modalbuttons />
+                      <Modalbuttons {...myProfile!} />
                     </div>
                   </div>
-
-                  <Col className="col-4">
-                    <ul>
-                      <li>image : azienda</li>
-                    </ul>
-                  </Col>
                 </Row>
               </div>
             </Col>
+            <Col xs={12}>
+              {profile ? <Info {...profile} /> : <></>}
 
-            {profile ? <Info {...profile} /> : <></>}
-
-            <Col xs={12}>
               <div className="sectionContainer">
-                <h2>Esperienza</h2>
+                <ExperienceSection {...myProfile!} />
+                {userExperiences.length > 0 ? (
+                  <>
+                    {userExperiences
+                      .slice()
+                      .reverse()
+                      .map((exp) => {
+                        return (
+                          <Col xs={12} key={exp._id}>
+                            <ExperienceCard {...exp} />
+                          </Col>
+                        );
+                      })}
+                  </>
+                ) : (
+                  <Col xs={12}>
+                    <h2>Ancora nessuna esperienza!</h2>
+                  </Col>
+                )}
               </div>
             </Col>
             <Col xs={12}>
               <div className="sectionContainer">
-                <BoxInfo title="Formazione" />
-              </div>
-            </Col>
-            <Col xs={12}>
-              <div className="sectionContainer">
-                <h2>Competenze</h2>
-              </div>
-            </Col>
-            <Col xs={12}>
-              <div className="sectionContainer">
-                <h2>Lingue</h2>
+                <Row>
+                  <Col xs={12}>
+                    <h2>Lingue</h2>
+                  </Col>
+                </Row>
               </div>
             </Col>
           </Row>
@@ -100,7 +117,7 @@ const Profile = () => {
         <Ads />
       </Row>
       <Row>
-        <MyFooter></MyFooter>
+        <MyFooter />
       </Row>
     </Container>
   );

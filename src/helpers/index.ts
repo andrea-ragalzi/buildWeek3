@@ -1,6 +1,6 @@
 import { MonthsMap } from "../types/expCardTypes";
 
-export const employmentTime = (startDate: string, endDate: string): string => {
+export const employmentTime = (startDate: string, endDate: string | null): string => {
     const months: MonthsMap = {
         'gennaio': 1,
         'febbraio': 2,
