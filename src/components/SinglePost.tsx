@@ -1,11 +1,46 @@
 import Button from "react-bootstrap/Button";
 import { Post } from "../types/feedTypes";
-import { Col, Row } from "react-bootstrap";
+import { Col, Row, Form} from "react-bootstrap";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import Dropdown from "react-bootstrap/Dropdown";
+import { Modal } from "react-bootstrap";
+import InputGroup from "react-bootstrap/InputGroup";
+import { store } from "../redux/store/store";
+import  {editPost}  from "../redux/actions/feedActions";
 
-const SinglePost = ({ image, text, username, user, createdAt }: Post) => {
+const SinglePost = ({_id, image, text, username, user, createdAt }: Post) => {
   const [expanded, setExpanded] = useState(false);
+
+  const [show, setShow] = useState(false);
+  const handleClose = () => {setShow(false)};
+  const handleShow = () => setShow(true);
+  const dispatch = store.dispatch;
+
+  const [editPostduo, setEditPostduo] = useState({
+    _id, 
+    image, 
+    text, 
+    username, 
+    user, 
+    createdAt
+
+  })
+
+  const handleSave = () => {
+
+    dispatch(
+      editPost({
+        _id,
+        username,
+        createdAt,
+        text,
+        image,
+        user,
+      })
+    );
+    handleClose();
+  };
 
   const toggleExpand = () => {
     setExpanded(!expanded);
@@ -17,7 +52,10 @@ const SinglePost = ({ image, text, username, user, createdAt }: Post) => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
+  /*   <button onClick={handleShow} className="unstyledbtn me-3">
+{" "}
+<i className="bi bi-pencil"></i>
+</button>*/
   return (
     <div className="sectionContainer">
       <Row>
@@ -31,6 +69,50 @@ const SinglePost = ({ image, text, username, user, createdAt }: Post) => {
                   className="postProfileImage"
                 />
               </Link>
+
+              <Dropdown className="d-inline mx-2 p-0">
+                <Dropdown.Toggle
+                  id="dropdown-autoclose-true"
+                  className="p-0 unstyledDropdown"
+                >
+                  ...
+                </Dropdown.Toggle>
+
+                <Dropdown.Menu>
+                  <Dropdown.Item>Menu Item</Dropdown.Item>
+                  <Dropdown.Item>Menu Item</Dropdown.Item>
+                </Dropdown.Menu>
+              </Dropdown>
+
+              <Modal show={show} onHide={handleClose}>
+                <Modal.Header closeButton>
+                  <Modal.Title>Modifica Bio</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                  <InputGroup>
+                    <Form.Control
+                      as="textarea"
+                      rows={2}
+                      value={editPostduo.text}
+                      onChange={(e) => setEditPostduo({...editPostduo, text: e.target.value})}
+                      placeholder="Inserisci qui il tuo messaggio"
+                    />
+                  </InputGroup>
+                </Modal.Body>
+                <Modal.Footer>
+                  <Button variant="secondary" onClick={handleClose}>
+                    Close
+                  </Button>
+                  <Button
+                    variant="primary"
+                    disabled={editPostduo ? false : true}
+                    onClick={handleSave}
+                  >
+                    Save Changes
+                  </Button>
+                 
+                </Modal.Footer>
+              </Modal>
             </Col>
             <Col className="postProfile">
               <Link to={`/profile/${user?._id}`}>
@@ -108,3 +190,20 @@ const SinglePost = ({ image, text, username, user, createdAt }: Post) => {
 };
 
 export default SinglePost;
+
+
+/* <Button
+                   variant="primary"
+                    onClick={() => {
+                      setEditPost({
+                        _id:"",
+                        image:"",
+                        text:"",
+                        username:""
+                        user:"", 
+                        createdAt:"",});
+                      handleSave();
+                    }}
+                  >
+                    Delete Bio
+                  </Button> */
