@@ -153,7 +153,7 @@ export const addExperience = (userId: string, experience: Experience) => {
         }
       );
       const data = await response.json();
-
+      console.log('addExperience', data);
       if (response.ok) {
         dispatch(addExperienceSuccess(data));
       } else {
@@ -161,9 +161,9 @@ export const addExperience = (userId: string, experience: Experience) => {
       }
     } catch (error: unknown) {
       if (error instanceof Error) {
-        dispatch(getExperiencesFailure(error.message));
+        dispatch(addExperienceFailure(error.message));
       } else {
-        dispatch(getExperiencesFailure("An unknown error occurred"));
+        dispatch(addExperienceFailure("An unknown error occurred"));
       }
     }
   };
