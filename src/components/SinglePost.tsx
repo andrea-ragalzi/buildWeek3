@@ -160,7 +160,7 @@ const SinglePost = ({ _id, image, text, username, user, createdAt }: Post) => {
               <p className="d-inline-block">• Già segui</p>
               <p>{user?.title}</p>
               <p>
-                {createdAt} •{" "}
+                {createdAt?.slice(0,10)} •{" "}
                 <i className="bi bi-globe-americas text-black"></i>
               </p>
             </Col>
