@@ -13,6 +13,7 @@ import { fetchExperiences } from "../redux/actions/experienceActions";
 import { fetchMyProfile, fetchProfile } from "../redux/actions/profileActions";
 import ExperienceSection from "../components/Profilecomponents/ExperienceSection";
 import languages from "../Json/Lingue.json"
+import { CustomNavbar } from "../components/CustomNavbar";
 
 interface Lingue {
   name: string
