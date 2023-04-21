@@ -66,7 +66,6 @@ export const Info = ({
               </Modal.Header>
               <Modal.Body>
                 <InputGroup>
-                  <InputGroup.Text>With textarea</InputGroup.Text>
                   <Form.Control
                     as="textarea"
                     rows={2}
