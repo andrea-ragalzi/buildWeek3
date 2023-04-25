@@ -157,71 +157,66 @@ export const MyFooter: React.FC = function () {
 
 export const MiniFooter: React.FC = function () {
   return (
-    <footer className="miniFooter">
-      <Container fluid>
-        <Row>
-          <ul className="d-flex flex-wrap justify-content-center">
-            <li className="linkWrap">
-              <Link to={"/"}>Informazioni</Link>
-            </li>
-            <li className="linkWrap">
-              <Link to={"/"}>Accessibilità</Link>
-            </li>
-            <li className="linkWrap">
-              <Link to={"/"}>Centro Ass.</Link>
-            </li>
-            <li className="linkWrap">
-              <Dropdown>
-                <Dropdown.Toggle
-                  id="privacy-dropdown"
-                  variant="link"
-                  className="Benvenuto"
-                >
-                  Privacy e condizioni
-                </Dropdown.Toggle>
+    <footer className="miniFooter ">
+      <Row>
+        <ul className="d-flex flex-wrap justify-content-center">
+          <li className="linkWrap">
+            <Link to={"/"}>Informazioni</Link>
+          </li>
+          <li className="linkWrap">
+            <Link to={"/"}>Accessibilità</Link>
+          </li>
+          <li className="linkWrap">
+            <Link to={"/"}>Centro Ass.</Link>
+          </li>
+          <li className="linkWrap">
+            <Dropdown>
+              <Dropdown.Toggle id="privacy-dropdown" variant="link">
+                Privacy e condizioni
+              </Dropdown.Toggle>
 
-                <Dropdown.Menu>
-                  <Dropdown.Item as={Link} to={"/privacy"}>
-                    Informativa sulla privacy
-                  </Dropdown.Item>
-                  <Dropdown.Item as={Link} to={"/contratto"}>
-                    Contratto di licenza
-                  </Dropdown.Item>
-                  <Dropdown.Item as={Link} to={"/cookie"}>
-                    Informativa sui cookie
-                  </Dropdown.Item>
-                  <Dropdown.Item as={Link} to={"/copyright"}>
-                    Informativa sul copyright
-                  </Dropdown.Item>
-                </Dropdown.Menu>
-              </Dropdown>
-            </li>
-            <li className="linkWrap">
-              <Link to={"/"}>Sales Solutions</Link>
-            </li>
-            <li className="linkWrap">
-              <Link to={"/"}>Soluzioni di marketing</Link>
-            </li>
-            <li className="linkWrap">
-              <Link to={"/"}>Pubblicità</Link>
-            </li>
-            <li className="linkWrap">
-              <Link to={"/"}>Piccole imprese</Link>
-            </li>
-          </ul>
-        </Row>
-        <Row>
-          <Col xs={12} className=" d-flex justify-content-center">
-            <img
-              src="https://content.linkedin.com/content/dam/me/business/en-us/amp/brand-site/v2/bg/LI-Logo.svg.original.svg"
-              alt="logo"
-              height={"20px"}
-              className="me-3"
-            />
-            <p className="Benvenuto">LinkedIn Corporation © 2023</p>
-          </Col>
-        </Row>
-      </Container>
+              <Dropdown.Menu>
+                <Dropdown.Item as={Link} to={"/privacy"}>
+                  Informativa sulla privacy
+                </Dropdown.Item>
+                <Dropdown.Item as={Link} to={"/contratto"}>
+                  Contratto di licenza
+                </Dropdown.Item>
+                <Dropdown.Item as={Link} to={"/cookie"}>
+                  Informativa sui cookie
+                </Dropdown.Item>
+                <Dropdown.Item as={Link} to={"/copyright"}>
+                  Informativa sul copyright
+                </Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
+          </li>
+          <li className="linkWrap">
+            <Link to={"/"}>Sales Solutions</Link>
+          </li>
+          <li className="linkWrap">
+            <Link to={"/"}>Soluzioni di marketing</Link>
+          </li>
+          <li className="linkWrap">
+            <Link to={"/"}>Pubblicità</Link>
+          </li>
+          <li className="linkWrap">
+            <Link to={"/"}>Piccole imprese</Link>
+          </li>
+        </ul>
+      </Row>
+      <Row>
+        <Col xs={5}>
+          <img
+            src="https://content.linkedin.com/content/dam/me/business/en-us/amp/brand-site/v2/bg/LI-Logo.svg.original.svg"
+            alt="logo"
+            height={"20px"}
+          />
+        </Col>
+        <Col>
+          <p className="little">LinkedIn Corporation © 2023</p>
+        </Col>
+      </Row>
     </footer>
   );
 };

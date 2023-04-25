@@ -3,10 +3,10 @@
   .mainColumn,
   .dxColumn {
     padding: 0 20px;
+    height: fit-content;
   }
 }
 .sxColumn {
-  height: fit-content;
   .secondElement p {
     color: $myBlue;
     font-size: 12px;
@@ -24,11 +24,14 @@
 
 @media screen and (min-width: 990px) {
   .footerCol {
-    height: 70px;
-    max-height: 85px;
-    position: sticky;
-    top: 3.7rem;
-    right: 0;
+    height: fit-content;
+    position: relative;
+    .miniFooter {
+      height: 200px;
+      position: sticky;
+      top: 3.7rem;
+      left: 0;
+    }
   }
 }
 
