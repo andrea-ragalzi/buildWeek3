@@ -1,15 +1,20 @@
-import Container from "react-bootstrap/Container";
-import Form from "react-bootstrap/Form";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
-import { Col, Image, Row } from "react-bootstrap";
+import {
+  Container,
+  Nav,
+  Navbar,
+  NavDropdown,
+  Row,
+  Col,
+  Image,
+  Form,
+} from "react-bootstrap";
+
+import { Messages } from "./Messages";
+
 import { Link, NavLink } from "react-router-dom";
-import "../style/App.scss";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import type { RootState } from "./../redux/store/store";
-import { Messages } from "./Messages";
 
 export const CustomNavbar = () => {
   const [Rightcollapse, setRightcollapse] = useState(false);

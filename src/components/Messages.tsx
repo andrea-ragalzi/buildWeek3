@@ -1,14 +1,12 @@
-import { useState } from "react";
 import { ListGroup } from "react-bootstrap";
+
 import type { RootState } from "./../redux/store/store";
+import { useState } from "react";
 import { useSelector } from "react-redux";
 
 export const Messages = () => {
   const [onoff, setOnoff] = useState(true);
-  const myProfile = useSelector(
-    (state: RootState) => state.profile.me
-  );
-
+  const myProfile = useSelector((state: RootState) => state.profile.me);
 
   return (
     <div>

@@ -1,15 +1,18 @@
 import { Container, Row, Col } from "react-bootstrap";
-import { useState, useEffect } from "react";
-import { Postmaker } from "../components/HomeComponents/Postmaker";
-import { useSelector } from "react-redux";
-import type { RootState } from "./../redux/store/store";
-import { store } from "./../redux/store/store";
-import { fetchMyProfile } from "../redux/actions/profileActions";
-import { MiniFooter } from "../components/MyFooter";
-import SinglePost from "../components/HomeComponents/SinglePost";
-import { fetchPosts } from "../redux/actions/feedActions";
-import HomeProfileCard from "../components/HomeComponents/HomeProfileCard";
+
 import { CustomNavbar } from "../components/CustomNavbar";
+import HomeProfileCard from "../components/HomeComponents/HomeProfileCard";
+import { Postmaker } from "../components/HomeComponents/Postmaker";
+import SinglePost from "../components/HomeComponents/SinglePost";
+import { MiniFooter } from "../components/MyFooter";
+
+import { store } from "./../redux/store/store";
+import type { RootState } from "./../redux/store/store";
+import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
+
+import { fetchMyProfile } from "../redux/actions/profileActions";
+import { fetchPosts } from "../redux/actions/feedActions";
 
 const Home = () => {
   const dispatch = store.dispatch;

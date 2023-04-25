@@ -1,9 +1,12 @@
-import { useState } from "react";
-import { useSelector } from "react-redux";
-import { RootState, store } from "../../redux/store/store";
 import { Form, Col, Modal, Row } from "react-bootstrap";
-import { addPost } from "../../redux/actions/feedActions";
+
+import { store } from "../../redux/store/store";
+import type { RootState } from "../../redux/store/store";
+import { useState } from "react";
 import { FormEvent } from "react";
+import { useSelector } from "react-redux";
+
+import { addPost } from "../../redux/actions/feedActions";
 
 export const Postmaker = () => {
   const [Photo, setPhoto] = useState(false);

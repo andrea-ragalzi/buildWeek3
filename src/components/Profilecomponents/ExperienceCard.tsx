@@ -1,16 +1,23 @@
-import { Experience } from "../../types/expCardTypes";
-import { Container, Row, Col } from "react-bootstrap";
+import {
+  Container,
+  Row,
+  Col,
+  Modal,
+  Button,
+  InputGroup,
+} from "react-bootstrap";
+
+import { store } from "../../redux/store/store";
 import { useSelector } from "react-redux";
 import type { RootState } from "../../redux/store/store";
-import { Modal, Button } from "react-bootstrap";
-import InputGroup from "react-bootstrap/InputGroup";
 import { useState } from "react";
+
+import { Experience } from "../../types/expCardTypes";
 import {
   editExperience,
   fetchExperiences,
   deleteExperience,
 } from "../../redux/actions/experienceActions";
-import { store } from "../../redux/store/store";
 
 const ExperienceCard = ({
   _id,

@@ -1,12 +1,12 @@
-import { Col, Form } from "react-bootstrap";
-import InputGroup from "react-bootstrap/InputGroup";
-import BoxInfo from "../BoxInfo";
-import { Profile } from "../../types/profileTypes";
-import React, { useState } from "react";
-import Button from "react-bootstrap/Button";
-import Modal from "react-bootstrap/Modal";
-import { editProfile } from "../../redux/actions/profileActions";
+import { Col, Form, InputGroup, Button, Modal } from "react-bootstrap";
+
+import BoxInfo from "./BoxInfo";
+
 import { store } from "./../../redux/store/store";
+import { useState } from "react";
+
+import { Profile } from "../../types/profileTypes";
+import { editProfile } from "../../redux/actions/profileActions";
 
 export const Info = ({
   _id,

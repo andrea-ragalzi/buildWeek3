@@ -1,11 +1,16 @@
-import { useState } from "react";
-import { Collapse } from "react-bootstrap";
-import Dropdown from "react-bootstrap/Dropdown";
-import { Modal, Button } from "react-bootstrap";
-import ListGroup from "react-bootstrap/ListGroup";
-import InputGroup from "react-bootstrap/InputGroup";
-import { Profile } from "../../types/profileTypes";
+import {
+  Modal,
+  Button,
+  Dropdown,
+  ListGroup,
+  InputGroup,
+  Collapse,
+} from "react-bootstrap";
+
 import { store } from "../../redux/store/store";
+import { useState } from "react";
+
+import { Profile } from "../../types/profileTypes";
 import { editProfile } from "../../redux/actions/profileActions";
 
 export const Modalbuttons = ({
@@ -63,9 +68,11 @@ export const Modalbuttons = ({
 
   return (
     <div className="ps-0 ms-0 d-flex">
-
-      <Dropdown >
-        <Dropdown.Toggle className="btnBlue ps-0 ms-0 BtnNoarrow" id="dropdown-basic">
+      <Dropdown>
+        <Dropdown.Toggle
+          className="btnBlue ps-0 ms-0 BtnNoarrow"
+          id="dropdown-basic"
+        >
           <span className="mx-2">Disponibile per</span>
         </Dropdown.Toggle>
 
@@ -81,7 +88,10 @@ export const Modalbuttons = ({
       </button>
 
       <Dropdown>
-        <Dropdown.Toggle className="btnGrey ps-0 ms-0 BtnNoarrow " id="dropdown-basic">
+        <Dropdown.Toggle
+          className="btnGrey ps-0 ms-0 BtnNoarrow "
+          id="dropdown-basic"
+        >
           <span className="mx-3">Altro</span>
         </Dropdown.Toggle>
 

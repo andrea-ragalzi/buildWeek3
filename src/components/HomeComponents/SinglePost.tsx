@@ -1,17 +1,21 @@
-import Button from "react-bootstrap/Button";
-import { Post } from "../../types/feedTypes";
-import { Col, Row, Form } from "react-bootstrap";
+import {
+  Col,
+  Row,
+  Form,
+  Button,
+  Dropdown,
+  Modal,
+  InputGroup,
+} from "react-bootstrap";
+
+import { store } from "../../redux/store/store";
+import type { RootState } from "../../redux/store/store";
+import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Dropdown from "react-bootstrap/Dropdown";
-import { Modal } from "react-bootstrap";
-import InputGroup from "react-bootstrap/InputGroup";
-import { store } from "../../redux/store/store";
-import { editPost } from "../../redux/actions/feedActions";
-import { deletePost } from "../../redux/actions/feedActions";
-import { useSelector } from "react-redux";
-import { RootState } from "../../redux/store/store";
 
+import { editPost, deletePost } from "../../redux/actions/feedActions";
+import { Post } from "../../types/feedTypes";
 
 const SinglePost = ({ _id, image, text, username, user, createdAt }: Post) => {
   const [expanded, setExpanded] = useState(false);
@@ -20,20 +24,17 @@ const SinglePost = ({ _id, image, text, username, user, createdAt }: Post) => {
 
   const [show, setShow] = useState(false);
   const [showDelete, setShowDelete] = useState(false);
-  const [gerico, setGerico] = useState(false) 
+  const [gerico, setGerico] = useState(false);
 
   const handleClose = () => {
     setShow(false);
   };
   const handleShow = () => setShow(true);
   const dispatch = store.dispatch;
-
+  const [isItMine, setIsItMine] = useState(false);
   const handleCloseDelete = () => {
-      
-    
     setShowDelete(false);
-};
-
+  };
 
   const handleShowDelete = () => setShowDelete(true);
 
@@ -67,22 +68,18 @@ const SinglePost = ({ _id, image, text, username, user, createdAt }: Post) => {
 
   useEffect(() => {
     if (myProfile!._id === user?._id) {
-        setGerico(true)
+      setGerico(true);
     }
 
     if (text.length < 200) {
       setExpanded(true);
     }
+    if (user?._id === myProfile?._id) {
+      setIsItMine(true);
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  /*   <button onClick={handleShow} className="unstyledbtn me-3">
-{" "}
-<i className="bi bi-pencil"></i>
-</button>*/
-  /*   <button onClick={handleShow} className="unstyledbtn me-3">
-{" "}
-<i className="bi bi-pencil"></i>
-</button>*/
+
   return (
     <div className="sectionContainer">
       <Row>
@@ -97,25 +94,25 @@ const SinglePost = ({ _id, image, text, username, user, createdAt }: Post) => {
                 />
               </Link>
 
-             {gerico && <Dropdown className="d-inline mx-2 p-0">
-                <Dropdown.Toggle
-                  id="dropdown-autoclose-true"
-                  className="p-0 unstyledDropdown"
-                >
-                  ...
-                </Dropdown.Toggle>
+              {gerico && (
+                <Dropdown className="d-inline mx-2 p-0">
+                  <Dropdown.Toggle
+                    id="dropdown-autoclose-true"
+                    className="p-0 unstyledDropdown"
+                  >
+                    ...
+                  </Dropdown.Toggle>
 
-            
-              <Dropdown.Menu>
-                  <Dropdown.Item onClick={handleShow}>
-                    <i className="bi bi-pencil"></i>
-                  </Dropdown.Item>
-                  <Dropdown.Item onClick={handleShowDelete}>
-                  <i className="bi bi-trash"></i>
-                  </Dropdown.Item>
-                </Dropdown.Menu>
-              </Dropdown>}
-            
+                  <Dropdown.Menu className={isItMine ? "modify" : "d-none"}>
+                    <Dropdown.Item onClick={handleShow}>
+                      <i className="bi bi-pencil"></i>
+                    </Dropdown.Item>
+                    <Dropdown.Item onClick={handleShowDelete}>
+                      <i className="bi bi-trash"></i>
+                    </Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
+              )}
 
               <Modal show={showDelete} onHide={handleCloseDelete}>
                 <Modal.Header closeButton>
@@ -124,10 +121,19 @@ const SinglePost = ({ _id, image, text, username, user, createdAt }: Post) => {
                   </Modal.Title>
                 </Modal.Header>
                 <Modal.Footer>
-                  <Button variant="secondary" onClick={()=>setShowDelete(false)}>
+                  <Button
+                    variant="secondary"
+                    onClick={() => setShowDelete(false)}
+                  >
                     Close
                   </Button>
-                  <Button variant="danger" onClick={()=>{handleCloseDelete();dispatch(deletePost(_id!))}}>
+                  <Button
+                    variant="danger"
+                    onClick={() => {
+                      handleCloseDelete();
+                      dispatch(deletePost(_id!));
+                    }}
+                  >
                     Delete
                   </Button>
                 </Modal.Footer>
@@ -173,7 +179,7 @@ const SinglePost = ({ _id, image, text, username, user, createdAt }: Post) => {
               <p className="d-inline-block">• Già segui</p>
               <p>{user?.title}</p>
               <p>
-                {createdAt?.slice(0,10)} •{" "}
+                {createdAt?.slice(0, 10)} •{" "}
                 <i className="bi bi-globe-americas text-black"></i>
               </p>
             </Col>
@@ -240,21 +246,3 @@ const SinglePost = ({ _id, image, text, username, user, createdAt }: Post) => {
 };
 
 export default SinglePost;
-
-/* <Button
-                   variant="primary"
-                    onClick={() => {
-                      setEditPost({
-                        _id:"",
-                        image:"",
-                        text:"",
-                        username:""
-                        user:"", 
-                        createdAt:"",});
-                      handleSave();
-                    }}
-                  >
-                    Delete Bio
-                  </Button>
-                   */
-                  

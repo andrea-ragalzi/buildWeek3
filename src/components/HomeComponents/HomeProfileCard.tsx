@@ -1,7 +1,8 @@
 import { Col, Image, Row } from "react-bootstrap";
+
+import type { RootState } from "../../redux/store/store";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { RootState } from "../../redux/store/store";
 
 const HomeProfileCard = () => {
   const myProfile = useSelector((state: RootState) => state.profile.me);

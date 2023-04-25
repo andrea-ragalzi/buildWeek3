@@ -1,8 +1,8 @@
-import { Row, Col } from "react-bootstrap";
-import { Modal, Button } from "react-bootstrap";
-import InputGroup from "react-bootstrap/InputGroup";
+import { Row, Col, Modal, Button, InputGroup } from "react-bootstrap";
+
 import { store } from "../../redux/store/store";
 import { useState, useEffect } from "react";
+
 import {
   addExperience,
   fetchExperiences,

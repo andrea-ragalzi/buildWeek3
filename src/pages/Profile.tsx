@@ -1,19 +1,22 @@
 import { Container, Row, Col } from "react-bootstrap";
-import { MyFooter } from "./../components/MyFooter";
-import ExperienceCard from "../components/Profilecomponents/ExperienceCard";
+
+import { CustomNavbar } from "../components/CustomNavbar";
 import { Modalbuttons } from "../components/Profilecomponents/Modalbuttons";
-import { Ads } from "../components/Profilecomponents/Ads";
 import { Info } from "../components/Profilecomponents/Info";
+import ExperienceCard from "../components/Profilecomponents/ExperienceCard";
+import ExperienceSection from "../components/Profilecomponents/ExperienceSection";
+import { Ads } from "../components/Profilecomponents/Ads";
+import { MyFooter } from "./../components/MyFooter";
+
 import { store } from "./../redux/store/store";
 import type { RootState } from "./../redux/store/store";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
+
 import { fetchExperiences } from "../redux/actions/experienceActions";
 import { fetchMyProfile, fetchProfile } from "../redux/actions/profileActions";
-import ExperienceSection from "../components/Profilecomponents/ExperienceSection";
-import { Link, useParams } from "react-router-dom";
 import languages from "../Json/Lingue.json";
-import { CustomNavbar } from "../components/CustomNavbar";
 
 const Profile = () => {
   const dispatch = store.dispatch;
