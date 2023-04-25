@@ -23,11 +23,12 @@
 }
 
 @media screen and (min-width: 990px) {
-  .dxColumn {
-    height: fit-content;
+  .footerCol {
+    height: 70px;
+    max-height: 85px;
     position: sticky;
     top: 3.7rem;
-    left: 0;
+    right: 0;
   }
 }
 
@@ -166,5 +167,5 @@
 }
 
 .homeCollapse.show {
-  height: 550px;
+  height: fit-content;
 }

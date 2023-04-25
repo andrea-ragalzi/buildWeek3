@@ -24,7 +24,6 @@ const SinglePost = ({ _id, image, text, username, user, createdAt }: Post) => {
 
   const [show, setShow] = useState(false);
   const [showDelete, setShowDelete] = useState(false);
-  const [gerico, setGerico] = useState(false);
 
   const handleClose = () => {
     setShow(false);
@@ -67,10 +66,6 @@ const SinglePost = ({ _id, image, text, username, user, createdAt }: Post) => {
   };
 
   useEffect(() => {
-    if (myProfile!._id === user?._id) {
-      setGerico(true);
-    }
-
     if (text.length < 200) {
       setExpanded(true);
     }
@@ -84,7 +79,7 @@ const SinglePost = ({ _id, image, text, username, user, createdAt }: Post) => {
     <div className="sectionContainer">
       <Row>
         <Col xs={12}>
-          <Row>
+          <Row className="g-0 justify-content-between">
             <Col xs={2}>
               <Link to={`/profile/${user?._id}`}>
                 <img
@@ -93,26 +88,6 @@ const SinglePost = ({ _id, image, text, username, user, createdAt }: Post) => {
                   className="postProfileImage"
                 />
               </Link>
-
-              {gerico && (
-                <Dropdown className="d-inline mx-2 p-0">
-                  <Dropdown.Toggle
-                    id="dropdown-autoclose-true"
-                    className="p-0 unstyledDropdown"
-                  >
-                    ...
-                  </Dropdown.Toggle>
-
-                  <Dropdown.Menu className={isItMine ? "modify" : "d-none"}>
-                    <Dropdown.Item onClick={handleShow}>
-                      <i className="bi bi-pencil"></i>
-                    </Dropdown.Item>
-                    <Dropdown.Item onClick={handleShowDelete}>
-                      <i className="bi bi-trash"></i>
-                    </Dropdown.Item>
-                  </Dropdown.Menu>
-                </Dropdown>
-              )}
 
               <Modal show={showDelete} onHide={handleCloseDelete}>
                 <Modal.Header closeButton>
@@ -177,12 +152,33 @@ const SinglePost = ({ _id, image, text, username, user, createdAt }: Post) => {
                 </span>
               </Link>
               <p className="d-inline-block">• Già segui</p>
-              <p>{user?.title}</p>
+              <p className="textCutter">{user?.title}</p>
               <p>
                 {createdAt?.slice(0, 10)} •{" "}
                 <i className="bi bi-globe-americas text-black"></i>
               </p>
             </Col>
+            {isItMine && (
+              <Col xs={1}>
+                <Dropdown>
+                  <Dropdown.Toggle
+                    id="dropdown-autoclose-true"
+                    className="unstyledDropdown"
+                  >
+                    <i className="bi bi-three-dots" />
+                  </Dropdown.Toggle>
+
+                  <Dropdown.Menu className={isItMine ? "modify" : "d-none"}>
+                    <Dropdown.Item onClick={handleShow}>
+                      <i className="bi bi-pencil me-2" /> Modifica post
+                    </Dropdown.Item>
+                    <Dropdown.Item onClick={handleShowDelete}>
+                      <i className="bi bi-trash me-2" /> Elimina post
+                    </Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
+              </Col>
+            )}
           </Row>
           <Row className="postText">
             <p className={expanded ? "expanded" : "collapsed"}>{text}</p>
@@ -204,11 +200,15 @@ const SinglePost = ({ _id, image, text, username, user, createdAt }: Post) => {
           >
             <img className="w-100" src={image} alt="Foto post" />
           </Row>
-          <Row className="commentSection d-flex justify-content-between">
-            <p>
-              <i className="bi bi-hand-thumbs-up-fill"></i> 104
-            </p>
-            <p> 880 commenti • 202 diffusioni post</p>
+          <Row className="commentSection justify-content-between">
+            <Col>
+              <p>
+                <i className="bi bi-hand-thumbs-up-fill" /> 104
+              </p>
+            </Col>
+            <Col className="text-end">
+              <p> 880 commenti • 202 diffusioni post</p>
+            </Col>
           </Row>
           <hr />
           <Row className="btnSection text-center" xs={4}>

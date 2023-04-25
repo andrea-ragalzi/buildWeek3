@@ -59,7 +59,7 @@ const Home = () => {
           </Row>
           <Row>
             {allPosts.length > 0 ? (
-              <>
+              <Col xs={12} className="p-0 m-0">
                 {allPosts
                   .slice()
                   .reverse()
@@ -77,7 +77,7 @@ const Home = () => {
                       />
                     );
                   })}
-              </>
+              </Col>
             ) : (
               <></>
             )}
@@ -95,12 +95,12 @@ const Home = () => {
           lg={4}
           className="dxColumn offset-0 offset-md-4 offset-lg-0"
         >
-          <Row className="sticky-lg-top">
+          <Row>
             <div className="sectionContainer linkedinNotizie">
               <Col xs={12}>
                 <b className="text-secondary">LinkedIn Notizie</b>
                 <div>
-                  <ul className="secondHover fs-7">
+                  <ul>
                     <li>
                       <p className="mb-1 mt-2">
                         <b> Le Top Companies del 2023 in Italia</b>
@@ -197,8 +197,9 @@ const Home = () => {
                 </p>
               </Col>
             </div>
-
-            <MiniFooter />
+            <Col xs={12} className="footerCol">
+              <MiniFooter />
+            </Col>
           </Row>
         </Col>
       </Row>
