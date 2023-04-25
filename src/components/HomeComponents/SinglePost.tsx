@@ -79,7 +79,7 @@ const SinglePost = ({ _id, image, text, username, user, createdAt }: Post) => {
     <div className="sectionContainer">
       <Row>
         <Col xs={12}>
-          <Row className="g-0 justify-content-between">
+          <Row className="g-3 align-items-center">
             <Col xs={2}>
               <Link to={`/profile/${user?._id}`}>
                 <img
@@ -88,64 +88,8 @@ const SinglePost = ({ _id, image, text, username, user, createdAt }: Post) => {
                   className="postProfileImage"
                 />
               </Link>
-
-              <Modal show={showDelete} onHide={handleCloseDelete}>
-                <Modal.Header closeButton>
-                  <Modal.Title>
-                    Sei sicuro di eliminare questo Post?
-                  </Modal.Title>
-                </Modal.Header>
-                <Modal.Footer>
-                  <Button
-                    variant="secondary"
-                    onClick={() => setShowDelete(false)}
-                  >
-                    Close
-                  </Button>
-                  <Button
-                    variant="danger"
-                    onClick={() => {
-                      handleCloseDelete();
-                      dispatch(deletePost(_id!));
-                    }}
-                  >
-                    Delete
-                  </Button>
-                </Modal.Footer>
-              </Modal>
-
-              <Modal show={show} onHide={handleClose}>
-                <Modal.Header closeButton>
-                  <Modal.Title>Modifica questo post</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                  <InputGroup>
-                    <Form.Control
-                      as="textarea"
-                      rows={2}
-                      value={editPostduo.text}
-                      onChange={(e) =>
-                        setEditPostduo({ ...editPostduo, text: e.target.value })
-                      }
-                      placeholder="Inserisci qui il tuo messaggio"
-                    />
-                  </InputGroup>
-                </Modal.Body>
-                <Modal.Footer>
-                  <Button variant="secondary" onClick={handleClose}>
-                    Close
-                  </Button>
-                  <Button
-                    variant="primary"
-                    disabled={editPostduo ? false : true}
-                    onClick={handleSave}
-                  >
-                    Save Changes
-                  </Button>
-                </Modal.Footer>
-              </Modal>
             </Col>
-            <Col className="postProfile">
+            <Col xs={8} className="postProfile">
               <Link to={`/profile/${user?._id}`}>
                 <span className="d-inline-block">
                   {user?.name} {user?.surname}
@@ -177,6 +121,64 @@ const SinglePost = ({ _id, image, text, username, user, createdAt }: Post) => {
                     </Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>
+                <Modal show={showDelete} onHide={handleCloseDelete}>
+                  <Modal.Header closeButton>
+                    <Modal.Title>
+                      Sei sicuro di eliminare questo Post?
+                    </Modal.Title>
+                  </Modal.Header>
+                  <Modal.Footer>
+                    <Button
+                      variant="secondary"
+                      onClick={() => setShowDelete(false)}
+                    >
+                      Close
+                    </Button>
+                    <Button
+                      variant="danger"
+                      onClick={() => {
+                        handleCloseDelete();
+                        dispatch(deletePost(_id!));
+                      }}
+                    >
+                      Delete
+                    </Button>
+                  </Modal.Footer>
+                </Modal>
+
+                <Modal show={show} onHide={handleClose}>
+                  <Modal.Header closeButton>
+                    <Modal.Title>Modifica questo post</Modal.Title>
+                  </Modal.Header>
+                  <Modal.Body>
+                    <InputGroup>
+                      <Form.Control
+                        as="textarea"
+                        rows={2}
+                        value={editPostduo.text}
+                        onChange={(e) =>
+                          setEditPostduo({
+                            ...editPostduo,
+                            text: e.target.value,
+                          })
+                        }
+                        placeholder="Inserisci qui il tuo messaggio"
+                      />
+                    </InputGroup>
+                  </Modal.Body>
+                  <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose}>
+                      Close
+                    </Button>
+                    <Button
+                      variant="primary"
+                      disabled={editPostduo ? false : true}
+                      onClick={handleSave}
+                    >
+                      Save Changes
+                    </Button>
+                  </Modal.Footer>
+                </Modal>
               </Col>
             )}
           </Row>
@@ -211,31 +213,29 @@ const SinglePost = ({ _id, image, text, username, user, createdAt }: Post) => {
             </Col>
           </Row>
           <hr />
-          <Row className="btnSection text-center" xs={4}>
+          <Row className="btnSection" xs={4}>
             <Col className="px-0">
               <Button className="text-secondary">
-                <i className="bi bi-hand-thumbs-up"></i> <br />
-                <span>Consiglia</span>
+                <i className="bi bi-hand-thumbs-up"></i>
+                <p>Consiglia</p>
               </Button>
             </Col>
             <Col className="px-0">
               <Button className="text-secondary">
-                <i className="bi bi-chat-dots-fill"></i> <br />
-                <span>Commenta</span>
+                <i className="bi bi-chat-dots-fill"></i>
+                <p>Commenta</p>
               </Button>
             </Col>
             <Col className="px-0">
               <Button className="text-secondary">
                 <i className="bi bi-arrow-repeat"></i>
-                <br />
-                <span>Diffondi</span>
+                <p>Diffondi</p>
               </Button>
             </Col>
             <Col className="px-0">
               <Button className="text-secondary">
                 <i className="bi bi-send-fill"></i>
-                <br />
-                <span> Invia</span>
+                <p>Invia</p>
               </Button>
             </Col>
           </Row>

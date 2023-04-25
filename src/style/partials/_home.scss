@@ -115,15 +115,23 @@
 }
 
 .btnSection {
-  font-size: 13px;
-  i {
-    font-size: 20px;
-  }
   button {
+    display: flex;
+    align-items: center;
     background-color: white;
     padding-top: 10px;
     padding-bottom: 10px;
     border: none;
+    i {
+      font-size: 20px;
+      margin-right: 0.5rem;
+    }
+    p {
+      font-size: 12px;
+      font-weight: 600;
+      color: $myGrey;
+      margin: 0;
+    }
   }
 
   button:hover {

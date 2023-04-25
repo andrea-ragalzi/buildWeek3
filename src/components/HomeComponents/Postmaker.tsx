@@ -55,7 +55,8 @@ export const Postmaker = () => {
                 setPhoto(!Photo);
               }}
             >
-              <i className="bi bi-image"></i> <span>Foto</span>
+              <i className="bi bi-image"></i>
+              <p>Foto</p>
             </button>
           </Col>
           <Col>
@@ -64,7 +65,8 @@ export const Postmaker = () => {
                 setVideo(!Video);
               }}
             >
-              <i className="bi bi-play-btn-fill"></i> <span>Video</span>
+              <i className="bi bi-play-btn-fill"></i>
+              <p>Video</p>
             </button>
           </Col>
           <Col>
@@ -73,7 +75,8 @@ export const Postmaker = () => {
                 setEvent(!Event);
               }}
             >
-              <i className="bi bi-calendar-date"></i> <span>Evento</span>
+              <i className="bi bi-calendar-date"></i>
+              <p>Evento</p>
             </button>
           </Col>
           <Col>
@@ -83,7 +86,7 @@ export const Postmaker = () => {
               }}
             >
               <i className="bi bi-journal-text"></i>
-              <span>Articolo</span>
+              <p>Articolo</p>
             </button>
           </Col>
         </Row>
