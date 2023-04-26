@@ -130,9 +130,9 @@ const ExperienceSection = (myProfile: Profile) => {
                 })
               }
             />
-            <span className="text-muted">Data d'inizio : </span>
+          <span className="text-muted">Data d'inizio : </span>
             <input
-              type="text"
+              type="date"
               className="w-100"
               onChange={(e) =>
                 setNewExperience({
@@ -142,16 +142,12 @@ const ExperienceSection = (myProfile: Profile) => {
               }
             />
             <span className="text-muted">Data fine : </span>
-            <input
-              type="text"
-              className="w-100"
+            <input type="date"  className="w-100"
               onChange={(e) =>
                 setNewExperience({
                   ...newExperience,
                   endDate: e.target.value,
-                })
-              }
-            />
+                })} />
           </InputGroup>
         </Modal.Body>
         <Modal.Footer>
