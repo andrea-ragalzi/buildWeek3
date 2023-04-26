@@ -16,6 +16,7 @@ import languages from "../Json/Lingue.json";
 import { CustomNavbar } from "../components/CustomNavbar";
 
 const Profile = () => {
+  const[randomlang, setRandomlang] = useState<string[]>()
   const dispatch = store.dispatch;
   const profile = useSelector((state: RootState) => state.profile.selected);
   const myProfile = useSelector((state: RootState) => state.profile.me);
@@ -25,11 +26,6 @@ const Profile = () => {
 
   const params = useParams();
   const userId: string = params.id!;
-  const selectLang = () => {
-    const random = Math.floor(Math.random() * languages.length);
-    const lingua = languages[random].name;
-    return lingua;
-  };
 
   const [isItMe, setIsItMe] = useState(false);
 
@@ -40,8 +36,19 @@ const Profile = () => {
       return;
     }
   };
+  const selectLang = () => {
+    let langarray:string[]=[]
+
+    for (let index = 0; index < 3; index++) {
+      const random = Math.floor(Math.random() * languages.length);
+      const lingua = languages[random].name;
+      langarray.push(lingua)
+    }
+    setRandomlang(langarray)
+  };
 
   useEffect(() => {
+    selectLang()
     dispatch(fetchMyProfile());
     dispatch(fetchProfile(userId));
 
@@ -135,7 +142,7 @@ const Profile = () => {
                   </Col>
                   <Col xs={12}>
                     <p className="mb-1">
-                      <b>{selectLang()}</b>
+                    {randomlang && <b>{randomlang[0]}</b>}
                       <br />
                       Conoscenza base
                     </p>
@@ -145,7 +152,7 @@ const Profile = () => {
                   </Col>
                   <Col xs={12}>
                     <p className="mb-1">
-                      <b>{selectLang()}</b>
+                    {randomlang && <b>{randomlang[0]}</b>}
                       <br />
                       Conoscenza professionale
                     </p>
@@ -155,7 +162,7 @@ const Profile = () => {
                   </Col>
                   <Col xs={12}>
                     <p>
-                      <b>{selectLang()}</b>
+                    {randomlang && <b>{randomlang[0]}</b>}
                       <br />
                       Conoscenza madrelingua o bilingue
                     </p>
