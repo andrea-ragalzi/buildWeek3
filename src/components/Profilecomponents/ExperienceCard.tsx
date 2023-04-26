@@ -103,7 +103,7 @@ const ExperienceCard = ({
               <p>{description}</p>
             </Col>
             <Col xs={12}>
-              <p>{`${startDate} - ${finishDate}`}</p>
+              <p>{`${startDate.slice(0,10)} / ${finishDate.slice(0,10)}`}</p>
             </Col>
             <Col xs={12}>
               <p>{area}</p>
