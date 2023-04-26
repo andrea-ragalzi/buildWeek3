@@ -83,7 +83,7 @@ const Profile = () => {
                     className="profileBanner"
                     alt="banner"
                   />
-                  <button className="profileButton" onClick={changeImage}>
+                  <button className="profileButton">
                     <img
                       src={profile?.image}
                       alt="profile"
