@@ -1,4 +1,4 @@
-import { useState } from "react";
+import {ChangeEvent, useState } from "react";
 import { Collapse } from "react-bootstrap";
 import Dropdown from "react-bootstrap/Dropdown";
 import { Modal, Button } from "react-bootstrap";
@@ -7,6 +7,7 @@ import InputGroup from "react-bootstrap/InputGroup";
 import { Profile } from "../../types/profileTypes";
 import { store } from "../../redux/store/store";
 import { editProfile } from "../../redux/actions/profileActions";
+import { addImageProfile } from "../../redux/actions/imageActions";
 
 export const Modalbuttons = ({
   _id,
@@ -20,12 +21,14 @@ export const Modalbuttons = ({
   username,
 }: Profile) => {
   const [open, setOpen] = useState(false);
+  const [fd, setFd] = useState<File>()
   const [opensecond, setOpensec] = useState(false);
   const [openthird, setOpenthir] = useState(false);
   const [lgShow, setLgShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const [show, setShow] = useState(false);
+  const dispatch = store.dispatch;
   const [newProfile, setNewProfile] = useState({
     _id,
     name,
@@ -38,9 +41,10 @@ export const Modalbuttons = ({
     username,
   });
 
-  const dispatch = store.dispatch;
-  console.log("sono name", newProfile);
+  console.log("sono image", fd);
+
   const handleSave = () => {
+    dispatch(addImageProfile(_id,fd!))
     name = newProfile.name;
     surname = newProfile.surname;
     title = newProfile.title;
@@ -146,6 +150,14 @@ export const Modalbuttons = ({
                 setNewProfile({ ...newProfile, area: e.target.value })
               }
             />
+            <span className="text-muted">Immagine profilo</span>
+            <input 
+              type="file" 
+              accept="image/*" 
+              id="imageInput"
+              onChange={(e) =>
+                setFd( e.target.files![0])
+              }  />
           </InputGroup>
         </Modal.Body>
         <Modal.Footer>

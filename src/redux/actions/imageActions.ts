@@ -1,6 +1,7 @@
 import { Dispatch } from "redux";
 import { ActionTypes, ImageAction } from "../../types/imageTypes";
 import { AnyAction } from "@reduxjs/toolkit";
+import { Form } from "react-router-dom";
 
 const apiKey = process.env.REACT_APP_MY_KEY;
 
@@ -58,7 +59,9 @@ const addImagePostFailure = (error: string): ImageAction => ({
   error: error,
 });
 
-export const addImageProfile = (userId: string, image: FormData) => {
+export const addImageProfile = (userId: string, image: File) => {
+   const formData = new FormData()
+   formData.append("image", image)
   return async (dispatch: Dispatch<AnyAction>) => {
     dispatch(addImageProfileRequest());
 
@@ -67,7 +70,7 @@ export const addImageProfile = (userId: string, image: FormData) => {
         `https://striveschool-api.herokuapp.com/api/profile/${userId}/picture`,
         {
           method: "POST",
-          body: image,
+          body: formData,
           headers: {
             Authorization: `Bearer ${apiKey}`,
           },
