@@ -17,7 +17,6 @@ const ExperienceSection = (myProfile: Profile) => {
   const handleShow = () => setShow(true);
   const [show, setShow] = useState(false);
   const [newExperience, setNewExperience] = useState({
-    _id: "",
     role: "",
     company: "",
     startDate: "",
