@@ -1,7 +1,6 @@
 import { Dispatch } from "redux";
 import { ActionTypes, ImageAction } from "../../types/imageTypes";
 import { AnyAction } from "@reduxjs/toolkit";
-import { Form } from "react-router-dom";
 
 const apiKey = process.env.REACT_APP_MY_KEY;
 
