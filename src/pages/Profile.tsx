@@ -152,7 +152,7 @@ const Profile = () => {
                   </Col>
                   <Col xs={12}>
                     <p className="mb-1">
-                    {randomlang && <b>{randomlang[0]}</b>}
+                    {randomlang && <b>{randomlang[1]}</b>}
                       <br />
                       Conoscenza professionale
                     </p>
@@ -162,7 +162,7 @@ const Profile = () => {
                   </Col>
                   <Col xs={12}>
                     <p>
-                    {randomlang && <b>{randomlang[0]}</b>}
+                    {randomlang && <b>{randomlang[2]}</b>}
                       <br />
                       Conoscenza madrelingua o bilingue
                     </p>
