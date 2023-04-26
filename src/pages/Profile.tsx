@@ -26,6 +26,7 @@ const Profile = () => {
 
   const params = useParams();
   const userId: string = params.id!;
+  console.log("sono user", userId)
 
   const [isItMe, setIsItMe] = useState(false);
 
@@ -53,7 +54,7 @@ const Profile = () => {
     dispatch(fetchProfile(userId));
 
     if (userId === "me") {
-      dispatch(fetchExperiences(myProfile!._id));
+      dispatch(fetchExperiences("me"));
       setIsItMe(true);
     } else {
       dispatch(fetchExperiences(userId));
@@ -65,7 +66,7 @@ const Profile = () => {
   useEffect(() => {
     dispatch(fetchMyProfile());
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [profile || myProfile]);
+  }, [profile]);
 
   console.log(userExperiences);
   return (
