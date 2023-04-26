@@ -60,7 +60,8 @@ const addImagePostFailure = (error: string): ImageAction => ({
 
 export const addImageProfile = (userId: string, image: File) => {
    const formData = new FormData()
-   formData.append("image", image)
+   formData.delete("profile")
+   formData.append("profile", image)
   return async (dispatch: Dispatch<AnyAction>) => {
     dispatch(addImageProfileRequest());
 
